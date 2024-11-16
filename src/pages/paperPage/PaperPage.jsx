@@ -42,7 +42,7 @@ const PaperPage = () => {
     <PageContainer>
       <Wrap1>
         <Search>
-          <SearchBar placeholder="검색어를 입력하세요." />
+          <SearchBar placeholder="검색어를 입력하세요" />
           <MakeBtn>
             <img src={plusImg} alt="plus" />
             <p>등록하기</p>
