@@ -5,68 +5,87 @@ export const PageContainer = styled.div`
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
+  align-items: center;
+`;
+
+export const Wrap1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  gap: 18px;
+  margin-bottom: 40px;
+`;
+export const Search = styled.div`
+  display: flex;
+  margin-left: auto;
+  gap: 20px;
 `;
 
 export const SearchBar = styled.input`
-  width: 100%;
+  width: 467px;
   padding: 10px;
   margin-bottom: 20px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  font-size: 10px;
+  height: 40px;
+  border: 1px solid #00a8cc;
+  border-radius: 15px;
 `;
-
+export const MakeBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 117px;
+  height: 40px;
+  background-color: #00a8cc;
+  gap: 5px;
+  border: none;
+  border-radius: 10px;
+  p {
+    font: 10px;
+    color: #fff8e1;
+  }
+`;
 export const FilterContainer = styled.div`
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-
-    // button {
-    //     padding: 8px 12px;
-    //     background-color: #007bff;
-    //     color: white;
-    //     border: none;
-    //     border-radius: 5px;
-    //     cursor: pointer;
-
-    //     &:hover {
-    //         background-color: #0056b3;
-    //     }
-    }
+  display: flex;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  border-top: 3px solid black;
+  }
 `;
 
 export const FilterButton = styled.button`
   padding: 8px 12px;
-  // background-color: #eee;
-  color: #333;
-  // border: none;
-  // border-radius: 5px;
+  color: black;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  width: 200px;
+  height: 50px;
 
   &:hover {
-    background-color: #ddd;
+    background-color: #c6ebf4;
   }
 `;
 
 export const RecommendedSection = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  padding: 20px;
-  margin-bottom: 20px;
+  gap: 30px;
   border-radius: 10px;
 `;
 
 export const RecommendedContainer = styled.div`
   display: flex;
+  justify-content: center;
   gap: 10px;
+  width: 1200px;
 `;
+export const BookContainer = styled.div``;
 
 export const RecommendedTitle = styled.h2`
   font-size: 24px;
-  margin-bottom: 10px;
+  font-weight: 700;
 `;
 
 export const BookCard = styled.div`
@@ -76,24 +95,33 @@ export const BookCard = styled.div`
   text-align: center;
   margin-right: 10px;
   flex: 1;
-
-  h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
+  width: 324px;
+  height: 536px;
 
   p {
     font-size: 14px;
+  }
+
+  &:hover + .spec-card {
+    opacity: 1;
+    visibility: visible;
   }
 `;
 
 export const SpecCard = styled.div`
   background-color: #f3f3f3;
-  padding: 20px;
   border-radius: 10px;
   color: #333;
   flex: 1;
   text-align: left;
+  width: 324px;
+  height: 536px;
+  position: absolute;
+  z-index: 1;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 
   h4 {
     font-size: 18px;
@@ -112,16 +140,53 @@ export const SpecCard = styled.div`
   }
 `;
 
+export const SC = styled.div``;
+export const SCtitle = styled.div``;
+export const SCcontent = styled.div``;
+export const ProfileWrap = styled.div`
+  background-color: #4b3621;
+  color: #ffff;
+  .info {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+export const Pf = styled.div`
+  display: flex;
+  align-items: center;
+  .info {
+    padding-left: auto;
+  }
+  .id {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+`;
+export const Em = styled.div``;
+export const Lk = styled.div``;
+export const Wrap2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 1300px;
+  margin-top: 100px;
+  gap: 20px;
+`;
 export const CategoryTitle = styled.h3`
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
 `;
 
 export const CategoryList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 export const ListItem = styled.div`
@@ -131,37 +196,40 @@ export const ListItem = styled.div`
 `;
 
 export const ItemImage = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 322px;
+  height: 150px;
   object-fit: cover;
   margin-right: 15px;
   border-radius: 5px;
 `;
 
 export const ItemTitle = styled.h4`
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 5px;
 `;
 
 export const ItemCategory = styled.p`
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
   color: #666;
 `;
 
 export const ItemDescription = styled.p`
-  font-size: 12px;
+  font-size: 20px;
   color: #999;
 `;
 
 export const ItemStats = styled.div`
   margin-left: auto;
-  font-size: 14px;
+  font-size: 25px;
   color: #333;
   display: flex;
   align-items: center;
-
-  span {
-    margin-left: 5px;
+  gap: 10px;
+  font-weight: medium;
+  margin-right: 0;
+  .score {
+    font-weight: bold;
   }
 `;
