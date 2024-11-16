@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo from "../assets/logo.svg"
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -9,8 +10,8 @@ const HeaderContainer = styled.header`
     width: 100%;
     height: 50px;
 
-    background-color: #333;
-    color: white;
+    /* background-color: #333;
+    color: white; */
 `
 
 const ItemContainer = styled.div`
@@ -26,8 +27,7 @@ export function Header() {
     return (
         <HeaderContainer>
             <ItemContainer>
-                <p>로고</p>
-                <p>서비스명</p>
+                <img src={logo} width={'120px'}/>
             </ItemContainer>
             <ItemContainer>
                 <p>모집 찾기</p>
