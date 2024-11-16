@@ -42,7 +42,7 @@ const PaperPage = () => {
     <PageContainer>
       <Wrap1>
         <Search>
-          <SearchBar placeholder="어떠한 지혜구를 검색해보세요!" />
+          <SearchBar placeholder="검색어를 입력하세요." />
           <MakeBtn>
             <img src={plusImg} alt="plus" />
             <p>등록하기</p>
@@ -77,7 +77,6 @@ const PaperPage = () => {
                 <SC>
                   <SCtitle>스핀 ON/OFF</SCtitle>
                   <SCcontent>
-                    {" "}
                     스핀 상태를 On/Off 에 더해 그 중첩 상태까지 분석하여
                     양자역학을 연구한 보고서
                   </SCcontent>
@@ -88,7 +87,7 @@ const PaperPage = () => {
                     <img src={userImg} alt="user" />
                     <div class="id">
                       <p1>파사삭</p1>
-                      <p1>재미있는 프로젝트를 기획해요</p1>
+                      <p2>재미있는 프로젝트를 기획해요</p2>
                     </div>
                   </Pf>
                   <Em>

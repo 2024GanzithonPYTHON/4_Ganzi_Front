@@ -30,6 +30,10 @@ export const SearchBar = styled.input`
   height: 40px;
   border: 1px solid #00a8cc;
   border-radius: 15px;
+
+  &::placeholder {
+    padding-left: 170px;
+  }
 `;
 export const MakeBtn = styled.button`
   display: flex;
@@ -110,7 +114,7 @@ export const BookCard = styled.div`
 
 export const SpecCard = styled.div`
   background-color: #f3f3f3;
-  border-radius: 10px;
+  border: 2px solid #4b3621;
   color: #333;
   flex: 1;
   text-align: left;
@@ -135,14 +139,24 @@ export const SpecCard = styled.div`
   }
 
   div {
-    margin-top: 10px;
     font-size: 12px;
   }
 `;
 
-export const SC = styled.div``;
-export const SCtitle = styled.div``;
-export const SCcontent = styled.div``;
+export const SC = styled.div`
+  padding-left: 14px;
+  padding-right: 14px;
+`;
+export const SCtitle = styled.h2`
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 14px;
+`;
+export const SCcontent = styled.div`
+  font-size: 12px;
+  padding-bottom: 30px;
+`;
 export const ProfileWrap = styled.div`
   background-color: #4b3621;
   color: #ffff;
@@ -150,10 +164,16 @@ export const ProfileWrap = styled.div`
     display: flex;
     justify-content: flex-end;
   }
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 `;
 export const Pf = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
   .info {
     padding-left: auto;
   }
@@ -161,10 +181,24 @@ export const Pf = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 3px;
+  }
+  p1 {
+    font-weight: bold;
   }
 `;
-export const Em = styled.div``;
-export const Lk = styled.div``;
+export const Em = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+`;
+export const Lk = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+`;
 export const Wrap2 = styled.div`
   display: flex;
   flex-direction: column;
