@@ -10,8 +10,8 @@ const HeaderContainer = styled.header`
     width: 100%;
     height: 50px;
 
-    /* background-color: #333;
-    color: white; */
+    background-color: #333;
+    color: white;
 `
 
 const ItemContainer = styled.div`
@@ -27,7 +27,8 @@ export function Header() {
     return (
         <HeaderContainer>
             <ItemContainer>
-                <img src={logo} width={'120px'}/>
+                <img src={logo} alt="logo" width={'100px'} />
+                <p>서비스명</p>
             </ItemContainer>
             <ItemContainer>
                 <p>모집 찾기</p>
