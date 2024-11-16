@@ -11,10 +11,10 @@ import {
     BudgetSection
 } from './MyPage.styled';
 import UserProfile from './components/userProfile/UserProfile';
-import PurchaseItemList from './components/purchaseItemList/PurchaseItemList';
+import PurchaseItemList from './routerPages/home/components/purchaseItemList/PurchaseItemList';
 import ProjectList from './components/menuList/MenuList';
-import HistoryList from './components/historyList/HistoryList';
-import MyBudgetInfo from './components/myBudgetInfo/MyBudgetInfo';
+import HistoryList from './routerPages/home/components/historyList/HistoryList';
+import MyBudgetInfo from './routerPages/home/components/myBudgetInfo/MyBudgetInfo';
 
 const MyPage = () => {
     return (
