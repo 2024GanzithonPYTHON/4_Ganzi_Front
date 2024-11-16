@@ -11,7 +11,7 @@ import UserProfile from './components/userProfile/UserProfile';
 import ProjectList from './components/menuList/MenuList';
 import { Routes, Route } from 'react-router-dom';
 import MyPageHome from './routerPages/home/MyPageHome';
-import ProjectLiked from './routerPages/likeProject/ProjectLiked';
+import ProjectLiked from './routerPages/Project/ProjectLiked';
 
 const MyPage = () => {
     return (
@@ -28,7 +28,7 @@ const MyPage = () => {
             <RightSection>
                 <Routes>
                     <Route path='/' element={<MyPageHome/>} />
-                    <Route path='project/like' element={<ProjectLiked/>}/>
+                    <Route path='project/like' element={<ProjectLiked/>} />
                 </Routes>
             </RightSection>
         </PageContainer>

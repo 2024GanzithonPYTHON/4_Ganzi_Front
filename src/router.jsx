@@ -3,7 +3,7 @@ import { OutletContainer } from "./OutletContainer";
 import MainPage from "./pages/mainPage/mainPage";
 import ClubPage from "./pages/clubPage/ClubPage";
 import PaperPage from "./pages/paperPage/PaperPage";
-import MyPage from "./pages/myPage/MyPage";
+import MyPage from "./pages/myPage/MyPageOutlet";
 
 export default createBrowserRouter([
     {
@@ -23,7 +23,7 @@ export default createBrowserRouter([
                 element: <PaperPage />
             },
             {
-                path: "/my",
+                path: "/my/*",
                 element: <MyPage />
             }
         ]
