@@ -7,18 +7,28 @@ const MenuList = () => (
             <h1>Project</h1>
             <hr/>
             <p>
-                <Link to="project/like">찜한 프로젝트</Link>
+                <Link to="/my/project/like">찜한 프로젝트</Link>
             </p>
-            <p>지원한 프로젝트</p>
-            <p>참여한 프로젝트</p>
-            <p>모집 중인 프로젝트</p>
+            <p>
+                <Link to="/my/project/apply">지원한 프로젝트</Link>
+            </p>
+            <p>
+                <Link to="/my/project/involved">참여한 프로젝트</Link>
+            </p>
+            <p>
+                <Link to="my/project/recruit">모집 중인 프로젝트</Link>
+            </p>
         </div>
 
         <div>
             <h1>비법서</h1>
             <hr/>
-            <p>구매 내역</p>
-            <p>내가 공유한 비법서</p>
+            <p>
+                <Link to="/my/paper/purchases">구매 내역</Link>
+            </p>
+            <p>
+                <Link to="/my/paper/shared">내가 공유한 비법서</Link>
+            </p>
         </div>
     </div>
 );

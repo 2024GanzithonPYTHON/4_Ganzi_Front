@@ -5,7 +5,9 @@ const mockData = [
     summary: "React 기초부터 고급까지 함께 공부해요!",
     image: "https://via.placeholder.com/150",
     totalMembers: 10,
-    currentMembers: 5
+    currentMembers: 5,
+    date: '2024.11.13',
+    mystate: '대기'
   },
   {
     id: 2,
@@ -13,7 +15,9 @@ const mockData = [
     summary: "코딩 테스트 준비를 위한 알고리즘 스터디",
     image: "https://via.placeholder.com/150",
     totalMembers: 8,
-    currentMembers: 4
+    currentMembers: 4,
+    date: '2024.11.03',
+    mystate: '거절'
   },
   {
     id: 3,
@@ -21,7 +25,9 @@ const mockData = [
     summary: "매월 캠핑 떠날 동호회 회원 모집!",
     image: "https://via.placeholder.com/150",
     totalMembers: 20,
-    currentMembers: 15
+    currentMembers: 15,
+    date: '2024.10.30',
+    mystate: '수락'
   },
   {
     id: 4,
@@ -29,7 +35,9 @@ const mockData = [
     summary: "함께 운동하며 건강을 챙길 분들 모집합니다.",
     image: "https://via.placeholder.com/150",
     totalMembers: 12,
-    currentMembers: 9
+    currentMembers: 9,
+    date: '2024.11.13',
+    mystate: '취소'
   },
   {
     id: 5,
@@ -37,7 +45,9 @@ const mockData = [
     summary: "매주 책 한 권 읽고 이야기 나눠요!",
     image: "https://via.placeholder.com/150",
     totalMembers: 15,
-    currentMembers: 7
+    currentMembers: 7,
+    date: '2024.11.13',
+    mystate: '대기'
   }
 ];
 

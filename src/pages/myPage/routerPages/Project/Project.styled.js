@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const TitleCont = styled.div`
+export const TitleSection = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
@@ -14,6 +14,10 @@ export const SubTitle = styled.p`
   display: flex;
 `
 
-export const ListCont = styled.div`
+export const ListSection = styled.div`
+  display: flex;
+`
+
+export const StatusSection = styled.div`
   display: flex;
 `
