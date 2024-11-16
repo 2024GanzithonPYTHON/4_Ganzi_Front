@@ -28,7 +28,6 @@ export function Header() {
         <HeaderContainer>
             <ItemContainer>
                 <img src={logo} alt="logo" width={'100px'} />
-                <p>서비스명</p>
             </ItemContainer>
             <ItemContainer>
                 <p>모집 찾기</p>
