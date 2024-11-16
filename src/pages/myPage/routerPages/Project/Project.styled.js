@@ -21,3 +21,10 @@ export const ListSection = styled.div`
 export const StatusSection = styled.div`
   display: flex;
 `
+
+export const LongListSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`

@@ -13,7 +13,7 @@ const MenuList = () => (
                 <Link to="/my/project/apply">지원한 프로젝트</Link>
             </p>
             <p>
-                <Link to="/my/project/involved">참여한 프로젝트</Link>
+                <Link to="/my/project/history">참여한 프로젝트</Link>
             </p>
             <p>
                 <Link to="my/project/recruit">모집 중인 프로젝트</Link>
