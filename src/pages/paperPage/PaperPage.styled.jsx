@@ -110,6 +110,7 @@ export const BookCard = styled.div`
     opacity: 1;
     visibility: visible;
   }
+  cursor: pointer;
 `;
 
 export const SpecCard = styled.div`
@@ -202,7 +203,7 @@ export const Lk = styled.div`
 export const Wrap2 = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1300px;
+  width: 1204px;
   margin-top: 100px;
   gap: 20px;
 `;
@@ -227,6 +228,12 @@ export const ListItem = styled.div`
   display: flex;
   align-items: center;
   padding: 15px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
 `;
 
 export const ItemImage = styled.img`

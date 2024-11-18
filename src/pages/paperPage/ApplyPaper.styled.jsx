@@ -360,9 +360,9 @@ export const ApplyBtn = styled.button`
   padding-bottom: 10px;
   border-radius: 10px;
   background-color: #00a8cc;
-  color: white;
   font-size: 20px;
   width: 268px;
+
   background-color: ${(props) => (props.disabled ? "#ccc" : "#00A8CC")};
   color: ${(props) => (props.disabled ? "#666" : "#fff")};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};

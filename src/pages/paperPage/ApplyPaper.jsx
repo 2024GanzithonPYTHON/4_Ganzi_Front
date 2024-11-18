@@ -83,6 +83,10 @@ const ApplyPaper = () => {
     navigate(-1);
   };
 
+  const goApplyDone = () => {
+    navigate("/applydone");
+  };
+
   /* 파일 드래그 앤 드롭 */
   const [thumbnailFiles, setThumbnailFiles] = useState([]); // PTHwrap용
   const [paperFiles, setPaperFiles] = useState([]); // PFwrap용
@@ -382,7 +386,7 @@ const ApplyPaper = () => {
               <br />
               심사 탈락시 등록이 거부될 수 있음을 알려드립니다.
             </div>
-            <RealApplyButton onClick={(handleRealApply, onClickBackBtn)}>
+            <RealApplyButton onClick={(handleRealApply, goApplyDone)}>
               등록 신청 하기
             </RealApplyButton>
           </ModalContent>
