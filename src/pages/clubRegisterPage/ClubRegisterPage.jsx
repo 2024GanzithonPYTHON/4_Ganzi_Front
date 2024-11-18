@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import StepMarker from "./components/StepMarker";
 import {
   PageContainer,
   PageTitleContainer,
@@ -9,6 +11,8 @@ import BackIcon from "./assets/arrow_back.png";
 
 const ClubRegisterPage = () => {
   const navigate = useNavigate();
+  const [step, setStep] = useState("1");
+
   return (
     <PageContainer>
       <PageTitleContainer>
@@ -19,6 +23,7 @@ const ClubRegisterPage = () => {
         />
         <PageTitle>프로젝트 만들기</PageTitle>
       </PageTitleContainer>
+      <StepMarker currentStep={step} changeStep={setStep} />
     </PageContainer>
   );
 };
