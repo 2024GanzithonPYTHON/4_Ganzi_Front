@@ -22,6 +22,12 @@ const ClubRegisterPage = () => {
     memberCount: 0,
     deadline: "",
     thumbnail: [],
+    content: {
+      introduce: "",
+      goal: "",
+      plan: "",
+      participationMode: "",
+    },
   });
 
   return (
