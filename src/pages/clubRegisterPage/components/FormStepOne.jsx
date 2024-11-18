@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import ClubCategory from "./ClubCategory";
 import ClubTitle from "./ClubTitle";
 import ClubCount from "./ClubCount";
+import ClubDeadLine from "./ClubDeadline";
 
 const FormStepOne = ({ changeStep, formData, setFormData }) => {
   const [category, setCategory] = useState(formData.category);
   const [shortTitle, setShortTitle] = useState(formData.shortTitle);
   const [longTitle, setLongTitle] = useState(formData.longTitle);
   const [memberCount, setMemberCount] = useState(formData.memberCount);
+  const [deadline, setDeadline] = useState(formData.deadline);
 
   useEffect(() => {
     setCategory(formData.category);
@@ -42,6 +44,14 @@ const FormStepOne = ({ changeStep, formData, setFormData }) => {
     }));
   };
 
+  const handleDeadline = (selectedDeadline) => {
+    setDeadline(selectedDeadline);
+    setFormData((prevData) => ({
+      ...prevData,
+      deadline: selectedDeadline,
+    }));
+  };
+
   return (
     <div>
       <ClubCategory
@@ -57,6 +67,7 @@ const FormStepOne = ({ changeStep, formData, setFormData }) => {
         onChange={handleMemberCountChange}
         initialMemberCount={memberCount}
       />
+      <ClubDeadLine onChange={handleDeadline} initialDeadline={deadline} />
     </div>
   );
 };

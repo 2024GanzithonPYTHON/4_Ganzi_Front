@@ -19,6 +19,7 @@ const ClubRegisterPage = () => {
     shortTitle: "",
     longTitle: "",
     memberCount: 0,
+    deadline: "",
   });
 
   return (
