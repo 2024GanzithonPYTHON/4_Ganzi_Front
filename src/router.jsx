@@ -28,7 +28,7 @@ export default createBrowserRouter([
         element: <MyPage />,
       },
       {
-        path: "applypaper",
+        path: "/applypaper",
         element: <ApplyPaper />,
       },
     ],

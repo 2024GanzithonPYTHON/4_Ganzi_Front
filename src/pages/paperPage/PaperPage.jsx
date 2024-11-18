@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   PageContainer,
   Wrap1,
@@ -38,12 +39,25 @@ import image from "./img/image.svg";
 import downloadImg from "./img/downloadImg.svg";
 
 const PaperPage = () => {
+  const navigate = useNavigate();
+  // 로그인 상태 관리 (임시 구현)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const handleMakeBtnClick = () => {
+    if (isLoggedIn) {
+      console.log("로그인 됨");
+      navigate("/applypaper"); // 로그인 상태에서 /applypaper로 이동
+    } else {
+      console.log("로그인 안됨");
+      // 여기에 로그인 페이지로 이동하는 로직을 추가할 수 있음
+    }
+  };
+
   return (
     <PageContainer>
       <Wrap1>
         <Search>
-          <SearchBar placeholder="검색어를 입력하세요" />
-          <MakeBtn>
+          <SearchBar placeholder="검색어를 검색해보세요!" />
+          <MakeBtn onClick={handleMakeBtnClick}>
             <img src={plusImg} alt="plus" />
             <p>등록하기</p>
           </MakeBtn>
