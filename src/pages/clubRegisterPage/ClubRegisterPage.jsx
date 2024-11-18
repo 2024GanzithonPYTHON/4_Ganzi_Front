@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StepMarker from "./components/StepMarker";
 import FormStepOne from "./components/FormStepOne";
+import FormStepTwo from "./components/FormStepTwo";
 
 import {
   PageContainer,
@@ -35,6 +36,13 @@ const ClubRegisterPage = () => {
       <StepMarker currentStep={step} changeStep={setStep} />
       {step === "1" && (
         <FormStepOne
+          changeStep={setStep}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+      {step === "2" && (
+        <FormStepTwo
           changeStep={setStep}
           formData={formData}
           setFormData={setFormData}
