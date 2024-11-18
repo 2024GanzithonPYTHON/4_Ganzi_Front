@@ -28,6 +28,7 @@ const ClubRegisterPage = () => {
       plan: "",
       participationMode: "",
     },
+    criteria: "",
   });
 
   return (
