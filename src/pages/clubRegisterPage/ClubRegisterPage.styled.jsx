@@ -73,3 +73,22 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: end;
 `;
+
+export const InputContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const TextArea = styled.textarea`
+  width: 558px;
+  height: ${(props) => props.height};
+  padding: 10px;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+
+  font-size: 15px;
+  font-family: Arial;
+  resize: none;
+`;

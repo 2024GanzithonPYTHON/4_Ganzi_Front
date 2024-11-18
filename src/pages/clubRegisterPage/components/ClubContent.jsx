@@ -7,31 +7,14 @@ import {
   ListTitle,
   RequiredMarker,
   ListDescription,
+  InputContainer,
+  TextArea,
 } from "../ClubRegisterPage.styled";
-
-const InputContainer = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
 
 const InputType = styled.h3`
   padding-bottom: 10px;
   font-size: 15px;
   font-weight: 600;
-`;
-
-const TextArea = styled.textarea`
-  width: 558px;
-  height: ${(props) => props.height};
-  padding: 10px;
-  border: 1px solid #b3b3b3;
-  border-radius: 5px;
-
-  font-size: 15px;
-  font-family: Arial;
-  resize: none;
 `;
 
 const ClubContent = ({ onChange, initialContent }) => {
