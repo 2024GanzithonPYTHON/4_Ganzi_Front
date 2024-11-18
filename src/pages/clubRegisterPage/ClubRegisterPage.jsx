@@ -18,6 +18,7 @@ const ClubRegisterPage = () => {
     category: [],
     shortTitle: "",
     longTitle: "",
+    memberCount: 0,
   });
 
   return (
