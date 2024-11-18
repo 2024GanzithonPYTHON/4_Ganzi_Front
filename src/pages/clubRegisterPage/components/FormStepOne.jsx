@@ -3,6 +3,12 @@ import ClubCategory from "./ClubCategory";
 import ClubTitle from "./ClubTitle";
 import ClubCount from "./ClubCount";
 import ClubDeadLine from "./ClubDeadline";
+import {
+  FormListContainer,
+  ListDescriptionContainer,
+  ButtonContainer,
+  Button,
+} from "../ClubRegisterPage.styled";
 
 const FormStepOne = ({ changeStep, formData, setFormData }) => {
   const [category, setCategory] = useState(formData.category);
@@ -68,6 +74,18 @@ const FormStepOne = ({ changeStep, formData, setFormData }) => {
         initialMemberCount={memberCount}
       />
       <ClubDeadLine onChange={handleDeadline} initialDeadline={deadline} />
+      <FormListContainer>
+        <ListDescriptionContainer />
+        <ButtonContainer>
+          <Button
+            onClick={() => {
+              changeStep("2");
+            }}
+          >
+            다음 페이지
+          </Button>
+        </ButtonContainer>
+      </FormListContainer>
     </div>
   );
 };

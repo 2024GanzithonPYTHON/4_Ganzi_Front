@@ -58,3 +58,18 @@ export const RequiredMarker = styled.span`
 export const ListDescription = styled.p`
   font-size: 15px;
 `;
+
+export const Button = styled.button`
+  width: 285px;
+  height: 54px;
+  border: 1px solid #00a8cc;
+  color: #00a8cc;
+  border-radius: 5px;
+  margin-bottom: 50px;
+`;
+
+export const ButtonContainer = styled.div`
+  width: 700px;
+  display: flex;
+  justify-content: end;
+`;
