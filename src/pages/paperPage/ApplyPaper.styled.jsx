@@ -293,11 +293,6 @@ export const PFt1 = styled.div`
   font-weight: bold;
 `;
 export const PFt2 = styled.div``;
-// export const PFwrap = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 557px;
-// `;
 
 export const PFwrap = styled.div`
   width: 557px;

@@ -6,6 +6,7 @@ import PaperPage from "./pages/paperPage/PaperPage";
 import MyPage from "./pages/myPage/MyPage";
 import ApplyPaper from "./pages/paperPage/ApplyPaper";
 import ApplyDone from "./pages/paperPage/ApplyDone";
+import DetailPaper from "./pages/paperPage/DetailPaper";
 
 export default createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export default createBrowserRouter([
       {
         path: "/applydone",
         element: <ApplyDone />,
+      },
+      {
+        path: "/detailpaper",
+        element: <DetailPaper />,
       },
     ],
   },
