@@ -38,7 +38,7 @@ export const ListDescriptionContainer = styled.div`
 `;
 
 export const ListTextContainer = styled.div`
-  width: 400px;
+  width: 380px;
   display: flex;
 
   flex-direction: column;
