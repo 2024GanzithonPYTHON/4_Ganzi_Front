@@ -64,8 +64,8 @@ export const FilterButton = styled.button`
   cursor: pointer;
   width: 200px;
   height: 50px;
-  background-color: ${({ isSelected }) => (isSelected ? "#EAF7FB" : "white")};
-  font-weight: ${({ isSelected }) => (isSelected ? "bold" : "medium")};
+  background-color: ${({ isselected }) => (isselected ? "#EAF7FB" : "white")};
+  font-weight: ${({ isselected }) => (isselected ? "bold" : "medium")};
   &:hover {
     background-color: #c6ebf4;
   }

@@ -121,7 +121,7 @@ const PaperPage = () => {
             <FilterButton
               key={index}
               onClick={() => setSelectedCategory(filter)}
-              isSelected={selectedCategory === filter} // 선택된 버튼인지 확인
+              isselected={selectedCategory === filter} // 선택된 버튼인지 확인
             >
               {filter}
             </FilterButton>
@@ -130,7 +130,7 @@ const PaperPage = () => {
       </Wrap1>
 
       <RecommendedSection>
-        <RecommendedTitle>??? 추천 비법서</RecommendedTitle>
+        <RecommendedTitle>sidEGO 추천 비법서</RecommendedTitle>
         <RecommendedContainer>
           {books.map((book) => (
             <BookContainer key={book.id}>
@@ -179,17 +179,17 @@ const PaperPage = () => {
           {[...Array(4)].map((_, index) => (
             <ListItem key={index}>
               <ItemImage src={image} alt="image" />
-              <div class="content">
+              <div className="content">
                 <ItemTitle>제목1</ItemTitle>
                 <ItemCategory>카테고리1</ItemCategory>
                 <ItemDescription>짧은 소개글</ItemDescription>
                 <ItemStats>
-                  <div class="score">⭐5.0</div>
-                  <div class="download">
+                  <div className="score">⭐5.0</div>
+                  <div className="download">
                     100+
                     <img src={downloadImg} alt="down" />
                   </div>
-                  <div class="price">10 P</div>
+                  <div className="price">10 P</div>
                 </ItemStats>
               </div>
             </ListItem>
