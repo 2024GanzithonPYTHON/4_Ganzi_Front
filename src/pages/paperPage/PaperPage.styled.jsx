@@ -32,7 +32,7 @@ export const SearchBar = styled.input`
   border-radius: 15px;
 
   &::placeholder {
-    padding-left: 150px;
+    padding-left: 140px;
   }
 `;
 export const MakeBtn = styled.button`
