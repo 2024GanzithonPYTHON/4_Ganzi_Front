@@ -20,8 +20,10 @@ import {
   PTwrap1,
   PTinfo1,
   PTinput1,
+  PTinput1Count,
   PTinfo2,
   PTinput2,
+  PTinput2Count,
   PTwrap2,
   PIntro,
   PItext,
@@ -32,6 +34,7 @@ import {
   PIwrap2,
   PIinfo1,
   PIinput1,
+  PIinput1Count,
   PIinput2,
   PTHumnail,
   PTHtext,
@@ -155,6 +158,37 @@ const ApplyPaper = () => {
     setIsModalOpen(false);
   };
 
+  /* 입력창 텍스트 수 제한 */
+
+  // 길이 제한 설정
+  const TITLE_MAX_LENGTH = 30; // PTinput1
+  const SUBTITLE_MAX_LENGTH = 22; // PTinput2
+  const SHORT_INTRO_MAX_LENGTH = 51; // PIinput1
+
+  // 제목 길이 제한
+  const handleTitleChange = (e) => {
+    const inputValue = e.target.value;
+    if (inputValue.length <= TITLE_MAX_LENGTH) {
+      setTitle(inputValue);
+    }
+  };
+
+  // 소제목 길이 제한
+  const handleSubtitleChange = (e) => {
+    const inputValue = e.target.value;
+    if (inputValue.length <= SUBTITLE_MAX_LENGTH) {
+      setSubtitle(inputValue);
+    }
+  };
+
+  // 짧은 소개 길이 제한
+  const handleShortIntroChange = (e) => {
+    const inputValue = e.target.value;
+    if (inputValue.length <= SHORT_INTRO_MAX_LENGTH) {
+      setShortIntro(inputValue);
+    }
+  };
+
   // Apply 버튼 클릭
   const handleApply = () => {
     setIsModalOpen(true);
@@ -223,8 +257,11 @@ const ApplyPaper = () => {
                 <PTinput1
                   placeholder="프로젝트 제목을 입력하세요"
                   value={title}
-                  onChange={(e) => setTitle(e.target.value)}
+                  onChange={
+                    ((e) => setTitle(e.target.value), handleTitleChange)
+                  }
                 />
+                <PTinput1Count>{`${title.length}/${TITLE_MAX_LENGTH}`}</PTinput1Count>
               </PTwrap1>
               <PTwrap2>
                 <div className="title">소제목</div>
@@ -239,8 +276,11 @@ const ApplyPaper = () => {
                 <PTinput2
                   placeholder="프로젝트 소제목을 입력하세요"
                   value={subtitle}
-                  onChange={(e) => setSubtitle(e.target.value)}
+                  onChange={
+                    ((e) => setSubtitle(e.target.value), handleSubtitleChange)
+                  }
                 />
+                <PTinput2Count>{`${subtitle.length}/${SUBTITLE_MAX_LENGTH}`}</PTinput2Count>
               </PTwrap2>
             </PTWrap>
           </PTitle>
@@ -267,8 +307,12 @@ const ApplyPaper = () => {
                 <PIinput1
                   placeholder="비법서의 짧은 소개를 입력해주세요."
                   value={shortIntro}
-                  onChange={(e) => setShortIntro(e.target.value)}
+                  onChange={
+                    ((e) => setShortIntro(e.target.value),
+                    handleShortIntroChange)
+                  }
                 />
+                <PIinput1Count>{`${shortIntro.length}/${SHORT_INTRO_MAX_LENGTH}`}</PIinput1Count>
               </PIwrap1>
               <PIwrap2>
                 <div className="title">소개</div>

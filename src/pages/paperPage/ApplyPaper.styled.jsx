@@ -38,7 +38,7 @@ export const Wrap = styled.div`
 // 카테고리
 export const PCategory = styled.div`
   display: flex;
-  gap: 162px;
+  gap: 155px;
 `;
 export const PCtext = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ export const PCt2 = styled.div``;
 export const FilterContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  judtify-content: space-between;
+
   gap: 10px;
   width: 557px;
 `;
@@ -136,7 +136,12 @@ export const PTinput1 = styled.input`
   border-radius: 3px;
   border: 0.5px solid #d9d9d9;
 `;
-
+export const PTinput1Count = styled.div`
+  font-size: 10px;
+  color: #757575;
+  margin-left: auto;
+  width: 45px;
+`;
 export const PTwrap2 = styled.div`
   display: flex;
   flex-direction: column;
@@ -168,7 +173,12 @@ export const PTinput2 = styled.input`
   border-radius: 3px;
   border: 0.5px solid #d9d9d9;
 `;
-
+export const PTinput2Count = styled.div`
+  font-size: 10px;
+  color: #757575;
+  margin-left: auto;
+  width: 45px;
+`;
 // 소개
 export const PIntro = styled.div`
   display: flex;
@@ -223,6 +233,12 @@ export const PIinput1 = styled.input`
   padding: 10px 10px 10px 10px;
   border-radius: 3px;
   border: 0.5px solid #d9d9d9;
+`;
+export const PIinput1Count = styled.div`
+  font-size: 10px;
+  color: #757575;
+  margin-left: auto;
+  width: 45px;
 `;
 export const PIwrap2 = styled.div`
   display: flex;
