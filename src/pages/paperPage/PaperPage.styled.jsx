@@ -15,6 +15,7 @@ export const Wrap1 = styled.div`
   width: 1000px;
   gap: 18px;
   margin-bottom: 40px;
+  margin-top: 87px;
 `;
 export const Search = styled.div`
   display: flex;
@@ -25,14 +26,13 @@ export const Search = styled.div`
 export const SearchBar = styled.input`
   width: 467px;
   padding: 10px;
-  margin-bottom: 20px;
-  font-size: 10px;
+  font-size: 16px;
   height: 40px;
   border: 1px solid #00a8cc;
   border-radius: 15px;
 
   &::placeholder {
-    padding-left: 170px;
+    padding-left: 150px;
   }
 `;
 export const MakeBtn = styled.button`
@@ -64,6 +64,7 @@ export const FilterButton = styled.button`
   cursor: pointer;
   width: 200px;
   height: 50px;
+  font-size: 20px;
   background-color: ${({ isselected }) => (isselected ? "#EAF7FB" : "white")};
   font-weight: ${({ isselected }) => (isselected ? "bold" : "medium")};
   &:hover {
@@ -80,8 +81,8 @@ export const RecommendedSection = styled.div`
 
 export const RecommendedContainer = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+
   width: 1200px;
 `;
 export const BookContainer = styled.div`
@@ -103,7 +104,7 @@ export const BookCard = styled.div`
   text-align: center;
   margin-right: 10px;
   flex: 1;
-  width: 324px;
+  width: 330px;
   height: 536px;
 
   p {
@@ -120,7 +121,7 @@ export const SpecCard = styled.div`
   border: 2px solid #4b3621;
   color: #333;
   text-align: left;
-   width: 324px;
+  width: 330px;
   height: 536px;
   position: absolute;
   top: 0; /* BookCard 위로 겹치도록 설정 */
@@ -203,7 +204,7 @@ export const Lk = styled.div`
 export const Wrap2 = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1204px;
+  width: 1200px;
   margin-top: 100px;
   gap: 20px;
 `;
@@ -215,25 +216,25 @@ export const CategoryTitle = styled.h3`
 export const CategoryList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
 
   .content {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 872px;
   }
 `;
 
 export const ListItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 15px;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
+  // &:hover {
+  //   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  //   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  // }
 `;
 
 export const ItemImage = styled.img`
@@ -267,10 +268,14 @@ export const ItemStats = styled.div`
   color: #333;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   font-weight: medium;
   margin-right: 0;
   .score {
     font-weight: bold;
+    padding-right: 25px;
+  }
+  .down {
+    padding-right: 25px;
   }
 `;

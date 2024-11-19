@@ -37,6 +37,7 @@ import emailImg from "./img/email.svg";
 import heartImg from "./img/heart.svg";
 import image from "./img/image.svg";
 import downloadImg from "./img/downloadImg.svg";
+import star from "./img/star.svg";
 
 const PaperPage = () => {
   const navigate = useNavigate();
@@ -87,6 +88,50 @@ const PaperPage = () => {
     },
   ];
 
+  // 샘플 데이터
+  const sampleItems = [
+    {
+      id: 1,
+      image: image,
+      title: "디자인 노트북",
+      category: "디자인 문구",
+      description: "고급스러운 디자인 노트북으로 당신의 아이디어를 기록하세요.",
+      score: 4.8,
+      downloadCount: 150,
+      price: "20 P",
+    },
+    {
+      id: 2,
+      image: image,
+      title: "홈 데코 세트",
+      category: "홈/리빙",
+      description: "집안을 환하게 만들어 줄 홈 데코 제품 세트.",
+      score: 4.9,
+      downloadCount: 120,
+      price: "30 P",
+    },
+    {
+      id: 3,
+      image: image,
+      title: "굿즈 컬렉션",
+      category: "캐릭터/굿즈",
+      description: "한정판 캐릭터 굿즈로 팬심을 채워보세요.",
+      score: 5.0,
+      downloadCount: 200,
+      price: "15 P",
+    },
+    {
+      id: 4,
+      image: image,
+      title: "파티 플래너",
+      category: "파티/행사",
+      description: "완벽한 파티를 위한 플래너 키트.",
+      score: 4.7,
+      downloadCount: 80,
+      price: "25 P",
+    },
+  ];
+
   // 선택된 BookCard ID를 저장
   const [selectedBookId, setSelectedBookId] = useState(null);
   // 선택된 BookCard의 데이터를 찾는 함수
@@ -95,6 +140,12 @@ const PaperPage = () => {
   /* 카테고리 */
   // 선택된 카테고리 버튼의 값을 저장
   const [selectedCategory, setSelectedCategory] = useState("전체");
+
+  // 필터링된 데이터
+  const filteredItems =
+    selectedCategory === "전체"
+      ? sampleItems
+      : sampleItems.filter((item) => item.category === selectedCategory);
 
   return (
     <PageContainer>
@@ -176,20 +227,20 @@ const PaperPage = () => {
       <Wrap2>
         <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
-          {[...Array(4)].map((_, index) => (
-            <ListItem key={index}>
-              <ItemImage src={image} alt="image" />
+          {filteredItems.map((item) => (
+            <ListItem key={item.id}>
+              <ItemImage src={item.image} alt={item.title} />
               <div className="content">
-                <ItemTitle>제목1</ItemTitle>
-                <ItemCategory>카테고리1</ItemCategory>
-                <ItemDescription>짧은 소개글</ItemDescription>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemCategory>{item.category}</ItemCategory>
+                <ItemDescription>{item.description}</ItemDescription>
                 <ItemStats>
-                  <div className="score">⭐5.0</div>
+                  <div className="score">⭐{item.score}</div>
                   <div className="download">
-                    100+
-                    <img src={downloadImg} alt="down" />
+                    {item.downloadCount}+
+                    <img className="down" src={downloadImg} alt="down" />
                   </div>
-                  <div className="price">10 P</div>
+                  <div className="price">{item.price}</div>
                 </ItemStats>
               </div>
             </ListItem>
