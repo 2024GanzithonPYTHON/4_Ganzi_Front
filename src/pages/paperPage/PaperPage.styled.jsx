@@ -85,7 +85,12 @@ export const RecommendedContainer = styled.div`
   gap: 10px;
   width: 1200px;
 `;
-export const BookContainer = styled.div``;
+export const BookContainer = styled.div`
+  width: 324px;
+  height: 536px;
+  margin-right: 20px;
+  position: relative; /* SpecCard의 기준 위치 설정 */
+`;
 
 export const RecommendedTitle = styled.h2`
   font-size: 24px;
@@ -106,42 +111,29 @@ export const BookCard = styled.div`
     font-size: 14px;
   }
 
-  &:hover + .spec-card {
-    opacity: 1;
-    visibility: visible;
+  &:hover {
+    cursor: pointer;
   }
-  cursor: pointer;
 `;
 
 export const SpecCard = styled.div`
   background-color: #f3f3f3;
   border: 2px solid #4b3621;
   color: #333;
-  flex: 1;
   text-align: left;
   width: 324px;
   height: 536px;
   position: absolute;
-  z-index: 1;
-
+  top: 0; /* BookCard 위로 겹치도록 설정 */
+  left: 0;
+  z-index: 10;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 
-  h4 {
-    font-size: 18px;
-    color: #000;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 14px;
-    color: #666;
-  }
-
-  div {
-    font-size: 12px;
-  }
+ ${BookContainer}:hover & {
+    opacity: 1;
+    visibility: visible;
 `;
 
 export const SC = styled.div`
@@ -159,11 +151,13 @@ export const SCcontent = styled.div`
   padding-bottom: 30px;
 `;
 export const ProfileWrap = styled.div`
-  background-color: #4b3621;
+  background-color: #3e2723;
   color: #ffff;
   .info {
     display: flex;
     justify-content: flex-end;
+    font-size: 10px;
+    font-weight: bold;
   }
   padding-left: 15px;
   padding-right: 10px;
@@ -175,9 +169,7 @@ export const Pf = styled.div`
   align-items: center;
   margin-bottom: 10px;
   gap: 8px;
-  .info {
-    padding-left: auto;
-  }
+
   .id {
     display: flex;
     flex-direction: column;
@@ -187,11 +179,19 @@ export const Pf = styled.div`
   p1 {
     font-weight: bold;
   }
+  p2 {
+    font-size: 12px;
+  }
+  userImg {
+    width: 20px;
+    height: 20px;
+    border-radius: 45px;
+  }
 `;
 export const Em = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   gap: 8px;
 `;
 export const Lk = styled.div`

@@ -52,6 +52,47 @@ const PaperPage = () => {
     }
   };
 
+  // 샘플 데이터
+  const books = [
+    {
+      id: 1,
+      title: "스핀 ON/OFF",
+      content:
+        "스핀 상태를 On/Off 에 더해 그 중첩 상태까지 분석하여 양자역학을 연구한 보고서",
+      userImg,
+      name: "파사삭",
+      intro: "재미있는 프로젝트를 기획해요",
+      email: "aodrnzhWLfWlf@naver.com",
+      heartCount: 100,
+    },
+    {
+      id: 2,
+      title: "양자역학 개론",
+      content: "양자역학의 기초부터 심화까지 다룬 비법서",
+      userImg,
+      name: "초보과학자",
+      intro: "양자역학을 처음 공부해보는 사람을 위한 비법서입니다.",
+      email: "gkehdgk@naver.com",
+      heartCount: 85,
+    },
+    {
+      id: 3,
+      title: "실험 보고서 작성법",
+      content: "효율적으로 실험 보고서를 작성하는 팁과 예시",
+      userImg,
+      name: "실험실의 하루",
+      intro: "실험을 진행하며 얻은 팁을 공유합니다.",
+      email: "gktjddjs@naver.com",
+      heartCount: 120,
+    },
+  ];
+
+  // 선택된 BookCard ID를 저장
+  const [selectedBookId, setSelectedBookId] = useState(null);
+
+  // 선택된 BookCard의 데이터를 찾는 함수
+  const selectedBook = books.find((book) => book.id === selectedBookId);
+
   return (
     <PageContainer>
       <Wrap1>
@@ -66,13 +107,13 @@ const PaperPage = () => {
         <FilterContainer>
           {[
             "전체",
-            "카테고리1",
-            "카테고리2",
-            "카테고리3",
-            "카테고리4",
-            "카테고리5",
-            "카테고리6",
-            "카테고리7",
+            "디자인 문구",
+            "홈/리빙",
+            "캐릭터/굿즈",
+            "파티/행사",
+            "출판",
+            "의류",
+            "예술",
           ].map((filter, index) => (
             <FilterButton key={index}>{filter}</FilterButton>
           ))}
@@ -82,42 +123,47 @@ const PaperPage = () => {
       <RecommendedSection>
         <RecommendedTitle>??? 추천 비법서</RecommendedTitle>
         <RecommendedContainer>
-          {[1, 2, 3].map((id) => (
-            <BookContainer key={id}>
-              <BookCard id={id}>
-                <p>이미지 들어갈거임</p>
+          {books.map((book) => (
+            <BookContainer key={book.id}>
+              {/* BookCard */}
+              <BookCard
+                onMouseEnter={() => setSelectedBookId(book.id)} // 호버 시 ID 설정
+              >
+                <p>Book ID: {book.id}</p>
               </BookCard>
-              <SpecCard className="spec-card">
-                <SC>
-                  <SCtitle>스핀 ON/OFF</SCtitle>
-                  <SCcontent>
-                    스핀 상태를 On/Off 에 더해 그 중첩 상태까지 분석하여
-                    양자역학을 연구한 보고서
-                  </SCcontent>
-                </SC>
-                <ProfileWrap>
-                  <div class="info">모임장 정보</div>
-                  <Pf>
-                    <img src={userImg} alt="user" />
-                    <div class="id">
-                      <p1>파사삭</p1>
-                      <p2>재미있는 프로젝트를 기획해요</p2>
-                    </div>
-                  </Pf>
-                  <Em>
-                    <img src={emailImg} alt="emailImg" />
-                    <p1>vktktkr@gmail.com</p1>
-                  </Em>
-                  <Lk>
-                    <img src={heartImg} alt="heart" />
-                    <p1>100</p1>
-                  </Lk>
-                </ProfileWrap>
-              </SpecCard>
+
+              {/* SpecCard - BookCard 바로 위에 위치 */}
+              {selectedBookId === book.id && (
+                <SpecCard className="spec-card">
+                  <SC>
+                    <SCtitle>{book.title}</SCtitle>
+                    <SCcontent>{book.content}</SCcontent>
+                  </SC>
+                  <ProfileWrap>
+                    <div className="info">모임장정보</div>
+                    <Pf>
+                      <img className="userImg" src={book.userImg} alt="user" />
+                      <div className="id">
+                        <p1>{book.name}</p1>
+                        <p2>{book.intro}</p2>
+                      </div>
+                    </Pf>
+                    <Em>
+                      <img src={emailImg} alt="email" />
+                      <div className="email">{book.email}</div>
+                    </Em>
+                    <Lk>
+                      <img src={heartImg} alt="heart" />
+                      <p>{book.heartCount}</p>
+                    </Lk>
+                  </ProfileWrap>
+                </SpecCard>
+              )}
             </BookContainer>
           ))}
         </RecommendedContainer>
       </RecommendedSection>
+
       <Wrap2>
         <CategoryTitle>카테고리1</CategoryTitle>
         <CategoryList>
