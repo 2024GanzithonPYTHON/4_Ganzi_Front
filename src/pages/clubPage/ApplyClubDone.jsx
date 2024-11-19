@@ -11,7 +11,7 @@ import {
 } from "./ApplyDone.styled";
 import check from "./img/check.svg";
 
-const ApplyDone = () => {
+const ApplyClubDone = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -36,4 +36,4 @@ const ApplyDone = () => {
   );
 };
 
-export default ApplyDone;
+export default ApplyClubDone;
