@@ -279,3 +279,33 @@ export const ItemStats = styled.div`
     padding-right: 25px;
   }
 `;
+
+// PaginationContainer: 페이지 번호를 담는 컨테이너 스타일
+export const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+`;
+
+// PageNumber: 각 페이지 번호의 스타일
+export const PageNumber = styled.button`
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: ${(props) => (props.isselected ? "#00a8cc" : "#f0f0f0")};
+  color: ${(props) => (props.isselected ? "#fff" : "#000")};
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: ${(props) =>
+    props.isselected ? "0px 4px 6px rgba(0, 0, 0, 0.1)" : "none"};
+
+  &:hover {
+    background-color: ${(props) => (props.isselected ? "#00a8cc" : "#e0e0e0")};
+  }
+`;

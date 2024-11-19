@@ -29,6 +29,8 @@ import {
   ItemCategory,
   ItemDescription,
   ItemStats,
+  PaginationContainer,
+  PageNumber,
 } from "./PaperPage.styled";
 import { RecommendedContainer } from "./PaperPage.styled";
 import plusImg from "./img/plus.svg";
@@ -130,22 +132,66 @@ const PaperPage = () => {
       downloadCount: 80,
       price: "25 P",
     },
+    {
+      id: 5,
+      image: image,
+      title: "출판 가이드북",
+      category: "출판",
+      description: "출판을 처음 시작하는 사람들을 위한 안내서.",
+      score: 4.5,
+      downloadCount: 60,
+      price: "10 P",
+    },
+    {
+      id: 6,
+      image: image,
+      title: "의류 디자인 팁",
+      category: "의류",
+      description: "스타일리시한 의류 디자인을 위한 팁.",
+      score: 4.6,
+      downloadCount: 70,
+      price: "18 P",
+    },
+    {
+      id: 7,
+      image: image,
+      title: "예술적 감각",
+      category: "예술",
+      description: "예술적 감각을 키우는 방법.",
+      score: 4.9,
+      downloadCount: 90,
+      price: "25 P",
+    },
   ];
 
   // 선택된 BookCard ID를 저장
   const [selectedBookId, setSelectedBookId] = useState(null);
-  // 선택된 BookCard의 데이터를 찾는 함수
-  //const selectedBook = books.find((book) => book.id === selectedBookId);
 
   /* 카테고리 */
   // 선택된 카테고리 버튼의 값을 저장
   const [selectedCategory, setSelectedCategory] = useState("전체");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   // 필터링된 데이터
   const filteredItems =
     selectedCategory === "전체"
       ? sampleItems
       : sampleItems.filter((item) => item.category === selectedCategory);
+
+  /* 리스트 페이지 */
+  // 현재 페이지에 해당하는 데이터 추출
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = filteredItems.slice(startIndex, endIndex);
+
+  // 총 페이지 수 계산
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+
+  // 페이지 변경 함수
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <PageContainer>
@@ -227,7 +273,7 @@ const PaperPage = () => {
       <Wrap2>
         <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
-          {filteredItems.map((item) => (
+          {currentItems.map((item) => (
             <ListItem key={item.id}>
               <ItemImage src={item.image} alt={item.title} />
               <div className="content">
@@ -235,7 +281,8 @@ const PaperPage = () => {
                 <ItemCategory>{item.category}</ItemCategory>
                 <ItemDescription>{item.description}</ItemDescription>
                 <ItemStats>
-                  <div className="score">⭐{item.score}</div>
+                  <img src={star} alt="star" />
+                  <div className="score">{item.score}</div>
                   <div className="download">
                     {item.downloadCount}+
                     <img className="down" src={downloadImg} alt="down" />
@@ -246,6 +293,18 @@ const PaperPage = () => {
             </ListItem>
           ))}
         </CategoryList>
+        {/* Pagination */}
+        <PaginationContainer>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PageNumber
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              isselected={currentPage === index + 1}
+            >
+              {index + 1}
+            </PageNumber>
+          ))}
+        </PaginationContainer>
       </Wrap2>
     </PageContainer>
   );
