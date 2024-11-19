@@ -5,7 +5,7 @@ import ClubPage from "./pages/clubPage/ClubPage";
 import PaperPage from "./pages/paperPage/PaperPage";
 import MyPage from "./pages/myPage/MyPage";
 import ApplyPaper from "./pages/paperPage/ApplyPaper";
-import ApplyDone from "./pages/paperPage/ApplyDone";
+import ApplyPaperDone from "./pages/paperPage/ApplyPaperDone";
 import DetailPaper from "./pages/paperPage/DetailPaper";
 import PaperPayDone from "./pages/paperPage/PaperPayDone";
 
@@ -35,8 +35,8 @@ export default createBrowserRouter([
         element: <ApplyPaper />,
       },
       {
-        path: "/applydone",
-        element: <ApplyDone />,
+        path: "/applypaperdone",
+        element: <ApplyPaperDone />,
       },
       {
         path: "/detailpaper",
