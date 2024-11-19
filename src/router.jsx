@@ -9,6 +9,9 @@ import ApplyPaperDone from "./pages/paperPage/ApplyPaperDone";
 import DetailPaper from "./pages/paperPage/DetailPaper";
 import PaperPayDone from "./pages/paperPage/PaperPayDone";
 
+import ApplyClub from "./pages/clubPage/ApplyClub";
+import ApplyClubDone from "./pages/clubPage/ApplyClubDone";
+
 export default createBrowserRouter([
   {
     path: "/",
@@ -21,6 +24,14 @@ export default createBrowserRouter([
       {
         path: "/club",
         element: <ClubPage />,
+      },
+      {
+        path: "/applyclub",
+        element: <ApplyClub />,
+      },
+      {
+        path: "/applyclubdone",
+        element: <ApplyClubDone />,
       },
       {
         path: "/paper",
