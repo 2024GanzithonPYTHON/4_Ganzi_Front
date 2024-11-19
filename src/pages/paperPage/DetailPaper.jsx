@@ -10,6 +10,13 @@ import {
   PaperTitle,
   Tap,
   Content,
+  ReviewList,
+  Review,
+  Rprofile,
+  Rwrap,
+  Rwrap1,
+  Rdate,
+  Rreview,
   Right,
   Buy,
   Point,
@@ -28,6 +35,8 @@ import profileImg from "./img/profileImg.svg";
 import email from "./img/PaperEmail.svg";
 import heart from "./img/PaperHeart.svg";
 import sampleImg from "./img/sampleImg.svg";
+import defaultprofileImg from "./img/defaultprofileImg.svg";
+import star from "./img/star.svg";
 
 const DetailPaper = () => {
   /* 뒤로가기 */
@@ -43,6 +52,30 @@ const DetailPaper = () => {
     setActiveIndex(index);
   };
 
+  // 샘플 데이터 (후기 리스트)
+  const reviews = [
+    {
+      id: "사용자1",
+      score: 5.0,
+      date: "24.11.10 18:32",
+      content:
+        "달력 만들어보고 싶었는데, 상세히 작성해주셔서 연말에 한 번 도전해볼 수 있겠어요~ 잘 활용하겠습니다.",
+    },
+    {
+      id: "사용자2",
+      score: 4.5,
+      date: "24.11.11 10:15",
+      content: "좋은 비법서 감사합니다. 많은 도움이 됐습니다!",
+    },
+    {
+      id: "사용자3",
+      score: 4.8,
+      date: "24.11.12 14:20",
+      content: "설명도 쉽고, 필요한 정보가 많이 담겨 있어서 유익했습니다.",
+    },
+  ];
+
+  // 탭 데이터
   const tabContArr = [
     {
       tabTitle: (
@@ -50,11 +83,19 @@ const DetailPaper = () => {
           className={activeIndex === 0 ? "is-active" : ""}
           onClick={() => tabClickHandler(0)}
         >
-          {" "}
-          비법서 설명{" "}
+          비법서 설명
         </li>
       ),
-      tabCont: <div> `탭1 내용 adfdf asdf`</div>,
+      tabTitleText: "비법서 설명", // 제목 데이터 추가
+      tabCont: (
+        <div className="paper">
+          {`ssssssssssss
+            sssdfadf
+            zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+            dfasdf
+            `}
+        </div>
+      ),
     },
     {
       tabTitle: (
@@ -62,11 +103,30 @@ const DetailPaper = () => {
           className={activeIndex === 1 ? "is-active" : ""}
           onClick={() => tabClickHandler(1)}
         >
-          {" "}
-          후기{" "}
+          후기
         </li>
       ),
-      tabCont: <div> 탭2 내용 </div>,
+      tabTitleText: `후기 ${reviews.length}개`, // 제목 데이터 추가
+      tabCont: (
+        <ReviewList>
+          {reviews.map((review, index) => (
+            <Review key={index}>
+              <Rprofile>
+                <img src={defaultprofileImg} alt="dpimg" />
+                <Rwrap>
+                  <Rwrap1>
+                    <div className="id">{review.id}</div>
+                    <img src={star} alt="star" />
+                    <div className="score">{review.score.toFixed(1)}</div>
+                  </Rwrap1>
+                  <Rdate>{review.date}</Rdate>
+                </Rwrap>
+              </Rprofile>
+              <Rreview>{review.content}</Rreview>
+            </Review>
+          ))}
+        </ReviewList>
+      ),
     },
   ];
 
@@ -92,7 +152,8 @@ const DetailPaper = () => {
             </ul>
           </Tap>
           <Content>
-            <div className="title">비법서 설명</div>
+            {/* 동적으로 제목 표시 */}
+            <div className="title">{tabContArr[activeIndex].tabTitleText}</div>
             {tabContArr[activeIndex].tabCont}
           </Content>
         </Left>

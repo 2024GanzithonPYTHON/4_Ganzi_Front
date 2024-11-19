@@ -18,12 +18,14 @@ export const Wrap = styled.div`
   justify-content: center;
   gap: 113px;
 `;
-/*왼쪽*/
 
+/*왼쪽*/
 export const Left = styled.div`
   width: 645px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const PaperImg = styled.div`
   width: 645px;
@@ -34,6 +36,8 @@ export const PaperTitle = styled.h2`
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 55px;
+  width: 645px;
+  word-wrap: break-word;
 `;
 export const Tap = styled.div`
   width: 645px;
@@ -64,11 +68,13 @@ export const Tap = styled.div`
 export const Content = styled.div`
   min-height: 466px;
   width: 590px;
-  background: blue; //확인용
   margin-bottom: 65px;
 
-  div {
-    overlfow: auto;
+  .paper {
+    white-space: pre-wrap; /* 엔터키 반영 */
+    word-wrap: break-word; /* 긴 단어 줄바꿈 */
+    line-height: 1.5; /* 줄 간격 */
+    font-size: 16px;
   }
   .title {
     font-size: 24px;
@@ -77,7 +83,48 @@ export const Content = styled.div`
   }
 `;
 
-/*오른쪽 (플로팅)*/
+/* 리뷰 */
+export const ReviewList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
+export const Review = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+`;
+export const Rprofile = styled.div`
+  display: flex;
+  gap: 13px;
+  align-items: center;
+`;
+export const Rwrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+export const Rwrap1 = styled.div`
+  display: flex;
+
+  .id {
+    padding-right: 10px;
+    font-weight: bold;
+  }
+  .score {
+    padding-left: 5px;
+    font-weight: bold;
+  }
+`;
+export const Rdate = styled.div`
+  font-size: 13px;
+  color: #757575;
+`;
+export const Rreview = styled.div`
+  font-size: 13px;
+`;
+
+/* 오른쪽 (플로팅) */
 //구매 창
 export const Right = styled.div`
   display: flex;
