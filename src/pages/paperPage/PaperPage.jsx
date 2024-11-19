@@ -89,9 +89,12 @@ const PaperPage = () => {
 
   // 선택된 BookCard ID를 저장
   const [selectedBookId, setSelectedBookId] = useState(null);
-
   // 선택된 BookCard의 데이터를 찾는 함수
-  const selectedBook = books.find((book) => book.id === selectedBookId);
+  //const selectedBook = books.find((book) => book.id === selectedBookId);
+
+  /* 카테고리 */
+  // 선택된 카테고리 버튼의 값을 저장
+  const [selectedCategory, setSelectedCategory] = useState("전체");
 
   return (
     <PageContainer>
@@ -115,7 +118,13 @@ const PaperPage = () => {
             "의류",
             "예술",
           ].map((filter, index) => (
-            <FilterButton key={index}>{filter}</FilterButton>
+            <FilterButton
+              key={index}
+              onClick={() => setSelectedCategory(filter)}
+              isSelected={selectedCategory === filter} // 선택된 버튼인지 확인
+            >
+              {filter}
+            </FilterButton>
           ))}
         </FilterContainer>
       </Wrap1>
@@ -165,7 +174,7 @@ const PaperPage = () => {
       </RecommendedSection>
 
       <Wrap2>
-        <CategoryTitle>카테고리1</CategoryTitle>
+        <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
           {[...Array(4)].map((_, index) => (
             <ListItem key={index}>

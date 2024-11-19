@@ -61,12 +61,11 @@ export const FilterContainer = styled.div`
 export const FilterButton = styled.button`
   padding: 8px 12px;
   color: black;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
   width: 200px;
   height: 50px;
-
+  background-color: ${({ isSelected }) => (isSelected ? "#EAF7FB" : "white")};
+  font-weight: ${({ isSelected }) => (isSelected ? "bold" : "medium")};
   &:hover {
     background-color: #c6ebf4;
   }
@@ -121,7 +120,7 @@ export const SpecCard = styled.div`
   border: 2px solid #4b3621;
   color: #333;
   text-align: left;
-  width: 324px;
+   width: 324px;
   height: 536px;
   position: absolute;
   top: 0; /* BookCard 위로 겹치도록 설정 */
@@ -129,11 +128,12 @@ export const SpecCard = styled.div`
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 
  ${BookContainer}:hover & {
     opacity: 1;
     visibility: visible;
+    cursor: pointer;
 `;
 
 export const SC = styled.div`
