@@ -7,7 +7,7 @@ import MyPage from "./pages/myPage/MyPage";
 import ApplyPaper from "./pages/paperPage/ApplyPaper";
 import ApplyDone from "./pages/paperPage/ApplyDone";
 import DetailPaper from "./pages/paperPage/DetailPaper";
-import PayDone from "./pages/paperPage/PayDone";
+import PaperPayDone from "./pages/paperPage/PaperPayDone";
 
 export default createBrowserRouter([
   {
@@ -43,8 +43,8 @@ export default createBrowserRouter([
         element: <DetailPaper />,
       },
       {
-        path: "/paydone",
-        element: <PayDone />,
+        path: "/paper_paydone",
+        element: <PaperPayDone />,
       },
     ],
   },

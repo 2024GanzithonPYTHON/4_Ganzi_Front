@@ -386,7 +386,12 @@ const ApplyPaper = () => {
               <br />
               심사 탈락시 등록이 거부될 수 있음을 알려드립니다.
             </div>
-            <RealApplyButton onClick={(handleRealApply, goApplyDone)}>
+            <RealApplyButton
+              onClick={() => {
+                handleRealApply();
+                goApplyDone();
+              }}
+            >
               등록 신청 하기
             </RealApplyButton>
           </ModalContent>
