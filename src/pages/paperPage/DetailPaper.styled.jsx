@@ -36,15 +36,45 @@ export const PaperTitle = styled.h2`
   margin-bottom: 55px;
 `;
 export const Tap = styled.div`
-  height: 36px;
   width: 645px;
-  background: blue; //확인용
   margin-bottom: 65px;
+  border-bottom: 1.5px solid #d9d9d9;
+  display: flex;
+
+  ul {
+    display: flex;
+    height: 33px;
+    font-size: 20px;
+  }
+  .is-active {
+    padding-left: 30px;
+    padding-right: 30px;
+    border-bottom: 4.5px solid black;
+
+    font-weight: bold;
+    color: black;
+  }
+  li {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    color: #bababa;
+  }
 `;
 export const Content = styled.div`
-  height: 466px;
+  min-height: 466px;
+  width: 590px;
   background: blue; //확인용
   margin-bottom: 65px;
+
+  div {
+    overlfow: auto;
+  }
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 36px;
+  }
 `;
 
 /*오른쪽 (플로팅)*/
@@ -104,7 +134,7 @@ export const Seller = styled.div`
 
   border: 1px solid #d9d9d9;
   border-radius: 10px;
-  padding-top: 30px;
+  padding-top: 40px;
   padding-bottom: 30px;
   padding-left: 45px;
   padding-right: 45px;
@@ -112,14 +142,45 @@ export const Seller = styled.div`
 export const Profile = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 42px;
+  margin-bottom: 30px;
+  gap: 53px;
+  img {
+    width: 55px;
+    height: 55px;
+  }
 `;
-export const Pwrap = styled.div``;
+export const Pwrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  .name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+`;
 export const Email = styled.div`
   display: flex;
   align-items: center;
+  gap: 53px;
+  font-size: 20px;
+  .img {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 export const Heart = styled.div`
   display: flex;
   align-items: center;
+  gap: 53px;
+  font-size: 20px;
+  .img {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;

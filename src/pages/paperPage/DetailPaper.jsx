@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   PageContainer,
@@ -36,6 +36,40 @@ const DetailPaper = () => {
     navigate(-1);
   };
 
+  /* 탭 */
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const tabClickHandler = (index) => {
+    setActiveIndex(index);
+  };
+
+  const tabContArr = [
+    {
+      tabTitle: (
+        <li
+          className={activeIndex === 0 ? "is-active" : ""}
+          onClick={() => tabClickHandler(0)}
+        >
+          {" "}
+          비법서 설명{" "}
+        </li>
+      ),
+      tabCont: <div> `탭1 내용 adfdf asdf`</div>,
+    },
+    {
+      tabTitle: (
+        <li
+          className={activeIndex === 1 ? "is-active" : ""}
+          onClick={() => tabClickHandler(1)}
+        >
+          {" "}
+          후기{" "}
+        </li>
+      ),
+      tabCont: <div> 탭2 내용 </div>,
+    },
+  ];
+
   return (
     <PageContainer>
       <Title>
@@ -49,11 +83,18 @@ const DetailPaper = () => {
           <PaperImg>
             <img src={sampleImg} alt="sampleImg" />
           </PaperImg>
-          <PaperTitle>
-            달력 제작부터 펀딩까지 A to Z 로드맵dddddddddddddddddddddddd
-          </PaperTitle>
-          <Tap></Tap>
-          <Content></Content>
+          <PaperTitle>달력 제작부터 펀딩까지 A to Z 로드맵</PaperTitle>
+          <Tap>
+            <ul className="tabis-boxed">
+              {tabContArr.map((section, index) => {
+                return section.tabTitle;
+              })}
+            </ul>
+          </Tap>
+          <Content>
+            <div className="title">비법서 설명</div>
+            {tabContArr[activeIndex].tabCont}
+          </Content>
         </Left>
         <Right>
           <Buy>
@@ -76,11 +117,15 @@ const DetailPaper = () => {
               </Pwrap>
             </Profile>
             <Email>
-              <img src={email} alt="email" />
+              <div className="img">
+                <img src={email} alt="email" />
+              </div>
               <div className="adress">vktktkr@gmail.com</div>
             </Email>
             <Heart>
-              <img src={heart} alt="heart" />
+              <div className="img">
+                <img src={heart} alt="heart" />
+              </div>
               <div className="heartCount">100</div>
             </Heart>
           </Seller>

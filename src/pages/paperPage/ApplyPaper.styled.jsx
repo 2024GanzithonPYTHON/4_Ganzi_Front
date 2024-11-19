@@ -383,8 +383,6 @@ export const ModalOverlay = styled.div`
 
 // 모달 컨텐츠 (중앙 박스)
 export const ModalContent = styled.div`
-  // width: 375px;
-  // height: 234px;
   background-color: #ffffff;
   border-radius: 10px;
   display: flex;
