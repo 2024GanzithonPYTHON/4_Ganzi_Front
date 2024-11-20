@@ -7,6 +7,8 @@ import {
   ListTitle,
   RequiredMarker,
   ListDescription,
+  InputContainer,
+  InputContentContainer,
 } from "../ClubRegisterPage.styled";
 import UploadIcon from "../assets/Upload.png";
 
@@ -83,27 +85,32 @@ const ClubThumbnail = ({ onChange, initialThumbnail }) => {
           </ListDescription>
         </ListTextContainer>
       </ListDescriptionContainer>
-      <UploadFileTag
-        id="fileInput"
-        type="file"
-        accept="image/*"
-        onChange={handleThumbnailChange}
-      />
-      <UploadBox htmlFor="fileInput">
-        {previewUrl ? (
-          <ThumbnailPreview src={previewUrl} alt="이미지 미리보기" />
-        ) : (
-          <UploadMessage>
-            <img
-              src={UploadIcon}
-              alt="업로드 아이콘"
-              width="15px"
-              height="15px"
-            />
-            <p>이미지 업로드</p>
-          </UploadMessage>
-        )}
-      </UploadBox>
+
+      <InputContainer>
+        <InputContentContainer>
+          <UploadFileTag
+            id="fileInput"
+            type="file"
+            accept="image/*"
+            onChange={handleThumbnailChange}
+          />
+          <UploadBox htmlFor="fileInput">
+            {previewUrl ? (
+              <ThumbnailPreview src={previewUrl} alt="이미지 미리보기" />
+            ) : (
+              <UploadMessage>
+                <img
+                  src={UploadIcon}
+                  alt="업로드 아이콘"
+                  width="15px"
+                  height="15px"
+                />
+                <p>이미지 업로드</p>
+              </UploadMessage>
+            )}
+          </UploadBox>
+        </InputContentContainer>
+      </InputContainer>
     </FormListContainer>
   );
 };
