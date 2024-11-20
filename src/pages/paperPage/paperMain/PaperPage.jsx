@@ -44,8 +44,6 @@ import downloadImg from "./img/downloadImg.svg";
 import star from "./img/star.svg";
 
 const PaperPage = () => {
-  const navigate = useNavigate();
-
   // 샘플 데이터
   const books = [
     {
@@ -194,6 +192,17 @@ const PaperPage = () => {
     setCurrentPage(pageNumber);
   };
 
+  /* 이동 */
+  const navigate = useNavigate();
+
+  const goApply = () => {
+    navigate("/apply/paper");
+  };
+
+  const goDetail = () => {
+    navigate("/detail/paper");
+  };
+
   return (
     <PageContainer>
       <Wrap1>
@@ -204,7 +213,7 @@ const PaperPage = () => {
               <FaSearch />
             </SearchButton>
           </StyledSearchBar>
-          <RegisterButton>+ 등록하기</RegisterButton>
+          <RegisterButton onClick={goApply}>+ 등록하기</RegisterButton>
         </SearchBarContainer>
         <FilterContainer>
           {filters.map((filter, index) => (
@@ -233,7 +242,7 @@ const PaperPage = () => {
 
               {/* SpecCard - BookCard 바로 위에 위치 */}
               {selectedBookId === book.id && (
-                <SpecCard className="spec-card">
+                <SpecCard className="spec-card" onClick={goDetail}>
                   <SC>
                     <SCtitle>{book.title}</SCtitle>
                     <SCcontent>{book.content}</SCcontent>
@@ -267,7 +276,7 @@ const PaperPage = () => {
         <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
           {currentItems.map((item) => (
-            <ListItem key={item.id}>
+            <ListItem key={item.id} onClick={goDetail}>
               <ItemImage src={item.image} alt={item.title} />
               <div className="content">
                 <ItemTitle>{item.title}</ItemTitle>

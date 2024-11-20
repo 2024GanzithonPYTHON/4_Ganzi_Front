@@ -87,7 +87,7 @@ const ApplyPaper = () => {
   };
 
   const goApplyDone = () => {
-    navigate("/applydone");
+    navigate("/apply/paper/done");
   };
 
   /* 파일 드래그 앤 드롭 */

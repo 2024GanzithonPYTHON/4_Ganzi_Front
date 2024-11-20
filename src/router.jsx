@@ -1,13 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import { OutletContainer } from "./OutletContainer";
+
 import MainPage from "./pages/mainPage/mainPage";
+
 import ClubPage from "./pages/clubPage/ClubPage";
-import PaperPage from "./pages/paperPage/PaperPage";
-import MyPage from "./pages/myPage/MyPage";
+
+import PaperPage from "./pages/paperPage/paperMain/PaperPage";
 import ApplyPaper from "./pages/paperPage/ApplyPaper";
 import ApplyPaperDone from "./pages/paperPage/ApplyPaperDone";
 import DetailPaper from "./pages/paperPage/DetailPaper";
 import PaperPayDone from "./pages/paperPage/PaperPayDone";
+
+import MyPage from "./pages/myPage/MyPage";
 
 export default createBrowserRouter([
   {
@@ -27,24 +31,24 @@ export default createBrowserRouter([
         element: <PaperPage />,
       },
       {
-        path: "/my",
-        element: <MyPage />,
-      },
-      {
-        path: "/applypaper",
+        path: "/apply/paper",
         element: <ApplyPaper />,
       },
       {
-        path: "/applypaperdone",
+        path: "/apply/paper/done",
         element: <ApplyPaperDone />,
       },
       {
-        path: "/detailpaper",
+        path: "/detail/paper",
         element: <DetailPaper />,
       },
       {
-        path: "/paper_paydone",
+        path: "/paper/paydone",
         element: <PaperPayDone />,
+      },
+      {
+        path: "/my",
+        element: <MyPage />,
       },
     ],
   },
