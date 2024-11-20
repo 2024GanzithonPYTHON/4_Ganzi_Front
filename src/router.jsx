@@ -6,10 +6,10 @@ import MainPage from "./pages/mainPage/mainPage";
 import ClubPage from "./pages/clubPage/ClubPage";
 
 import PaperPage from "./pages/paperPage/paperMain/PaperPage";
-import ApplyPaper from "./pages/paperPage/ApplyPaper";
-import ApplyPaperDone from "./pages/paperPage/ApplyPaperDone";
-import DetailPaper from "./pages/paperPage/DetailPaper";
-import PaperPayDone from "./pages/paperPage/PaperPayDone";
+import ApplyPaper from "./pages/paperPage/paperApply/ApplyPaper";
+import ApplyPaperDone from "./pages/paperPage/paperApply/ApplyPaperDone";
+import DetailPaper from "./pages/paperPage/paperDetail/DetailPaper";
+import PaperPayDone from "./pages/paperPage/paperPay/PaperPayDone";
 
 import MyPage from "./pages/myPage/MyPage";
 
