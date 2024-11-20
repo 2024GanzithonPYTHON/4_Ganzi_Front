@@ -39,11 +39,11 @@ export const BudgetSection = styled.section`
     background-color: #f8f8f8;
 `;
 
-export const MenuSection = styled.section`
-    background-color: #fff;
+export const MenuSection = styled.div`
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 20px;
 `;
 
 export const HistorySection = styled.section`
