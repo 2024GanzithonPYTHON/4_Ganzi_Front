@@ -8,6 +8,7 @@ import {
   RequiredMarker,
   ListDescription,
   InputContainer,
+  InputContentContainer,
   TextArea,
 } from "../ClubRegisterPage.styled";
 
@@ -39,12 +40,14 @@ const ClubCriteria = ({ onChange, initialCriteria }) => {
         </ListTextContainer>
       </ListDescriptionContainer>
       <InputContainer>
-        <TextArea
-          height="150px"
-          value={criteria}
-          onChange={handleCriteriaChange}
-          placeholder="프로젝트를 함께하고 싶은 팀원의 지원 자격에 대해 작성해주세요."
-        />
+        <InputContentContainer>
+          <TextArea
+            height="150px"
+            value={criteria}
+            onChange={handleCriteriaChange}
+            placeholder="프로젝트를 함께하고 싶은 팀원의 지원 자격에 대해 작성해주세요."
+          />
+        </InputContentContainer>
       </InputContainer>
     </FormListContainer>
   );
