@@ -12,7 +12,7 @@ export default function MyPageHome() {
         <MyBudgetInfo/>
       </BudgetSection>
       <PurchaseManagementSection>
-        <SectionTitle>내역을 한눈에 확인해보세요</SectionTitle>
+        <SectionTitle>내역을 한눈에 확인해보세요!</SectionTitle>
         <PurchaseItemList />
       </PurchaseManagementSection>
       <HistorySection>
