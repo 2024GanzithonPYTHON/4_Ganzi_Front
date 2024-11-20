@@ -10,6 +10,7 @@ import {
   Left,
   ClubImg,
   ClubTitle,
+  Floating,
 } from "./DetailClub.styled";
 import backBtn from "./img/back.svg";
 import sampleImg from "./img/sampleImg.svg";
@@ -37,7 +38,9 @@ const DetailClub = () => {
           </ClubImg>
           <Content />
         </Left>
-        <FloatingContainer />
+        <Floating>
+          <FloatingContainer />
+        </Floating>
       </Wrap>
     </PageContainer>
   );

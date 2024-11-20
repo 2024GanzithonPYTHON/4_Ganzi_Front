@@ -15,8 +15,10 @@ export const TitleText = styled.h2`
 `;
 export const Wrap = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 113px;
+  justify-content: space-between;
+  width: 1187px;
+  margin: 0px auto;
+  overflow: visible;
 `;
 
 /*왼쪽*/
@@ -27,21 +29,19 @@ export const Left = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const ClubImg = styled.div`
-  width: 645px;
-  height: 300px;
-  margin-bottom: 33px;
-`;
 export const ClubTitle = styled.h2`
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 55px;
+  margin-bottom: 21px;
   width: 645px;
   word-wrap: break-word;
 `;
+export const ClubImg = styled.div`
+  width: 645px;
+  height: 300px;
+  margin-bottom: 106px;
+`;
 
-export const ContentContainer = styled.div`
-  min-height: 466px;
-  width: 590px;
-  margin-bottom: 65px;
+export const Floating = styled.div`
+  height: 200px;
 `;
