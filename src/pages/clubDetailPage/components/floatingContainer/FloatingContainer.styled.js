@@ -4,5 +4,5 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 33px;
-  width: 450px;
+  width: 388px;
 `;
