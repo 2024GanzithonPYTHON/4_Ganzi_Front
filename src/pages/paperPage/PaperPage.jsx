@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 import {
   PageContainer,
   Wrap1,
-  Search,
-  SearchBar,
-  MakeBtn,
+  StyledSearchBar,
+  SearchInput,
+  SearchButton,
+  RegisterButton,
+  SearchBarContainer,
   FilterContainer,
   FilterButton,
   RecommendedSection,
@@ -33,7 +36,6 @@ import {
   PageNumber,
 } from "./PaperPage.styled";
 import { RecommendedContainer } from "./PaperPage.styled";
-import plusImg from "./img/plus.svg";
 import userImg from "./img/user.svg";
 import emailImg from "./img/email.svg";
 import heartImg from "./img/heart.svg";
@@ -43,17 +45,6 @@ import star from "./img/star.svg";
 
 const PaperPage = () => {
   const navigate = useNavigate();
-  // 로그인 상태 관리 (임시 구현)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleMakeBtnClick = () => {
-    if (isLoggedIn) {
-      console.log("로그인 됨");
-      navigate("/applypaper"); // 로그인 상태에서 /applypaper로 이동
-    } else {
-      console.log("로그인 안됨");
-      // 여기에 로그인 페이지로 이동하는 로직을 추가할 수 있음
-    }
-  };
 
   // 샘플 데이터
   const books = [
@@ -206,14 +197,15 @@ const PaperPage = () => {
   return (
     <PageContainer>
       <Wrap1>
-        <Search>
-          <SearchBar placeholder="검색어를 검색해보세요!" />
-          <MakeBtn onClick={handleMakeBtnClick}>
-            <img src={plusImg} alt="plus" />
-            <p>등록하기</p>
-          </MakeBtn>
-        </Search>
-
+        <SearchBarContainer>
+          <StyledSearchBar>
+            <SearchInput placeholder="어쩌구 저쩌구를 검색해보세요!" />
+            <SearchButton>
+              <FaSearch />
+            </SearchButton>
+          </StyledSearchBar>
+          <RegisterButton>+ 등록하기</RegisterButton>
+        </SearchBarContainer>
         <FilterContainer>
           {filters.map((filter, index) => (
             <FilterButton

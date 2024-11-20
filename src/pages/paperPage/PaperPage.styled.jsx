@@ -3,72 +3,94 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   padding: 20px;
   background-color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const Wrap1 = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 1000px;
-  gap: 18px;
-  margin-bottom: 40px;
-  margin-top: 87px;
-`;
-export const Search = styled.div`
-  display: flex;
-  margin-left: auto;
+  max-width: 900px;
+  margin: 20px auto;
   gap: 20px;
 `;
 
-export const SearchBar = styled.input`
-  width: 467px;
-  padding: 10px;
-  font-size: 16px;
-  height: 40px;
-  border: 1px solid #00a8cc;
-  border-radius: 15px;
+export const SearchBarContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 100%;
+  gap: 10px;
+`;
 
+export const StyledSearchBar = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 0px 12px;
+
+  border: 2px solid #00a8cc;
+  border-radius: 25px;
+  background-color: white;
+`;
+
+export const SearchInput = styled.input`
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px;
+  background-color: transparent;
+  color: #666;
   &::placeholder {
-    padding-left: 140px;
+    color: #999;
   }
 `;
-export const MakeBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 117px;
-  height: 40px;
-  background-color: #00a8cc;
-  gap: 5px;
+
+export const SearchButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #4a4a4a;
+
+  &:hover {
+    color: #333;
+  }
+`;
+
+export const RegisterButton = styled.button`
+  min-width: 100px;
+  background: #00a8cc;
+  color: white;
   border: none;
   border-radius: 10px;
-  p {
-    font: 10px;
-    color: #fff8e1;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    background: #008ecc;
   }
 `;
 export const FilterContainer = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  border-top: 3px solid black;
-  }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 2px solid black;
+  background-color: white;
 `;
 
 export const FilterButton = styled.button`
-  padding: 8px 12px;
-  color: black;
+  background: white;
+  border: 0.5px solid #ddd;
+  padding: 10px 15px;
+  font-size: 14px;
   cursor: pointer;
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  background-color: ${({ isselected }) => (isselected ? "#EAF7FB" : "white")};
-  font-weight: ${({ isselected }) => (isselected ? "bold" : "medium")};
+
   &:hover {
-    background-color: #c6ebf4;
+    background: #e0e0e0;
   }
 `;
 
@@ -76,25 +98,22 @@ export const RecommendedSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  border-radius: 10px;
+  margin: 50px auto;
+  width: 1200px;
 `;
-
+export const RecommendedTitle = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+`;
 export const RecommendedContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
   width: 1200px;
 `;
 export const BookContainer = styled.div`
   width: 324px;
   height: 536px;
-  margin-right: 20px;
   position: relative; /* SpecCard의 기준 위치 설정 */
-`;
-
-export const RecommendedTitle = styled.h2`
-  font-size: 24px;
-  font-weight: 700;
 `;
 
 export const BookCard = styled.div`
@@ -205,8 +224,8 @@ export const Wrap2 = styled.div`
   display: flex;
   flex-direction: column;
   width: 1200px;
-  margin-top: 100px;
   gap: 20px;
+  margin: 100px auto;
 `;
 export const CategoryTitle = styled.h3`
   font-size: 24px;
