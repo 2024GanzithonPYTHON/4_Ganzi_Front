@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Hits,
   PageContainers,
@@ -20,6 +20,12 @@ import likeNone from "./img/likeNone.svg";
 import like from "./img/like.svg";
 
 export const Buy = () => {
+  // 좋아요 상태 관리
+  const [isLiked, setIsLiked] = useState(false);
+  const handleLikeClick = () => {
+    setIsLiked((prev) => !prev); // 현재 상태의 반대를 설정
+  };
+
   return (
     <PageContainers>
       <Hits>
@@ -55,8 +61,8 @@ export const Buy = () => {
       </PointContainer>
       <Buttons>
         <ApplyBtn>지원하기</ApplyBtn>
-        <LikeBtn>
-          <img src={likeNone} alt="likeNone" />
+        <LikeBtn isLiked={isLiked} onClick={handleLikeClick}>
+          <img src={isLiked ? like : likeNone} alt="likeNone" />
         </LikeBtn>
       </Buttons>
     </PageContainers>

@@ -76,21 +76,20 @@ export const Buttons = styled.div`
   display: flex;
   gap: 12px;
 `;
-export const ApplyBtn = styled.div`
+export const ApplyBtn = styled.button`
   padding: 16px 70px;
   background-color: #00a8cc;
   border-radius: 5px;
 
   color: white;
   font-size: 18px;
-  cursor: pointer;
 `;
-export const LikeBtn = styled.div`
+export const LikeBtn = styled.button`
   display: flex;
   align-items: center;
   padding: 12px 18px;
-  border: 1px solid black;
   border-radius: 5px;
 
-  cursor: pointer;
+  border: ${({ isLiked }) => (isLiked ? "1px solid white" : "1px solid black")};
+  background-color: ${({ isLiked }) => (isLiked ? "#EE5648" : "white")};
 `;
