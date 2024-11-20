@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `
 
 
-export default function ProjectListItem({filter}) {
+export default function ListItemSort({filter}) {
   const [projectData, setProjectData] = useState([]);
 
   useEffect(() => {

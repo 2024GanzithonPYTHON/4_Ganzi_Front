@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MainTitle, SubTitle, TitleSection, ListSection } from './Project.styled'
-import ProjectListItem from './components/ProjectListItem'
+import ListItemShort from './components/ListItemShort'
 
 export default function ProjectLiked() {
   const [isFilterLatest, setIsFilterLatest] = useState(false)
@@ -17,7 +17,7 @@ export default function ProjectLiked() {
           <span>|</span>
           <span onClick={() => setIsFilterLatest(true)}>최신순</span>
         </div>
-        <ProjectListItem filter={isFilterLatest}/>
+        <ListItemShort filter={isFilterLatest}/>
       </ListSection>
     </>
   )

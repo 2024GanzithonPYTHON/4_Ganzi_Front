@@ -14,6 +14,7 @@ import MyPageHome from './routerPages/home/MyPageHome';
 import ProjectLiked from './routerPages/Project/ProjectLiked';
 import ProjectApply from './routerPages/Project/ProjectApply';
 import ProjectHistory from './routerPages/Project/ProjectHistory';
+import ProjectRecruit from './routerPages/Project/ProjectRecruit';
 
 const MyPage = () => {
     return (
@@ -33,6 +34,7 @@ const MyPage = () => {
                     <Route path='project/like' element={<ProjectLiked/>} />
                     <Route path='project/apply' element={<ProjectApply/>}/>
                     <Route path='project/history' element={<ProjectHistory/>}/>
+                    <Route path='project/recruit' element={<ProjectRecruit/>}/>
                 </Routes>
             </RightSection>
         </PageContainer>

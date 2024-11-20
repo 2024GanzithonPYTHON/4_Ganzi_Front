@@ -6,12 +6,16 @@ const LongListItem = styled.div`
   display: flex;
 `
 
-export default function PjListItemLong() {
+export default function ListItemLong({filter}) {
   const[ projectData, setProjectData ] = useState([]);
 
   useEffect(() => {
     getMockData().then((response) => setProjectData(response))
-  }, [])
+  }, [filter])
+
+  useEffect(() => {
+    console.log('filter 값: ', filter);
+  }, [filter])
 
   return (
     <div>
