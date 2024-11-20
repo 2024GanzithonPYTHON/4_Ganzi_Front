@@ -168,6 +168,16 @@ const PaperPage = () => {
   const [selectedBookId, setSelectedBookId] = useState(null);
 
   /* 카테고리 */
+  const filters = [
+    "전체",
+    "디자인 문구",
+    "홈/리빙",
+    "캐릭터/굿즈",
+    "파티/행사",
+    "출판",
+    "의류",
+    "예술",
+  ];
   // 선택된 카테고리 버튼의 값을 저장
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [currentPage, setCurrentPage] = useState(1);
@@ -205,16 +215,7 @@ const PaperPage = () => {
         </Search>
 
         <FilterContainer>
-          {[
-            "전체",
-            "디자인 문구",
-            "홈/리빙",
-            "캐릭터/굿즈",
-            "파티/행사",
-            "출판",
-            "의류",
-            "예술",
-          ].map((filter, index) => (
+          {filters.map((filter, index) => (
             <FilterButton
               key={index}
               onClick={() => setSelectedCategory(filter)}
