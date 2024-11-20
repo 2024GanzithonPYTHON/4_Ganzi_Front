@@ -16,7 +16,7 @@ const ClubRegisterPage = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState("1");
   const [formData, setFormData] = useState({
-    category: [],
+    category: "",
     shortTitle: "",
     longTitle: "",
     memberCount: 0,

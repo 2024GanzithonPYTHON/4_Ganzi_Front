@@ -42,23 +42,18 @@ const categoryList = [
 ];
 
 const ClubCategory = ({ onChange, initialCategory }) => {
-  const [selectedCategories, setSelectedCategories] = useState(
-    initialCategory || []
+  const [selectedCategory, setSelectedCategory] = useState(
+    initialCategory || ""
   );
 
   useEffect(() => {
-    setSelectedCategories(initialCategory || []);
+    setSelectedCategory(initialCategory || "");
   }, [initialCategory]);
 
   const handleCategory = (item) => {
-    setSelectedCategories((prev) => {
-      const newResult = !prev.includes(item)
-        ? [...prev, item]
-        : prev.filter((category) => category !== item);
-
-      onChange(newResult);
-      return newResult;
-    });
+    const newCategory = selectedCategory === item ? "" : item;
+    setSelectedCategory(newCategory);
+    onChange(newCategory);
   };
 
   return (
@@ -79,7 +74,7 @@ const ClubCategory = ({ onChange, initialCategory }) => {
             {categoryList.map((item, idx) => (
               <CategoryButton
                 key={idx}
-                $isSelected={selectedCategories.includes(item)}
+                $isSelected={selectedCategory === item}
                 onClick={() => handleCategory(item)}
               >
                 {item}
