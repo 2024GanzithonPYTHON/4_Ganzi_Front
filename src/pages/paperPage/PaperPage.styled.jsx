@@ -33,7 +33,7 @@ export const FilterContainer = styled.div`
     //     &:hover {
     //         background-color: #0056b3;
     //     }
-    }
+    
 `;
 
 export const FilterButton = styled.button`

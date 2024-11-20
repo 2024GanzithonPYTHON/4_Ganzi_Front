@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MainTitle, SubTitle, TitleSection, ListSection } from './Project.styled'
+import { MainTitle, SubTitle, TitleSection, ListSection, FilterSection, FilterItem } from './Project.styled'
 import ListItemShort from './components/ListItemShort'
 
 export default function ProjectLiked() {
@@ -12,11 +12,15 @@ export default function ProjectLiked() {
         <SubTitle>내가 찜한 프로젝트</SubTitle>
       </TitleSection>
       <ListSection>
-        <div>
-          <span onClick={() => setIsFilterLatest(false)}>마감 임박순</span>
-          <span>|</span>
-          <span onClick={() => setIsFilterLatest(true)}>최신순</span>
-        </div>
+        <FilterSection>
+          <FilterItem
+          onClick={() => setIsFilterLatest(false)}
+          isActive={!isFilterLatest}>마감 임박순</FilterItem>
+          <span className='middle-bar'>|</span>
+          <FilterItem
+          onClick={() => setIsFilterLatest(true)}
+          isActive={isFilterLatest}>최신순</FilterItem>
+        </FilterSection>
         <ListItemShort filter={isFilterLatest}/>
       </ListSection>
     </>

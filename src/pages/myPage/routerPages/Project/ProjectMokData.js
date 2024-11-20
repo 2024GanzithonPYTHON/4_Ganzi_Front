@@ -17,7 +17,7 @@ const mockData = [
     totalMembers: 8,
     currentMembers: 4,
     date: '2024.11.03',
-    mystate: '거절'
+    mystate: '반려'
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const mockData = [
     totalMembers: 20,
     currentMembers: 15,
     date: '2024.10.30',
-    mystate: '수락'
+    mystate: '승인'
   },
   {
     id: 4,
