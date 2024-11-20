@@ -13,6 +13,8 @@ import PaperPayDone from "./pages/paperPage/paperPay/PaperPayDone";
 
 import MyPage from "./pages/myPage/MyPage";
 
+import Login from "./pages/loginPage/Login";
+
 export default createBrowserRouter([
   {
     path: "/",
@@ -49,6 +51,10 @@ export default createBrowserRouter([
       {
         path: "/my",
         element: <MyPage />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
