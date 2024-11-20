@@ -21,7 +21,7 @@ const ClubRegisterPage = () => {
     longTitle: "",
     memberCount: 0,
     deadline: "",
-    thumbnail: [],
+    thumbnail: null,
     content: {
       introduce: "",
       goal: "",
@@ -41,7 +41,7 @@ const ClubRegisterPage = () => {
         />
         <PageTitle>프로젝트 만들기</PageTitle>
       </PageTitleContainer>
-      <StepMarker currentStep={step} changeStep={setStep} />
+      <StepMarker currentStep={step} />
       {step === "1" && (
         <FormStepOne
           changeStep={setStep}
