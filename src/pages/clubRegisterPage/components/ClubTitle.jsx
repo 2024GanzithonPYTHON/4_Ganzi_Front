@@ -7,13 +7,15 @@ import {
   ListTitle,
   RequiredMarker,
   ListDescription,
+  InputContainer,
+  InputContentContainer,
 } from "../ClubRegisterPage.styled";
 
 import PreviewShort from "../assets/preview_short.png";
 import PreviewLong from "../assets/preview_long.png";
 
 const TitleBox = styled.div`
-  width: 700px;
+  width: 100%;
 `;
 
 const TitleType = styled.h1`
@@ -98,41 +100,44 @@ const ClubTitle = ({ onChange, initialShortTitle, initialLongTitle }) => {
           </ListDescription>
         </ListTextContainer>
       </ListDescriptionContainer>
-
-      <TitleBox>
-        <TitleType>짧은 제목</TitleType>
-        <TitlePreviewBox>
-          <TitleDescription>
-            짧은 제목은 <br />
-            어디에 쓰이나요?
-          </TitleDescription>
-          <img src={PreviewShort} alt="짧은 제목 미리 보기" />
-        </TitlePreviewBox>
-        <TitleInput
-          type="text"
-          maxLength={12}
-          value={shortTitle}
-          onChange={handleShortTitleChange}
-          placeholder="프로젝트의 짧은 제목을 입력해주세요."
-        />
-        <TitleLength>{shortTitle.length}/12</TitleLength>
-        <TitleType>긴 제목</TitleType>
-        <TitlePreviewBox>
-          <TitleDescription>
-            긴 제목은 <br />
-            어디에 쓰이나요?
-          </TitleDescription>
-          <img src={PreviewLong} alt="긴 제목 미리 보기" />
-        </TitlePreviewBox>
-        <TitleInput
-          type="text"
-          maxLength={22}
-          value={longTitle}
-          onChange={handleLongTitleChange}
-          placeholder="프로젝트의 긴 제목을 입력해주세요."
-        />
-        <TitleLength>{longTitle.length}/22</TitleLength>
-      </TitleBox>
+      <InputContainer>
+        <InputContentContainer>
+          <TitleBox>
+            <TitleType>짧은 제목</TitleType>
+            <TitlePreviewBox>
+              <TitleDescription>
+                짧은 제목은 <br />
+                어디에 쓰이나요?
+              </TitleDescription>
+              <img src={PreviewShort} alt="짧은 제목 미리 보기" />
+            </TitlePreviewBox>
+            <TitleInput
+              type="text"
+              maxLength={12}
+              value={shortTitle}
+              onChange={handleShortTitleChange}
+              placeholder="프로젝트의 짧은 제목을 입력해주세요."
+            />
+            <TitleLength>{shortTitle.length}/12</TitleLength>
+            <TitleType>긴 제목</TitleType>
+            <TitlePreviewBox>
+              <TitleDescription>
+                긴 제목은 <br />
+                어디에 쓰이나요?
+              </TitleDescription>
+              <img src={PreviewLong} alt="긴 제목 미리 보기" />
+            </TitlePreviewBox>
+            <TitleInput
+              type="text"
+              maxLength={22}
+              value={longTitle}
+              onChange={handleLongTitleChange}
+              placeholder="프로젝트의 긴 제목을 입력해주세요."
+            />
+            <TitleLength>{longTitle.length}/22</TitleLength>
+          </TitleBox>
+        </InputContentContainer>
+      </InputContainer>
     </FormListContainer>
   );
 };

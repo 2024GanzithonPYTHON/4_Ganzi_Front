@@ -7,10 +7,12 @@ import {
   ListTitle,
   RequiredMarker,
   ListDescription,
+  InputContentContainer,
+  InputContainer,
 } from "../ClubRegisterPage.styled";
 
 const ButtonContainer = styled.div`
-  width: 500px;
+  width: 350px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -18,10 +20,9 @@ const ButtonContainer = styled.div`
 
 const CategoryButton = styled.button`
   height: 40px;
-  padding: 0 50px;
+  padding: 0 30px;
   border: 1px solid #757575;
   border-radius: 30px;
-  flex-grow: 1;
   flex-basis: auto;
   text-align: center;
   white-space: nowrap;
@@ -31,15 +32,13 @@ const CategoryButton = styled.button`
 `;
 
 const categoryList = [
-  "전체",
   "디자인 문구",
+  "출판",
   "홈/리빙",
   "캐릭터/굿즈",
   "파티/행사",
-  "출판",
   "의류",
-  "향수/뷰티",
-  "영화/비디오",
+  "예술",
 ];
 
 const ClubCategory = ({ onChange, initialCategory }) => {
@@ -74,17 +73,21 @@ const ClubCategory = ({ onChange, initialCategory }) => {
           </ListDescription>
         </ListTextContainer>
       </ListDescriptionContainer>
-      <ButtonContainer>
-        {categoryList.map((item, idx) => (
-          <CategoryButton
-            key={idx}
-            $isSelected={selectedCategories.includes(item)}
-            onClick={() => handleCategory(item)}
-          >
-            {item}
-          </CategoryButton>
-        ))}
-      </ButtonContainer>
+      <InputContainer>
+        <InputContentContainer>
+          <ButtonContainer>
+            {categoryList.map((item, idx) => (
+              <CategoryButton
+                key={idx}
+                $isSelected={selectedCategories.includes(item)}
+                onClick={() => handleCategory(item)}
+              >
+                {item}
+              </CategoryButton>
+            ))}
+          </ButtonContainer>
+        </InputContentContainer>
+      </InputContainer>
     </FormListContainer>
   );
 };

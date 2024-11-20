@@ -7,10 +7,12 @@ import {
   ListTitle,
   RequiredMarker,
   ListDescription,
+  InputContainer,
+  InputContentContainer,
 } from "../ClubRegisterPage.styled";
 
 const FieldBox = styled.div`
-  width: 700px;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -74,16 +76,20 @@ const ClubCount = ({ onChange, initialMemberCount }) => {
           </ListDescription>
         </ListTextContainer>
       </ListDescriptionContainer>
-      <FieldBox>
-        <InputField
-          type="text"
-          placeholder="모집 인원을 입력해주세요 (숫자만 입력)"
-          onChange={handleMemberCountChange}
-          value={memberCount}
-        />
-        {isValid && <AlertMessage>{isValid}</AlertMessage>}
-        <MemberLimit>최대 8명</MemberLimit>
-      </FieldBox>
+      <InputContainer>
+        <InputContentContainer>
+          <FieldBox>
+            <InputField
+              type="text"
+              placeholder="모집 인원을 입력해주세요 (숫자만 입력)"
+              onChange={handleMemberCountChange}
+              value={memberCount}
+            />
+            {isValid && <AlertMessage>{isValid}</AlertMessage>}
+            <MemberLimit>최대 8명</MemberLimit>
+          </FieldBox>
+        </InputContentContainer>
+      </InputContainer>
     </FormListContainer>
   );
 };

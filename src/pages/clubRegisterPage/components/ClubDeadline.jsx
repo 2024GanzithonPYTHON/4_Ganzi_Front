@@ -7,15 +7,9 @@ import {
   ListTitle,
   RequiredMarker,
   ListDescription,
+  InputContainer,
+  InputContentContainer,
 } from "../ClubRegisterPage.styled";
-
-const FieldBox = styled.div`
-  width: 700px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-`;
 
 const InputField = styled.input`
   width: 136px;
@@ -53,14 +47,16 @@ const ClubDeadLine = ({ onChange, initialDeadline }) => {
           </ListDescription>
         </ListTextContainer>
       </ListDescriptionContainer>
-      <FieldBox>
-        <InputField
-          type="date"
-          value={deadline}
-          onChange={handleDeadlineChange}
-          min={today}
-        />
-      </FieldBox>
+      <InputContainer>
+        <InputContentContainer>
+          <InputField
+            type="date"
+            value={deadline}
+            onChange={handleDeadlineChange}
+            min={today}
+          />
+        </InputContentContainer>
+      </InputContainer>
     </FormListContainer>
   );
 };
