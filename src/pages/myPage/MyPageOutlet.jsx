@@ -15,6 +15,8 @@ import ProjectLiked from './routerPages/Project/ProjectLiked';
 import ProjectApply from './routerPages/Project/ProjectApply';
 import ProjectHistory from './routerPages/Project/ProjectHistory';
 import ProjectRecruit from './routerPages/Project/ProjectRecruit';
+import PaperPurchases from './routerPages/paper/PaperPurchases';
+import PaperShared from './routerPages/paper/PaperShared';
 
 const MyPage = () => {
     return (
@@ -35,6 +37,8 @@ const MyPage = () => {
                     <Route path='project/apply' element={<ProjectApply/>}/>
                     <Route path='project/history' element={<ProjectHistory/>}/>
                     <Route path='project/recruit' element={<ProjectRecruit/>}/>
+                    <Route path='paper/purchases' element={<PaperPurchases/>}/>
+                    <Route path='paper/shared' element={<PaperShared/>}/>
                 </Routes>
             </RightSection>
         </PageContainer>
