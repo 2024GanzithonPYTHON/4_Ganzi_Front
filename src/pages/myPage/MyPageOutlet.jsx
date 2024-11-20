@@ -33,7 +33,6 @@ const MyPage = () => {
                     <Route path='project/like' element={<ProjectLiked/>} />
                     <Route path='project/apply' element={<ProjectApply/>}/>
                     <Route path='project/history' element={<ProjectHistory/>}/>
-                    <Route path='project/history' element={<ProjectHistory/>}/>
                 </Routes>
             </RightSection>
         </PageContainer>
