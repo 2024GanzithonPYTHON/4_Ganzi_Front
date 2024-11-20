@@ -24,19 +24,13 @@ const Step = styled.div`
   color: ${(props) => (props.$isActive ? "#00A2D3" : "#757575")};
   border-bottom: ${(props) =>
     props.$isActive ? "6px solid #00A2D3" : "6px solid #D9D9D9"};
-
-  cursor: pointer;
 `;
 
-const StepMarker = ({ currentStep, changeStep }) => {
+const StepMarker = ({ currentStep }) => {
   return (
     <StepContainer>
-      <Step $isActive={currentStep === "1"} onClick={() => changeStep("1")}>
-        STEP.1
-      </Step>
-      <Step $isActive={currentStep === "2"} onClick={() => changeStep("2")}>
-        STEP.2
-      </Step>
+      <Step $isActive={currentStep === "1"}>STEP.1</Step>
+      <Step $isActive={currentStep === "2"}>STEP.2</Step>
     </StepContainer>
   );
 };
