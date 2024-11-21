@@ -30,9 +30,13 @@ export const CardTitleSection = styled.div`
 export const PeopleSection = styled.div`
   display: flex;
   justify-content: right;
+  align-items: center;
   padding: 10px 20px;
 `
 export const Profile = styled.img`
-  width: 14px;
+  display: flex;
+  align-items: center;
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
 `

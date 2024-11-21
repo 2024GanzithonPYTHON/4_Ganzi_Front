@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getMockData } from '../ProjectMokData'
 import { TableCont, TableRow, TableTitleRow, TableCellBig, TableCellSmall, TableCellBtn, Button } from './TableList.styled'
+import { Profile } from './ListItemShort.styled'
+import profile from '../../../../../assets/profileIcon.png'
 
 export default function TableList() {
   const [applyData, setApplyData] = useState([])
@@ -24,9 +26,8 @@ export default function TableList() {
             <TableCellSmall>{row.date}</TableCellSmall>
             <TableCellBig>{row.title}</TableCellBig>
             <TableCellSmall>
-              <span>{row.currentMembers}</span>
-              <span>/</span>
-              <span>{row.totalMembers}</span>
+              <Profile src={profile} />
+              {row.currentMembers}/{row.totalMembers}
             </TableCellSmall>
             <TableCellSmall>
               {row.mystate}

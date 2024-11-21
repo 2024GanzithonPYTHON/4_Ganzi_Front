@@ -28,6 +28,7 @@ export const TableRow = styled.div`
 export const TableCellSmall = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   width: 130px;
 `

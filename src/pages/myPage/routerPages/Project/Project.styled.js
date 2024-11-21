@@ -19,11 +19,6 @@ export const SubTitle = styled.p`
   font-size: 20px;
 `
 
-export const ListSection = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
 export const StatusSection = styled.div`
   display: flex;
   justify-content: center;

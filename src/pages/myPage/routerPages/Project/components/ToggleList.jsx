@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getMockData } from '../ProjectMokData';
 import ToggleComponent from './ToggleComponent';
+import { LongListContBox, LongListImgBox, LongListItem } from './ListItemLong.styled';
 
 export default function ToggleList() {
   const [projectData, setProjectData] = useState([]);
@@ -10,20 +11,24 @@ export default function ToggleList() {
   }, [])
 
   return (
-    <div>
+    <>
       {projectData.map((item) => (
         <div>
-          <div>
-            <img src={item.image}/>
-          </div>
-          <div>
-            <h4>{item.image}</h4>
-            <p>{item.date}</p>
-          </div>
-          <p>{item.summary}</p>
+          <LongListItem style={{marginBottom: 0}}>
+            <LongListImgBox>
+              <img src={item.image}/>
+            </LongListImgBox>
+            <LongListContBox>
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.date}</p>
+              </div>
+              <p>{item.summary}</p>
+            </LongListContBox>
+          </LongListItem>
           <ToggleComponent id={item.id}/>
         </div>
       ))}
-    </div>
+    </>
   )
 }
