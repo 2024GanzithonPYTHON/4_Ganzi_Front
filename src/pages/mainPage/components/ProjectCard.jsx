@@ -1,13 +1,19 @@
-import React from 'react';
-import { CardContainer, CardImage, CardTitle } from './ProjectCard.styled';
+import {
+  CardContainer,
+  CardImage,
+  CardTitle,
+  CardTitleText,
+} from "./ProjectCard.styled";
 
-const ProjectCard = ({ title, imgSrc }) => {
-    return (
-        <CardContainer>
-            <CardImage src={imgSrc} alt={title} />
-            <CardTitle>{title}</CardTitle>
-        </CardContainer>
-    );
+const ProjectCard = ({ title, src }) => {
+  return (
+    <CardContainer>
+      <CardImage src={src} alt={title} />
+      <CardTitle>
+        <CardTitleText>{title}</CardTitleText>
+      </CardTitle>
+    </CardContainer>
+  );
 };
 
 export default ProjectCard;
