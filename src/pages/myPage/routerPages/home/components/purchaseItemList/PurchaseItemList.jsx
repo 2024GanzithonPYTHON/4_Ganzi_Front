@@ -1,20 +1,26 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DateComponent, LinkContainer, StateBox, TabCont, TabContainer, TabContBox, TabContList, TabMenu, PeopleBox } from './PurchaseItemList.styled'
 import arrow from '../../assets/mypage-arrow.svg'
 import more from '../../assets/mypage-more-icon.svg'
 import profile from '../../../../../../assets/profileIcon.png'
+import { Link } from 'react-router-dom';
 
 const PurchaseItemList = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [linkEndpoint, setLinkEndpoint] = useState('apply')
 
     const tabClickHandler=(index)=>{
     setActiveIndex(index);
     }
 
+    useEffect(() => {
+        setLinkEndpoint(tabContArr[activeIndex].tabLink)
+    }, [activeIndex])
+
     const tabContArr=[
         {
             tabTitle: '지원 내역', 
+            tabLink: 'apply',
             tabCont: (
                 <TabContList>
                     <TabCont>
@@ -54,6 +60,7 @@ const PurchaseItemList = () => {
         },
         {
             tabTitle: '모집 내역',
+            tabLink: 'recruit',
             tabCont: (
                 <TabContList>
                     <TabCont>
@@ -109,6 +116,7 @@ const PurchaseItemList = () => {
         },
         {
             tabTitle: '비법서',
+            tabLink:'purchases',
             tabCont: (
                 <TabContList>
                     <TabCont>
@@ -157,10 +165,12 @@ const PurchaseItemList = () => {
                 ))}
             </TabMenu>
             {tabContArr[activeIndex].tabCont}
-            <LinkContainer>
-                <img src={more} alt="더보기 아이콘" />
-                {tabContArr[activeIndex].tabTitle}&nbsp;전체보기
-            </LinkContainer>
+            <Link to={`/my/project/${linkEndpoint}`}>
+                <LinkContainer>
+                    <img src={more} alt="더보기 아이콘" />
+                    {tabContArr[activeIndex].tabTitle}&nbsp;전체보기
+                </LinkContainer>
+            </Link>
         </TabContainer>
     );
 }
