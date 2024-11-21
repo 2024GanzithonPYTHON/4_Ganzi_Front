@@ -56,6 +56,7 @@ export function Header() {
       navigate("/login");
     }
     setIsLoginned(!isLoginned);
+    navigate("/login");
   };
 
   const toFindClub = () => {
