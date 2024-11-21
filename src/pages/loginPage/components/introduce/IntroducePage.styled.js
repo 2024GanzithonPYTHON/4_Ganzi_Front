@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
+  display: flex;
+  flex-direction: column;
+  margin: 134px auto 200px auto;
+  align-items: center;
 
   .BoldText {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 75px;
+    margin-top: 45px;
     margin-bottom: 45px;
   }
-
-}
+  img {
+    width: 275px;
+  }
 `;
 
 export const Text1 = styled.div`
