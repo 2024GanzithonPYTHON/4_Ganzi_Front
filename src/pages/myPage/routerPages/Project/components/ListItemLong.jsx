@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getMockData } from '../ProjectMokData'
-import styled from 'styled-components';
-
-const LongListItem = styled.div`
-  display: flex;
-`
+import { LongListItem, LongListImgBox, LongListContBox } from './ListItemLong.styled';
 
 export default function ListItemLong({filter}) {
   const[ projectData, setProjectData ] = useState([]);
@@ -18,19 +14,21 @@ export default function ListItemLong({filter}) {
   }, [filter])
 
   return (
-    <div>
+    <>
       {projectData.map((item) => (
         <LongListItem>
-          <div>
+          <LongListImgBox>
             <img src={item.image}/>
-          </div>
-          <div>
-            <h4>{item.title}</h4>
-            <p>{item.date}</p>
-          </div>
-          <p>{item.summary}</p>
+          </LongListImgBox>
+          <LongListContBox>
+            <div>
+              <h4>{item.title}</h4>
+              <p>{item.date}</p>
+            </div>
+            <p>{item.summary}</p>
+          </LongListContBox>
         </LongListItem>
       ))}
-    </div>
+    </>
   )
 }

@@ -27,17 +27,20 @@ export const ListSection = styled.div`
 export const StatusSection = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 16px 20px;
 `
 
 export const LongListSection = styled.div`
   display: flex;
+  width: 100%;
+  padding: 0 16px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
 export const FilterSection = styled.div`
+  width: 100%;
   padding: 4px 16px;
   display: flex;
   justify-content: right;
