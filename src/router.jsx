@@ -12,6 +12,8 @@ import DetailPaper from "./pages/paperPage/paperDetail/DetailPaper";
 import PaperPayDone from "./pages/paperPage/paperPay/PaperPayDone";
 
 import MyPage from "./pages/myPage/MyPage";
+import ClubRegisterPage from "./pages/clubRegisterPage/ClubRegisterPage";
+import ClubRegisterDonePage from "./pages/clubRegisterPage/ClubRegisterDonePage";
 
 import Login from "./pages/loginPage/Login";
 
@@ -27,6 +29,14 @@ export default createBrowserRouter([
       {
         path: "/club",
         element: <ClubPage />,
+      },
+      {
+        path: "/club/register",
+        element: <ClubRegisterPage />,
+      },
+      {
+        path: "/club/register/done",
+        element: <ClubRegisterDonePage />,
       },
       {
         path: "/paper",
