@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
@@ -49,16 +49,12 @@ export function Header() {
   const navigate = useNavigate();
   const [isLoginned, setIsLoginned] = useState(false);
 
-  useEffect(() => {
-    if (!isLoginned) {
+  const handleLogin = () => {
+    if (isLoginned) {
       navigate("/");
     }
-  }, [isLoginned, navigate]);
-
-  const handleLogin = () => {
     setIsLoginned(!isLoginned);
   };
-
   const toFindClub = () => {
     navigate("/club");
   };
