@@ -33,10 +33,16 @@ const ItemContainer = styled.div`
   gap: 30px;
 `;
 
-const LoginContainer = styled.div`
+const UserNameContainer = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 8px;
+`;
+
+const LoginContainer = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export function Header() {
@@ -44,6 +50,11 @@ export function Header() {
   const [isLoginned, setIsLoginned] = useState(false);
 
   const handleLogin = () => {
+    if (isLoginned) {
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
     setIsLoginned(!isLoginned);
   };
 
@@ -73,7 +84,10 @@ export function Header() {
         <p onClick={toFindClub}>모집 찾기</p>
         <p onClick={toFindPaper}>비법서 찾기</p>
         <LoginContainer>
-          <img src={profileIcon} alt="로그인 아이콘" onClick={toMypage} />
+          <UserNameContainer>
+            <img src={profileIcon} alt="로그인 아이콘" onClick={toMypage} />
+            {isLoginned && <p onClick={toMypage}>개똥이님</p>}
+          </UserNameContainer>
           <p onClick={handleLogin}>{isLoginned ? "로그아웃" : "로그인"}</p>
         </LoginContainer>
       </ItemContainer>
