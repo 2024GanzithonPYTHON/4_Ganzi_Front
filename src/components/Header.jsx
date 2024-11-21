@@ -57,7 +57,6 @@ export function Header() {
 
   const handleLogin = () => {
     setIsLoginned(!isLoginned);
-    navigate("/login");
   };
 
   const toFindClub = () => {
