@@ -55,7 +55,6 @@ const FormStepTwo = ({ changeStep, formData, setFormData }) => {
   };
 
   const handleSubmit = () => {
-    console.log("입력 폼 데이터:", formData);
     navigate("/club/register/done");
   };
 
