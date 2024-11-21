@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getMockRecruitData } from "../ProjectMokData";
 import profile from '../../../../../assets/profileIcon.png'
-import { ApplyedInfoWrapper, ApplyedInfoBox, ApplyedInfoItem, Profile, ToggleBtn, FilterBtn, ApplyedPeopleBox } from "./Toggle.styled.jsx";
+import { ApplyedInfoWrapper, ApplyedInfoBox, ApplyedInfoItem, Profile, ToggleBtn, FilterBtn, ApplyedPeopleBox } from "./Toggle.styled.js";
 import triangle from '../../home/assets/triangle-icon.svg'
-
-const CommentComponent = ({item}) => {
-  const [isModalOpen, setIstModalOpen] = useState(false);
-
-  return {
-
-  }
-}
+import CommentComponent from "./CommentComponent.jsx";
 
 function ToggleComponent({id}) {
   const [isOpen, setIsOpen] = useState(false); // 초기 상태: 닫힘
@@ -75,14 +68,7 @@ function ToggleComponent({id}) {
           onClick={filterHandler}
           isFiltered={isFiltered}>대기 중</FilterBtn>
           {recruitData.map((item) => (
-            <div>
-              <span>{item.id}</span><span>{item.userId}</span>
-              <span>{item.comment.length > 30
-                ? `${item.comment.slice(0, 30)}...`
-                : item.comment}
-              </span>
-              {/* 더보기버튼 만들어야 함 */}
-            </div>
+            <CommentComponent item={item}/>
           ))}
         </ApplyedPeopleBox>
       )}

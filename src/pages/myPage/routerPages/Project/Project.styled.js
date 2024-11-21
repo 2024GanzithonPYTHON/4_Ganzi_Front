@@ -18,6 +18,10 @@ export const SubTitle = styled.p`
   display: flex;
   font-size: 20px;
 `
+export const ListSection = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const StatusSection = styled.div`
   display: flex;

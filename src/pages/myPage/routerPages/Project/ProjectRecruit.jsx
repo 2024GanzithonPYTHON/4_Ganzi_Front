@@ -1,6 +1,7 @@
 import React from 'react'
 import { LongListSection, MainTitle, SubTitle, TitleSection } from './Project.styled'
 import ToggleList from './components/ToggleList'
+import Recommend from './components/Recommend'
 
 export default function ProjectRecruit() {
   return (
@@ -12,6 +13,7 @@ export default function ProjectRecruit() {
       <LongListSection>
         <ToggleList />
       </LongListSection>
+      <Recommend />
     </>
   )
 }
