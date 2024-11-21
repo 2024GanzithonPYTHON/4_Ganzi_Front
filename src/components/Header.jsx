@@ -52,6 +52,8 @@ export function Header() {
   const handleLogin = () => {
     if (isLoginned) {
       navigate("/");
+    } else {
+      navigate("/login");
     }
     setIsLoginned(!isLoginned);
   };
