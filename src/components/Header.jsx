@@ -75,13 +75,16 @@ export function Header() {
     isLoginned && navigate("/my");
   };
 
+  const toAbout = () => {
+    navigate("/about");
+  };
   return (
     <HeaderContainer>
       <ItemContainer>
         <img src={logo} alt="logo" width={"150px"} onClick={toMain} />
       </ItemContainer>
       <ItemContainer>
-        <p>ABOUT</p>
+        <p onClick={toAbout}>ABOUT</p>
         <p onClick={toFindClub}>모집 찾기</p>
         <p onClick={toFindPaper}>비법서 찾기</p>
         <LoginContainer>

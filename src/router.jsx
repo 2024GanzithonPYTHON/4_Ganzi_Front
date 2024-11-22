@@ -21,6 +21,7 @@ import ClubRegisterPage from "./pages/clubRegisterPage/ClubRegisterPage";
 import ClubRegisterDonePage from "./pages/clubRegisterPage/ClubRegisterDonePage";
 
 import Login from "./pages/loginPage/Login";
+import AboutPage from "./pages/aboutPage/AboutPage";
 
 export default createBrowserRouter([
   {
@@ -82,6 +83,10 @@ export default createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
       },
     ],
   },
