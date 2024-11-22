@@ -61,7 +61,7 @@ export default function ClubPurchasePage() {
 
       {/* 우측 결제하기 */}
       <RightSection>
-        <Payment />
+        <Payment to="/club/apply/done" />
       </RightSection>
     </Container>
   );

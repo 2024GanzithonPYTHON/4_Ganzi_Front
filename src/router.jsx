@@ -19,6 +19,7 @@ import DetailPaper from "./pages/paperPage/paperDetail/DetailPaper";
 import PaperPayDone from "./pages/paperPage/paperPay/PaperPayDone";
 import ClubRegisterPage from "./pages/clubRegisterPage/ClubRegisterPage";
 import ClubRegisterDonePage from "./pages/clubRegisterPage/ClubRegisterDonePage";
+import ApplyClubDone from "./pages/clubPage/clubApplyDone/ApplyClubDone";
 
 import Login from "./pages/loginPage/Login";
 import AboutPage from "./pages/aboutPage/AboutPage";
@@ -53,6 +54,10 @@ export default createBrowserRouter([
         element: <ClubRegisterDonePage />,
       },
       {
+        path: "/club/apply/done",
+        element: <ApplyClubDone />,
+      },
+      {
         path: "/paper",
         element: <PaperPage />,
       },
@@ -73,7 +78,7 @@ export default createBrowserRouter([
         element: <DetailPaper />,
       },
       {
-        path: "/paper/paydone",
+        path: "/paper/pay/done",
         element: <PaperPayDone />,
       },
       {

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PaymentItem from "./PaymentItem";
 import DiscountForm from "./DiscountForm";
 import CashInfo from "./CashInfo/CashInfo";
 import PaymentSummary from "./PaymentSummary";
 
-const Payment = () => {
+const Payment = ({ to }) => {
   // Mock 데이터
   const mockCoupons = [
     { id: 1, code: "DISCOUNT10", description: "10% 할인 쿠폰" },
@@ -15,13 +16,17 @@ const Payment = () => {
   const [currentCash, setCurrentCash] = useState(5000);
 
   const handleCouponSelect = (coupon) => setSelectedCoupon(coupon);
+  const navigate = useNavigate();
 
   return (
     <Container>
       <Header>결제하기</Header>
       <Card>
         <Section>
-          <PaymentItem title="달력 제작부터 펀딩까지 A to Z 로드맵" price={10} />
+          <PaymentItem
+            title="달력 제작부터 펀딩까지 A to Z 로드맵"
+            price={10}
+          />
         </Section>
         <Divider />
         <Section>
@@ -33,13 +38,12 @@ const Payment = () => {
         </Section>
         <Divider />
         <Section>
-          <CashInfo 
-            currentCash={currentCash} />
+          <CashInfo currentCash={currentCash} />
         </Section>
         <Section>
           <PaymentSummary itemPrice={10} discount={selectedCoupon ? 5 : 0} />
         </Section>
-        <Button>구매하기</Button>
+        <Button onClick={() => navigate(to)}>구매하기</Button>
       </Card>
     </Container>
   );

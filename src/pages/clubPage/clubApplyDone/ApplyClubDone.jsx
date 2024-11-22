@@ -8,7 +8,7 @@ import {
   Buttons,
   GoMypage,
   GoBack,
-} from "./ApplyDone.styled";
+} from "./ApplyClubDone.styled";
 import check from "./img/check.svg";
 
 const ApplyClubDone = () => {
