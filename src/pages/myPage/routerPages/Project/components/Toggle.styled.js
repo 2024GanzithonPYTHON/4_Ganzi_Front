@@ -115,3 +115,105 @@ export const MoreInfoLinkBtn = styled.div`
   text-decoration: underline;
   cursor: pointer;
 `
+
+export const CommentModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const CommentModalBox = styled.div`
+  width: 740px;
+  background-color: #fff;;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const CommentBoxTitle = styled.h3`
+  font-size: 24px;
+  span {
+    font-weight: 600;
+  }
+`
+
+export const DateBox = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  font-size: 16px;
+  margin: 20px 0;
+`
+
+export const CommentModalProfileBox = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .profile {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    margin-right: 28px;
+    border-radius: 50%;
+  }
+
+  .profile-text-box {
+    text-align: center;
+  }
+
+  .profile-text {
+    font-size: 24px;
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .mail-box {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    img {
+      margin: 10px;
+    }
+  }
+`
+
+export const ModalBtnBox = styled.div`
+  width: 361px;
+  display: flex;
+  justify-content: right;
+`
+export const ModalBtn = styled.button`
+  margin: 8px;
+  padding: 15px 40px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: ${(props) => (props.color)};
+`
+
+export const CommentContentBox = styled.div`
+  width: 100%;
+  margin: 20px 0;
+  p {
+    font-size: 15px;
+    margin: 20px 0 10px;
+  }
+
+  textarea {
+    font-size: 14px;
+    width: 100%;
+    height: 100px;
+  }
+`
