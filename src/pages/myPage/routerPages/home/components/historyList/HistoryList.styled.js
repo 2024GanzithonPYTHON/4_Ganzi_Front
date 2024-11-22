@@ -3,16 +3,15 @@ import styled from 'styled-components';
 export const HistoryItem = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    font-size: 14px;
-    border-bottom: 1px solid #e0e0e0;
-
-    &:last-child {
-        border-bottom: none;
-    }
+    padding: 10px 0 8px;
+    font-size: 18px;
 `;
 
 export const Points = styled.span`
-    color: #007bff;
+    color: ${(props) => props.color || "#007bff"};
     font-weight: bold;
 `;
+
+export const HistoryItemBox = styled.div`
+    margin-top: 16px;
+`
