@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import profileIcon from "../assets/profileIcon.png";
@@ -47,50 +47,54 @@ const LoginContainer = styled.div`
 
 export function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoginned, setIsLoginned] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    nickname: "",
+    profileImg: "",
+  });
+
+  useEffect(() => {
+    const userInfoJSON = sessionStorage.getItem("userInfo");
+    if (userInfoJSON) {
+      const userInfo = JSON.parse(userInfoJSON);
+      setIsLoginned(true);
+      setUserInfo({
+        nickname:userInfo.nickname, 
+        profileImg:userInfo.profileImg
+      });
+  
+    }
+  }, [isLoginned, location]);
 
   const handleLogin = () => {
-    if (isLoginned) {
-      navigate("/");
-    } else {
+    if (!isLoginned) {
       navigate("/login");
+      return;
     }
-    setIsLoginned(!isLoginned);
-    navigate("/login");
-  };
-
-  const toFindClub = () => {
-    navigate("/club");
-  };
-
-  const toFindPaper = () => {
-    navigate("/paper");
-  };
-
-  const toMain = () => {
+    sessionStorage.removeItem("userInfo");
+    sessionStorage.removeItem("access");
+    sessionStorage.removeItem("refresh");
+    setIsLoginned(false);
     navigate("/");
   };
 
   const toMypage = () => {
     isLoginned && navigate("/my");
   };
-
-  const toAbout = () => {
-    navigate("/about");
-  };
   return (
     <HeaderContainer>
       <ItemContainer>
-        <img src={logo} alt="logo" width={"150px"} onClick={toMain} />
+        <img src={logo} alt="logo" width={"150px"} onClick={() => navigate("/")} />
       </ItemContainer>
       <ItemContainer>
-        <p onClick={toAbout}>ABOUT</p>
-        <p onClick={toFindClub}>모집 찾기</p>
-        <p onClick={toFindPaper}>비법서 찾기</p>
+        <p onClick={() => navigate("/about")}>ABOUT</p>
+        <p onClick={() => navigate("/club")}>모집 찾기</p>
+        <p onClick={() => navigate("/paper")}>비법서 찾기</p>
         <LoginContainer>
           <UserNameContainer>
             <img src={profileIcon} alt="로그인 아이콘" onClick={toMypage} />
-            {isLoginned && <p onClick={toMypage}>개똥이님</p>}
+            {isLoginned && <p onClick={toMypage}>{userInfo.nickname}님</p>}
           </UserNameContainer>
           <p onClick={handleLogin}>{isLoginned ? "로그아웃" : "로그인"}</p>
         </LoginContainer>

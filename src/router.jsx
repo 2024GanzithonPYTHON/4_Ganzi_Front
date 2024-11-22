@@ -20,6 +20,7 @@ import ApplyClubDone from "./pages/clubPage/clubApplyDone/ApplyClubDone";
 
 import Login from "./pages/loginPage/Login";
 import AboutPage from "./pages/aboutPage/AboutPage";
+import LoginCallBack from "./pages/loginPage/components/LoginCallBack";
 
 export default createBrowserRouter([
   {
@@ -85,6 +86,10 @@ export default createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/login/callback",
+        element: <LoginCallBack />,
       },
       {
         path: "/about",
