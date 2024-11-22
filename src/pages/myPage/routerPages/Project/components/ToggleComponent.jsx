@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMockRecruitData } from "../ProjectMokData";
 import profile from '../../../../../assets/profileIcon.png'
 import { ApplyedInfoWrapper, ApplyedInfoBox, ApplyedInfoItem, Profile, ToggleBtn, FilterBtn, ApplyedPeopleBox } from "./Toggle.styled.js";
-import triangle from '../../home/assets/triangle-icon.svg'
+import tr from '../assets/tr.svg'
 import CommentComponent from "./CommentComponent.jsx";
 
 function ToggleComponent({id}) {
@@ -52,12 +52,12 @@ function ToggleComponent({id}) {
           {isOpen ? (
             <div>
               접기
-              <img src={triangle} />
+              <img src={tr} />
             </div>
           ) : (
             <div>
               자세히
-              <img src={triangle} style={{ transform: 'scaleY(-1)'}}/>
+              <img src={tr} style={{ transform: 'scaleY(-1)'}}/>
             </div>
           )}
         </ToggleBtn>
