@@ -1,25 +1,30 @@
-import React from 'react';
+import { useNavigate } from "react-router-dom";
+import PostCarousel from "../PostCarousel";
 import {
-    PopularSection,
-    SectionTitle,
-    SectionSubtitle,
-    ProjectsContainer,
-    StyledProjectCard
-} from './PopularItems.styled';
+  PopularSection,
+  SectionTitle,
+  SectionSubtitle,
+  MoreIcon,
+} from "../../MainPage.styled";
+import { BiChevronRight } from "react-icons/bi";
 
 const PopularItems = () => {
-    return (
-        <PopularSection>
-            <SectionTitle>요즘 뜨고 있는 모집 &gt;</SectionTitle>
-            <SectionSubtitle>어떤 모집을 찾을지 고민되시나요? 사람들이 많이 관심 가진 모집을 확인해보세요!</SectionSubtitle>
-            <ProjectsContainer>
-                <StyledProjectCard title="제목1" imgSrc="image1_path" />
-                <StyledProjectCard title="제목1" imgSrc="image2_path" />
-                <StyledProjectCard title="제목1" imgSrc="image3_path" />
-                <StyledProjectCard title="제목1" imgSrc="image4_path" />
-            </ProjectsContainer>
-        </PopularSection>
-    );
+  const navigate = useNavigate();
+  return (
+    <PopularSection>
+      <SectionTitle>
+        인기있는 정보 공유{" "}
+        <MoreIcon>
+          <BiChevronRight onClick={() => navigate("/paper")} />
+        </MoreIcon>
+      </SectionTitle>
+      <SectionSubtitle>
+        소중한 정보는 누군가에게 엄청난 가치를 지녀요. 이 자료들이 여러분이 찾던
+        정보일지도 모르죠!
+      </SectionSubtitle>
+      <PostCarousel posts={[...Array(13)]} />
+    </PopularSection>
+  );
 };
 
 export default PopularItems;
