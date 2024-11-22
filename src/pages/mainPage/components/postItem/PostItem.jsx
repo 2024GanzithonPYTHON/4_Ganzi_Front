@@ -29,7 +29,7 @@ const PostItem = () => {
       <PostIcon
         src={UploadIcon}
         alt="파일업로드 아이콘"
-        onClick={() => navigate("/apply/paper")}
+        onClick={() => navigate("/paper/apply")}
       />
       <PostCommentContainer>
         <Comment>여러분의 소중한 자료</Comment>
