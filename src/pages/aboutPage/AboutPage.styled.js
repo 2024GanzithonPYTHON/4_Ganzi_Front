@@ -11,7 +11,7 @@ export const Buttons = styled.div`
   margin: 0px auto;
 `;
 export const Button1 = styled.button`
-  width: 334px;
+  width: 335px;
   height: 50px;
   border: 1px solid #00a8cc;
   border-radius: 7px;
@@ -22,7 +22,7 @@ export const Button1 = styled.button`
   }
 `;
 export const Button2 = styled.button`
-  width: 334px;
+  width: 335px;
   height: 50px;
   border: 1px solid #00a8cc;
   border-radius: 7px;
@@ -33,7 +33,7 @@ export const Button2 = styled.button`
   }
 `;
 export const Up = styled.button`
-  width: 675px;
+  width: 677px;
   height: 50px;
   border-radius: 7px;
   color: white;
