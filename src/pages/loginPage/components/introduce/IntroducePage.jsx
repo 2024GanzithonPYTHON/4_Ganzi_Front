@@ -1,10 +1,10 @@
 import { Container, Text1, Text2 } from "./IntroducePage.styled";
-import logo from "./img/logoIntro.svg";
+import logoIntro from "./img/logoIntro.svg";
 
 export const IntroducePage = () => {
   return (
     <Container>
-      <img src={logo} alt="logoImg" />
+      <img src={logoIntro} alt="logoImg" />
       <div className="BoldText">"진정으로 해보고 싶었던 일이 무엇인가요?"</div>
       <Text1>
         sidEgo에서는
