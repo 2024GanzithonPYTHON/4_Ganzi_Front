@@ -196,11 +196,11 @@ const PaperPage = () => {
   const navigate = useNavigate();
 
   const goApply = () => {
-    navigate("/apply/paper");
+    navigate("/paper/apply");
   };
 
   const goDetail = () => {
-    navigate("/detail/paper");
+    navigate("/paper/detail");
   };
 
   return (
