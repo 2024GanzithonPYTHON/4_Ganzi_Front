@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+      format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
 `;
 export const Buttons = styled.div`
   display: flex;
