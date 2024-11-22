@@ -36,12 +36,12 @@ export default createBrowserRouter([
         element: <ClubPage />,
       },
       {
-         path: "purchase",
-         element: <ClubPurchasePage />,
-       },
+        path: "/club/purchase",
+        element: <ClubPurchasePage />,
+      },
       {
-         path: "/detailclub",
-         element: <DetailClub />,
+        path: "/club/detail",
+        element: <DetailClub />,
       },
       {
         path: "/club/register",
@@ -56,11 +56,11 @@ export default createBrowserRouter([
         element: <PaperPage />,
       },
       {
-         path: "purchase",
-         element: <PaperPurchasePage />,
+        path: "/paper/purchase",
+        element: <PaperPurchasePage />,
       },
       {
-        path: "/apply/paper",
+        path: "/paper/apply",
         element: <ApplyPaper />,
       },
       {
@@ -68,7 +68,7 @@ export default createBrowserRouter([
         element: <ApplyPaperDone />,
       },
       {
-        path: "/detail/paper",
+        path: "/paper/detail",
         element: <DetailPaper />,
       },
       {
