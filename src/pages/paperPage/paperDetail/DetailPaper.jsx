@@ -56,7 +56,7 @@ const DetailPaper = () => {
     setActiveIndex(index);
   };
 
-  // 샘플 데이터 (후기 리스트)
+  /* 샘플 데이터 (후기 리스트) */
   const reviews = [
     {
       id: "사용자1",
@@ -79,7 +79,25 @@ const DetailPaper = () => {
     },
   ];
 
-  // 탭 데이터
+  /* 샘플 데이터 (비법서 정보) */
+  const paperData = {
+    title: "달력 제작부터 펀딩까지 A to Z 로드맵",
+    image: sampleImg,
+    price: 5000,
+    shortTitle: "달력 펀딩률 170%의 실전 비법서",
+    shortIntro: "만들어보고 싶었던 달력 제작부터 펀딩 성공까지?",
+  };
+
+  /* 샘플 데이터 (판매자 정보) */
+  const sellerData = {
+    profileImage: profileImg,
+    name: "파사삭",
+    introduce: "재밌는 프로젝트를 기획해요",
+    email: "vktktkr@gmail.com",
+    heartCount: 100,
+  };
+
+  /* 샘플 데이터 (탭 데이터) */
   const tabContArr = [
     {
       tabTitle: (
@@ -145,9 +163,9 @@ const DetailPaper = () => {
       <Wrap>
         <Left>
           <PaperImg>
-            <img src={sampleImg} alt="sampleImg" />
+            <img src={paperData.image} alt="sampleImg" />
           </PaperImg>
-          <PaperTitle>달력 제작부터 펀딩까지 A to Z 로드맵</PaperTitle>
+          <PaperTitle>{paperData.title}</PaperTitle>
           <Tap>
             <ul className="tabis-boxed">
               {tabContArr.map((section, index) => {
@@ -164,34 +182,32 @@ const DetailPaper = () => {
         <Right>
           <Buy>
             <Point>
-              5,000
+              {paperData.price}
               <img src={point} alt="point" />
             </Point>
-            <ShortTitle>달력 펀딩률 170%의 실전 비법서</ShortTitle>
-            <ShortIntro>
-              만들어보고 싶었던 달력 제작부터 펀딩 성공까지?
-            </ShortIntro>
+            <ShortTitle>{paperData.shortTitle}</ShortTitle>
+            <ShortIntro>{paperData.shortIntro}</ShortIntro>
             <BuyBtn onClick={goPurchase}>구매하기</BuyBtn>
           </Buy>
           <Seller>
             <Profile>
-              <img src={profileImg} alt="profileImg" />
+              <img src={sellerData.profileImage} alt="profileImg" />
               <Pwrap>
-                <div className="name"> 파사삭</div>
-                <div className="introduce">재밌는 프로젝트를 기획해요</div>
+                <div className="name">{sellerData.name}</div>
+                <div className="introduce">{sellerData.introduce}</div>
               </Pwrap>
             </Profile>
             <Email>
               <div className="img">
                 <img src={email} alt="email" />
               </div>
-              <div className="adress">vktktkr@gmail.com</div>
+              <div className="adress">{sellerData.email}</div>
             </Email>
             <Heart>
               <div className="img">
                 <img src={heart} alt="heart" />
               </div>
-              <div className="heartCount">100</div>
+              <div className="heartCount">{sellerData.heartCount}</div>
             </Heart>
           </Seller>
         </Right>

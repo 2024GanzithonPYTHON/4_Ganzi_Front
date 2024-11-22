@@ -156,7 +156,7 @@ const PaperPage = () => {
   // 선택된 BookCard ID를 저장
   const [selectedBookId, setSelectedBookId] = useState(null);
 
-  /* 카테고리 */
+  // 선택된 카테고리 버튼의 값을 저장 - 필터링 기능 제거
   const filters = [
     "전체",
     "디자인 문구",
@@ -167,25 +167,17 @@ const PaperPage = () => {
     "의류",
     "예술",
   ];
-  // 선택된 카테고리 버튼의 값을 저장
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  // 필터링된 데이터
-  const filteredItems =
-    selectedCategory === "전체"
-      ? sampleItems
-      : sampleItems.filter((item) => item.category === selectedCategory);
-
-  /* 리스트 페이지 */
   // 현재 페이지에 해당하는 데이터 추출
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentItems = filteredItems.slice(startIndex, endIndex);
+  const currentItems = sampleItems.slice(startIndex, endIndex);
 
   // 총 페이지 수 계산
-  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const totalPages = Math.ceil(sampleItems.length / itemsPerPage);
 
   // 페이지 변경 함수
   const handlePageChange = (pageNumber) => {

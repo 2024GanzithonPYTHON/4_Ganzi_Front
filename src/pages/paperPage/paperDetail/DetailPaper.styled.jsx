@@ -49,6 +49,7 @@ export const Tap = styled.div`
     display: flex;
     height: 33px;
     font-size: 20px;
+    cursor: pointer;
   }
   .is-active {
     padding-left: 30px;
@@ -57,6 +58,7 @@ export const Tap = styled.div`
 
     font-weight: bold;
     color: black;
+    cursor: pointer;
   }
   li {
     padding-left: 30px;
