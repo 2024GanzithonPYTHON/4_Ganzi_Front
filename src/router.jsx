@@ -1,12 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { OutletContainer } from "./OutletContainer";
-
-import MainPage from "./pages/mainPage/mainPage";
-
+import MainPage from "./pages/mainPage/MainPage";
 import ClubPage from "./pages/clubPage/ClubPage";
 
 import DetailClub from "./pages/clubDetailPage/DetailClub";
-import PurchasePage from "./pages/paperPurchasePage/PaperPurchasePage";
 import ClubPurchasePage from "./pages/clubPuchasePage/ClubPurchasePage";
 import PaperPurchasePage from "./pages/paperPurchasePage/PaperPurchasePage";
 
