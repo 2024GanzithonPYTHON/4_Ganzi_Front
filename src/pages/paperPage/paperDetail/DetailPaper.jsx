@@ -45,6 +45,10 @@ const DetailPaper = () => {
     navigate(-1);
   };
 
+  const goPurchase = () => {
+    navigate("/paper/purchase");
+  };
+
   /* 탭 */
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -167,7 +171,7 @@ const DetailPaper = () => {
             <ShortIntro>
               만들어보고 싶었던 달력 제작부터 펀딩 성공까지?
             </ShortIntro>
-            <BuyBtn>구매하기</BuyBtn>
+            <BuyBtn onClick={goPurchase}>구매하기</BuyBtn>
           </Buy>
           <Seller>
             <Profile>
