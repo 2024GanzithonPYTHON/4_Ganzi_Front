@@ -80,7 +80,11 @@ export const StateBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.bgColor || "#757575"};
+  background-color: ${(props) => props.bgColor === "승인"
+  ? "#00C400"
+  : props.bgColor === "반려"
+  ? "#EE5648"
+  : "#757575"};
   color: #fff;
   font-size: 12px;
   font-weight: 700;
