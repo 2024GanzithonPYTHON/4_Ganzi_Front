@@ -76,7 +76,7 @@ export const TabContBox = styled.div`
 `
 
 export const StateBox = styled.div`
-  padding: 2px 5px;
+  padding: 3px 8px;
   display: flex;
   justify-content: center;
   align-items: center;

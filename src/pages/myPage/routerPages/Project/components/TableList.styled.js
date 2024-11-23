@@ -31,6 +31,13 @@ export const TableCellSmall = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 130px;
+  color: ${(props) => props.Color === "승인"
+  ? "#00C400"
+  : props.Color === "반려"
+  ? "#EE5648"
+  : props.Color === '취소'
+  ? "#4D4D4D"
+  : "#757575"};
 `
 export const TableCellBig = styled.div`
   display: flex;

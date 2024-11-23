@@ -43,7 +43,7 @@ const PurchaseItemList = () => {
                         <TabCont>
                             <TabContBox key={item.projectId}>
                                 <p>{item.shortTitle}</p>
-                                <StateBox bgColor={item.status}></StateBox>
+                                <StateBox bgColor={item.status}>{item.status}</StateBox>
                                 <img src={arrow} alt="화살표" />
                             </TabContBox>
                             <DateComponent>{item.applyDate}</DateComponent>
