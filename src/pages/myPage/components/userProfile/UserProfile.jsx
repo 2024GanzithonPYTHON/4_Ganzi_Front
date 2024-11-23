@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BalanceBox, BalanceContainer, PaySettingBox, SettingMenu, SettingMenuContainer, UserInfoContainer, UserName, UserProfileContainer, UserProfileImg, UserTextContainer } from './UserProfile.styled';
 import { FiSettings } from 'react-icons/fi';
+import { getUserBalance } from '../../../../server/user';
 
 const UserProfile = () => {
+    const [userBalance, setUserBalance ] = useState([]);
     const [userInfo, setUserInfo] = useState({
         username: "",
         profileImg: "",
@@ -21,6 +23,17 @@ const UserProfile = () => {
         }
     }, [])
 
+    const fetchBalance = async () => {
+        try {
+            setUserBalance = await getUserBalance();
+            console.log(userBalance);
+        } catch (error) {
+            console.error('보유 금액 가져오기 실패:'. error);
+        }
+    };
+
+    fetchBalance();
+
     return (
     <UserProfileContainer>
         <UserInfoContainer>
@@ -34,12 +47,12 @@ const UserProfile = () => {
         <BalanceContainer>
             <BalanceBox>
                 <span>캐시</span>
-                <div>○○○ &gt;</div>
+                <div>{userBalance.cash} &gt;</div>
                 <button>어쩌구</button>
             </BalanceBox>
             <BalanceBox>
                 <span>정산금</span>
-                <div>○○○ &gt;</div>
+                <div>{userBalance.profit} &gt;</div>
                 <button>어쩌구</button>
             </BalanceBox>
         </BalanceContainer>
