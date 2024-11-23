@@ -153,6 +153,20 @@ const PaperPage = () => {
     },
   ];
 
+  // API 요청 함수 - 선택된 카테고리 변경 시 데이터 호출
+  useEffect(() => {
+    const fetchBooksByCategory = async () => {
+      try {
+        const response = await popularPaperByCategory(selectedCategory);
+        setBooks(response);
+      } catch (error) {
+        console.error("추천 비법서 조회 중 오류 발생:", error);
+      }
+    };
+
+    fetchBooksByCategory();
+  }, [selectedCategory]);
+
   // 선택된 BookCard ID를 저장
   const [selectedBookId, setSelectedBookId] = useState(null);
 
@@ -223,13 +237,12 @@ const PaperPage = () => {
       <RecommendedSection>
         <RecommendedTitle>sidEGO 추천 비법서</RecommendedTitle>
         <RecommendedContainer>
-          {books.map((book) => (
+          {currentItems.map((book) => (
             <BookContainer key={book.id}>
               {/* BookCard */}
-              <BookCard
-                onMouseEnter={() => setSelectedBookId(book.id)} // 호버 시 ID 설정
-              >
-                <p>Book ID: {book.id}</p>
+              <BookCard onMouseEnter={() => setSelectedBookId(book.id)}>
+                <img src={book.thumbnail} alt={book.title} />
+                <p>{book.title}</p>
               </BookCard>
 
               {/* SpecCard - BookCard 바로 위에 위치 */}
@@ -237,25 +250,24 @@ const PaperPage = () => {
                 <SpecCard className="spec-card" onClick={goDetail}>
                   <SC>
                     <SCtitle>{book.title}</SCtitle>
-                    <SCcontent>{book.content}</SCcontent>
+                    <SCcontent>{book.aiDescription}</SCcontent>
                   </SC>
                   <ProfileWrap>
-                    <div className="info">모임장정보</div>
+                    <div className="info">모임 정보</div>
                     <Pf>
-                      <img className="userImg" src={book.userImg} alt="user" />
+                      <img className="userImg" src={userImg} alt="user" />
                       <div className="id">
-                        <p1>{book.name}</p1>
-                        <p2>{book.intro}</p2>
+                        <p1>
+                          참여 인원: {book.memberCount} / {book.memberCountMax}
+                        </p1>
                       </div>
                     </Pf>
                     <Em>
-                      <img src={emailImg} alt="email" />
-                      <div className="email">{book.email}</div>
+                      <div className="createdAt">
+                        생성 날짜:{" "}
+                        {new Date(book.createdAt).toLocaleDateString()}
+                      </div>
                     </Em>
-                    <Lk>
-                      <img src={heartImg} alt="heart" />
-                      <p>{book.heartCount}</p>
-                    </Lk>
                   </ProfileWrap>
                 </SpecCard>
               )}
