@@ -8,8 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 export const ProjectCard = ({ title, info, src, height, to }) => {
   const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(to);
+  };
   return (
-    <ProjectCardContainer onClick={() => navigate(to)}>
+    <ProjectCardContainer onClick={handleClick}>
       <CardImage src={src} height={height} alt="Project" />
       <CardTitle>{title}</CardTitle>
       <CardInfo>{info}</CardInfo>
