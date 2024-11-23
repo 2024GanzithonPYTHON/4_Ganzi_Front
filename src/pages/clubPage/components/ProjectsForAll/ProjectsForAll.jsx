@@ -1,19 +1,17 @@
 import { ProjectCard } from "../components/ProjectCard";
 import { ProjectsGridForAll } from "./ProjectsGridForAll";
-import { useNavigate } from "react-router-dom";
 
-export const ProjectsForAll = () => {
+export const ProjectsForAll = ({projects}) => {
+
   return (
     <ProjectsGridForAll>
-      {[...Array(12)].map((_, index) => (
+      {projects.map((project, index) => (
         <ProjectCard
-          key={index}
-          title={"제목1"}
-          info={"한줄 소개 한줄 소개 한줄 소개 한줄 소개"}
-          src={
-            "https://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-          }
-          to="/club/detail"
+          key={project.id}
+          title={project.title}
+          info={project.aiDescription}
+          src={project.thumbnail}
+          to={`/club/detail/${project.id}`}
         />
       ))}
     </ProjectsGridForAll>

@@ -10,11 +10,11 @@ const Container = styled.div`
     gap: 20px;
 `;
 
-export const SearchContainer = () => {
+export const SearchContainer = ({onCategory}) => {
     return (
         <Container>
             <SearchBar />
-            <FilterContainer />
+            <FilterContainer onCategory={onCategory}/>
         </Container>
     );
 }
