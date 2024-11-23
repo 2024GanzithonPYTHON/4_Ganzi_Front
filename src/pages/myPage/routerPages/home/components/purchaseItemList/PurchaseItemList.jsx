@@ -23,15 +23,15 @@ const PurchaseItemList = () => {
 
     useEffect(() => {
         getHistoriesOfApplicantProjects().then((response) => setApplyed(response))
-    }, [linkEndpoint]);
+    }, []);
 
     useEffect(() => {
         getHistoriesOfRecruitProjects().then((response) => setRecruit(response))
-    }, [linkEndpoint]);
+    }, []);
 
     useEffect(() => {
         getHistoriesOfPapers().then((response) => setPapers(response))
-    }, [linkEndpoint]);
+    }, []);
 
     const tabContArr=[
         {
@@ -87,31 +87,6 @@ const PurchaseItemList = () => {
                             </TabContBox>
                         </TabCont>
                     ))}
-                    
-                    <TabCont>
-                        <TabContBox>
-                            <p className='margin'>비법서1</p>
-                            <img src={arrow} alt="화살표" />
-                        </TabContBox>
-                    </TabCont>
-                    <TabCont>
-                        <TabContBox>
-                            <p className='margin'>비법서1</p>
-                            <img src={arrow} alt="화살표" />
-                        </TabContBox>
-                    </TabCont>
-                    <TabCont>
-                        <TabContBox>
-                            <p className='margin'>비법서1</p>
-                            <img src={arrow} alt="화살표" />
-                        </TabContBox>
-                    </TabCont>
-                    <TabCont>
-                        <TabContBox>
-                            <p className='margin'>비법서1</p>
-                            <img src={arrow} alt="화살표" />
-                        </TabContBox>
-                    </TabCont>
                 </TabContList>
             )
         }
