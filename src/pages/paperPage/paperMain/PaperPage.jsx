@@ -155,7 +155,7 @@ const PaperPage = () => {
               <BookCard
                 onMouseEnter={() => setSelectedBookId(book.id)} // 호버 시 ID 설정
               >
-                <img src={book.paperImg} alt="paperImg" />
+                <img className="img" src={book.paperImg} alt="paperImg" />
               </BookCard>
 
               {/* SpecCard - BookCard 바로 위에 위치 */}

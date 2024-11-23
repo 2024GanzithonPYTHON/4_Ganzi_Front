@@ -113,7 +113,7 @@ export const RecommendedContainer = styled.div`
 export const BookContainer = styled.div`
   width: 324px;
   height: 536px;
-  position: relative; /* SpecCard의 기준 위치 설정 */
+  position: relative;
 `;
 
 export const BookCard = styled.div`
