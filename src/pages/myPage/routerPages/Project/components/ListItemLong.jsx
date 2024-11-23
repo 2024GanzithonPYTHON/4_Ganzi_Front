@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { getMockData } from '../ProjectMokData'
 import { LongListItem, LongListImgBox, LongListContBox } from './ListItemLong.styled';
 import { getJoinProjects, getLateJoinProjects } from '../../../../../server/project';
 
@@ -10,7 +9,7 @@ export default function ListItemLong({filter}) {
     if (filter) {
       getJoinProjects().then((response) => setProjectData(response))
     } else {
-      getLateJoinProjects
+      getLateJoinProjects().then((response) => setProjectData(response))
     }
   }, [filter])
 
