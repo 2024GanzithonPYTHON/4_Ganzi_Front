@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { getMockData } from '../ProjectMokData'
 import { LongListItem, LongListImgBox, LongListContBox } from './ListItemLong.styled';
+import { getJoinProjects, getLateJoinProjects } from '../../../../../server/project';
 
 export default function ListItemLong({filter}) {
   const[ projectData, setProjectData ] = useState([]);
 
   useEffect(() => {
-    getMockData().then((response) => setProjectData(response))
+    if (filter) {
+      getJoinProjects().then((response) => setProjectData(response))
+    } else {
+      getLateJoinProjects
+    }
   }, [filter])
 
   useEffect(() => {
@@ -18,14 +23,14 @@ export default function ListItemLong({filter}) {
       {projectData.map((item) => (
         <LongListItem>
           <LongListImgBox>
-            <img src={item.image}/>
+            <img src={item.thumbNail}/>
           </LongListImgBox>
           <LongListContBox>
             <div>
-              <h4>{item.title}</h4>
-              <p>{item.date}</p>
+              <h4>{item.shortTitle}</h4>
+              <p>{item.endDate}</p>
             </div>
-            <p>{item.summary}</p>
+            <p>{item.aiDescription}</p>
           </LongListContBox>
         </LongListItem>
       ))}
