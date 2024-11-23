@@ -21,11 +21,11 @@ const UserProfile = () => {
                 email:userInfo.email
             });
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
         getUserBalance().then((response) => setUserBalance(response))
-    }, [])
+    }, []);
 
     return (
     <UserProfileContainer>
@@ -41,12 +41,12 @@ const UserProfile = () => {
             <BalanceBox>
                 <span>캐시</span>
                 <div>{userBalance.cash} &gt;</div>
-                <button>어쩌구</button>
+                <button>포인트 충전소</button>
             </BalanceBox>
             <BalanceBox>
                 <span>정산금</span>
                 <div>{userBalance.profit} &gt;</div>
-                <button>어쩌구</button>
+                <button>포인트 충전소</button>
             </BalanceBox>
         </BalanceContainer>
         <PaySettingBox>

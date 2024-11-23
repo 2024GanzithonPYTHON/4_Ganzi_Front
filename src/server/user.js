@@ -23,9 +23,9 @@ export const getUserBalance = async () => {
 };
 
 // 유저 정보 간략 조회
-export const getUserSummary = async () => {
+export const getUserSummary = async (writer) => {
     try {
-        const response = await axiosInstance.get("/api/users/summary");
+        const response = await axiosInstance.get(`/api/users/${writer}/summary`);
         return response.data;
     } catch (error) {
         console.error("유저 정보 간략 조회 중 오류 발생:", error);

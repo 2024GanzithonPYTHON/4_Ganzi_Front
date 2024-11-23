@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { getMockData } from '../ProjectMokData';
 import ToggleComponent from './ToggleComponent';
 import { LongListContBox, LongListImgBox, LongListItem } from './ListItemLong.styled';
+import { getRecruitProjects } from '../../../../../server/project';
 
 export default function ToggleList() {
   const [projectData, setProjectData] = useState([]);
 
   useEffect(() => {
-    getMockData().then((response) => setProjectData(response));
+    getRecruitProjects().then((response) => setProjectData(response));
   }, [])
 
   return (
@@ -16,17 +16,22 @@ export default function ToggleList() {
         <div>
           <LongListItem style={{marginBottom: 0}}>
             <LongListImgBox>
-              <img src={item.image}/>
+              <img src={item.thumbnail}/>
             </LongListImgBox>
             <LongListContBox>
               <div>
-                <h4>{item.title}</h4>
-                <p>{item.date}</p>
+                <h4>{item.shortTitle}</h4>
+                <p>{item.createdAt}</p>
               </div>
-              <p>{item.summary}</p>
+              <p>{item.aiDescription}</p>
             </LongListContBox>
           </LongListItem>
-          <ToggleComponent id={item.id}/>
+          <ToggleComponent id={item.id}
+          member={item.memberCount}
+          maxMember={item.maxMemberCount}
+          totalApply={item.totalApplyMemberCount}
+          remain={item.remainMemberCount}
+          outstanding={item.outstandingMemberCount}/>
         </div>
       ))}
     </>

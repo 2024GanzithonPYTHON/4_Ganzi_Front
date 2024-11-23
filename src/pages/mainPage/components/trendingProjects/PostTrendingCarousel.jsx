@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../ProjectCard";
 import styled from "styled-components";
 
 const CarouselWrapper = styled.div`
@@ -44,7 +44,7 @@ const CustomNextArrow = (props) => {
   );
 };
 
-const PostCarousel = ({ posts }) => {
+const PostTrendingCarousel = ({ posts }) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -74,13 +74,13 @@ const PostCarousel = ({ posts }) => {
   return (
     <CarouselWrapper>
       <Slider {...settings}>
-        {posts.map((_, index) => (
+        {posts.map((post) => (
           <ProjectCard
-            key={index}
-            title={"라이언"}
-            src={
-              "https://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-            }
+            key={post.id}
+            type={"club"}
+            id={post.id}
+            title={post.shortTitle}
+            src={post.thumbNail}
           />
         ))}
       </Slider>
@@ -88,4 +88,4 @@ const PostCarousel = ({ posts }) => {
   );
 };
 
-export default PostCarousel;
+export default PostTrendingCarousel;

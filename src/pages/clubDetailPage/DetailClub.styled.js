@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const PageContainer = styled.div``;
+export const PageContainer = styled.div`
+  padding: 0px 40px;
+`;
 export const Title = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 70px;
   margin-top: 30px;
   margin-bottom: 50px;
   gap: 20px;
@@ -36,7 +37,7 @@ export const ClubTitle = styled.h2`
   width: 645px;
   word-wrap: break-word;
 `;
-export const ClubImg = styled.div`
+export const ClubImg = styled.img`
   width: 645px;
   height: 300px;
   margin-bottom: 106px;

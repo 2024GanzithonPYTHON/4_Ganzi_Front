@@ -40,7 +40,7 @@ export default createBrowserRouter([
         element: <ClubPurchasePage />,
       },
       {
-        path: "/club/detail",
+        path: "/club/detail/:id",
         element: <DetailClub />,
       },
       {
