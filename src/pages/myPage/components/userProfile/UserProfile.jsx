@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BalanceBox, BalanceContainer, PaySettingBox, SettingMenu, SettingMenuContainer, UserInfoContainer, UserName, UserProfileContainer, UserProfileImg, UserTextContainer } from './UserProfile.styled';
 import { FiSettings } from 'react-icons/fi';
-import { getUserInfo } from '../../../../server/user';
 
 const UserProfile = () => {
     const [userInfo, setUserInfo] = useState({
