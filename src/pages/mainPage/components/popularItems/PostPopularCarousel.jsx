@@ -28,21 +28,21 @@ const CustomPrevArrow = (props) => {
   );
 };
 
-const CustomNextArrow = (props) => {
-  const { className, style, onClick, currentSlide, slideCount } = props;
-  return currentSlide === slideCount - 1 ? null : (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        zIndex: 1,
-        right: "10px",
-      }}
-      onClick={onClick}
-    />
-  );
-};
+// const CustomNextArrow = (props) => {
+//   const { className, style, onClick, currentSlide, slideCount } = props;
+//   return currentSlide === slideCount - 1 ? null : (
+//     <div
+//       className={className}
+//       style={{
+//         ...style,
+//         display: "block",
+//         zIndex: 1,
+//         right: "10px",
+//       }}
+//       onClick={onClick}
+//     />
+//   );
+// };
 
 const PostCarousel = ({ posts }) => {
   const settings = {
@@ -52,7 +52,7 @@ const PostCarousel = ({ posts }) => {
     slidesToShow: 4,
     slidesToScroll: 4,
     prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    // nextArrow: <CustomNextArrow />,
 
     responsive: [
       {
