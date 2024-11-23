@@ -19,7 +19,6 @@ const PopularItems = () => {
     const fetchPopularPosts = async () => {
       try {
         const result = await readProjectPopular();
-        console.log("Fetched result:", result);
         setPosts(result);
       } catch (error) {
         console.error("인기 프로젝트 불러오기 에러", error);
