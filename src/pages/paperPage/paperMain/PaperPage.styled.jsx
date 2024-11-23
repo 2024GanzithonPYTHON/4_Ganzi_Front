@@ -118,16 +118,24 @@ export const BookContainer = styled.div`
 
 export const BookCard = styled.div`
   background-color: #333;
-  padding: 20px;
   color: white;
   text-align: center;
   margin-right: 10px;
   flex: 1;
   width: 330px;
   height: 536px;
-
+  overflow: hidden;
+  position: relative;
   p {
     font-size: 14px;
+  }
+  .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &:hover {

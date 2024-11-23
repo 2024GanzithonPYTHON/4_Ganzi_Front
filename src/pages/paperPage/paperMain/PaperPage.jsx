@@ -62,19 +62,51 @@ const PaperPage = () => {
     navigate("/paper/detail");
   };
 
-  // API 요청 함수 - 선택된 카테고리 변경 시 데이터 호출
+  // 선택된 카테고리 버튼의 값을 저장 - 필터링 기능 제거
+  const filters = [
+    "전체",
+    "디자인 문구",
+    "홈/리빙",
+    "캐릭터/굿즈",
+    "파티/행사",
+    "출판",
+    "의류",
+    "예술",
+  ];
+
+  const [AllPaper, setAllPaper] = useState([]);
   useEffect(() => {
-    const fetchBooksByCategory = async () => {
+    /**
+     * 비법서 전체 목록 조회
+     */
+    const readAllPapers = async () => {
       try {
-        const response = await popularPaperByCategory(selectedCategory);
-        setBooks(response);
+        const response = await axiosInstance.get("/api/papers/lists/all");
+        setAllPaper(response.data);
       } catch (error) {
-        console.error("추천 비법서 조회 중 오류 발생:", error);
+        console.error("비법서 전체 목록 조회 중 오류 발생:", error);
+        throw error;
       }
     };
+    readAllPapers();
+  }, []);
 
-    fetchBooksByCategory();
-  }, [selectedCategory]);
+  const [PopularPaper, setPopularPaper] = useState([]);
+  useEffect(() => {
+    /**
+     * 추천 비법서 목록(전체)
+     */
+    const popularPaperAll = async () => {
+      try {
+        const response = await axiosInstance.get("/api/papers/recommend/all");
+        setPopularPaper(response.data);
+      } catch (error) {
+        console.error("추천 비법서(전체) 조회 중 오류 발생:", error);
+        throw error;
+      }
+    };
+    popularPaperAll();
+  }, []);
 
   // 총 페이지 수 계산
   const totalPages = Math.ceil(books.length / itemsPerPage);
@@ -117,12 +149,13 @@ const PaperPage = () => {
       <RecommendedSection>
         <RecommendedTitle>sidEGO 추천 비법서</RecommendedTitle>
         <RecommendedContainer>
-          {currentItems.map((book) => (
+          {PopularPaper.map((book) => (
             <BookContainer key={book.id}>
               {/* BookCard */}
-              <BookCard onMouseEnter={() => setSelectedBookId(book.id)}>
-                <img src={book.thumbnail} alt={book.title} />
-                <p>{book.title}</p>
+              <BookCard
+                onMouseEnter={() => setSelectedBookId(book.id)} // 호버 시 ID 설정
+              >
+                <img src={book.paperImg} alt="paperImg" />
               </BookCard>
 
               {/* SpecCard - BookCard 바로 위에 위치 */}
@@ -130,24 +163,24 @@ const PaperPage = () => {
                 <SpecCard className="spec-card" onClick={goDetail}>
                   <SC>
                     <SCtitle>{book.title}</SCtitle>
-                    <SCcontent>{book.aiDescription}</SCcontent>
+                    <SCcontent>{book.descriptionShort}</SCcontent>
                   </SC>
                   <ProfileWrap>
-                    <div className="info">모임 정보</div>
+                    <div className="info">모임장정보</div>
                     <Pf>
                       <img className="userImg" src={userImg} alt="user" />
                       <div className="id">
-                        <p1>
-                          참여 인원: {book.memberCount} / {book.memberCountMax}
-                        </p1>
+                        <p1>{book.nickname}</p1>
                       </div>
                     </Pf>
                     <Em>
-                      <div className="createdAt">
-                        생성 날짜:{" "}
-                        {new Date(book.createdAt).toLocaleDateString()}
-                      </div>
+                      <img src={emailImg} alt="email" />
+                      <div className="email">{book.userEmail}</div>
                     </Em>
+                    <Lk>
+                      {/* <img src={heartImg} alt="heart" />
+                      <p>{book.heartCount}</p> */}
+                    </Lk>
                   </ProfileWrap>
                 </SpecCard>
               )}
@@ -159,18 +192,18 @@ const PaperPage = () => {
       <Wrap2>
         <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
-          {currentItems.map((item) => (
+          {AllPaper.map((item) => (
             <ListItem key={item.id} onClick={goDetail}>
-              <ItemImage src={item.image} alt={item.title} />
+              <ItemImage src={item.paperImg} alt={item.title} />
               <div className="content">
                 <ItemTitle>{item.title}</ItemTitle>
                 <ItemCategory>{item.category}</ItemCategory>
-                <ItemDescription>{item.description}</ItemDescription>
+                <ItemDescription>{item.descriptionShort}</ItemDescription>
                 <ItemStats>
                   <img src={star} alt="star" />
                   <div className="score">{item.score}</div>
                   <div className="download">
-                    {item.downloadCount}+
+                    {item.downloads}+
                     <img className="down" src={downloadImg} alt="down" />
                   </div>
                   <div className="price">{item.price}</div>
@@ -197,20 +230,3 @@ const PaperPage = () => {
 };
 
 export default PaperPage;
-
-/**
- * 추천 비법서 목록(카테고리별)
- *
- * @param {string} category - 카테고리 이름
- */
-export const popularPaperByCategory = async (category) => {
-  try {
-    const response = await axiosInstance.get(
-      `/api/papers/recommend/${category}`
-    );
-    return response.data;
-  } catch (error) {
-    console.error("추천 비법서(카테고리별) 조회 중 오류 발생:", error);
-    throw error;
-  }
-};
