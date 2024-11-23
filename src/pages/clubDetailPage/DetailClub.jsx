@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { FloatingContainer } from "./components/floatingContainer/FloatingContainer";
 import { Content } from "./components/contentContainer/Content";
 import {
@@ -14,32 +14,37 @@ import {
 } from "./DetailClub.styled";
 import backBtn from "./img/back.svg";
 import sampleImg from "./img/sampleImg.svg";
+import { readProject } from "../../server/project";
 
 const DetailClub = () => {
-  /* 뒤로가기 */
+  const [data, setData] = useState(mock);
   const navigate = useNavigate();
-  const onClickBackBtn = () => {
-    navigate(-1);
-  };
+  const clubId = useParams().id;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await readProject(clubId);
+      setData(result);
+    }
+    fetchData();
+  }, []);
 
   return (
     <PageContainer>
       <Title>
         <button>
-          <img src={backBtn} alt="backBtn" onClick={onClickBackBtn} />
+          <img src={backBtn} alt="backBtn" onClick={() => navigate(-1)} />
         </button>
         <TitleText>상세페이지</TitleText>
       </Title>
       <Wrap>
         <Left>
-          <ClubTitle>달력 제작부터 펀딩까지 A to Z 로드맵</ClubTitle>
-          <ClubImg>
-            <img src={sampleImg} alt="sampleImg" />
-          </ClubImg>
-          <Content />
+          <ClubTitle>{data.title}</ClubTitle>
+          <ClubImg src={data.thumbnail !== "" ? data.thumbnail : sampleImg} alt="sampleImg"/>
+          <Content data={data} />
         </Left>
         <Floating>
-          <FloatingContainer />
+          <FloatingContainer data={data}/>
         </Floating>
       </Wrap>
     </PageContainer>
@@ -47,3 +52,21 @@ const DetailClub = () => {
 };
 
 export default DetailClub;
+
+const mock = {
+  "id": 0,
+  "writerNickname": "",
+  "title": "",
+  "memberCount": 0,
+  "memberCountMax": 0,
+  "dateEnd": "",
+  "thumbnail": "",
+  "viewCount": 0,
+  "createdAt": "",
+  "bodyTitle": "",
+  "bodyGoal": "",
+  "bodyPlan": "",
+  "bodyStyle": "",
+  "bodyRequirement": "",
+  "aiDescription": ""
+}

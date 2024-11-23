@@ -3,11 +3,11 @@ import { Buy } from "./Buy";
 import { Profile } from "./Profile";
 import { PageContainer } from "./FloatingContainer.styled";
 
-export const FloatingContainer = () => {
+export const FloatingContainer = ({data}) => {
   return (
     <PageContainer>
-      <Buy />
-      <Profile />
+      <Buy data={data}/>
+      <Profile writer={data.writerNickname}/>
     </PageContainer>
   );
 };
