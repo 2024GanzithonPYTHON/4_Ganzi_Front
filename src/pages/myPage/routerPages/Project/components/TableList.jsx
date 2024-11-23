@@ -5,11 +5,12 @@ import profile from '../../../../../assets/profileIcon.png'
 import { getApplyProjects } from '../../../../../server/project'
 
 export default function TableList() {
-  const [applyData, setApplyData] = useState([])
+  const [applyData, setApplyData] = useState([]);
 
   useEffect(() => {
     getApplyProjects().then((response) => setApplyData(response));
   }, [])
+
   return (
     <TableCont>
         {/* 헤더 */}
