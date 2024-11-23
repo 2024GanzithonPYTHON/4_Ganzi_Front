@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BalanceBox, BalanceContainer, PaySettingBox, SettingMenu, SettingMenuContainer, UserInfoContainer, UserName, UserProfileContainer, UserProfileImg, UserTextContainer } from './UserProfile.styled';
 import { FiSettings } from 'react-icons/fi';
 import { getUserInfo } from '../../../../server/user';
 
 const UserProfile = () => {
-    const userData = getUserInfo();
+    const [userInfo, setUserInfo] = useState({
+        username: "",
+        profileImg: "",
+        email: ""
+    });
 
-    return(
+    useEffect(() => {
+        const userInfoJson = sessionStorage.getItem("userInfo");
+        if (userInfoJson) {
+            const userInfo = JSON.parse(userInfoJson);
+            setUserInfo({
+                username: userInfo.name,
+                profileImg:userInfo.profileImg,
+                email:userInfo.email
+            });
+        }
+    }, [])
+
+    return (
     <UserProfileContainer>
         <UserInfoContainer>
             <UserProfileImg 
-                src="https://mblogthumb-phinf.pstatic.net/MjAyMTAzMTJfNjQg/MDAxNjE1NTI5NDE5ODk4.yxOKTxAf4mkrxbEWHopib3_XLI-EFI-7BCY91vi26TEg.NFAGxpj-t4T2hRS1dyoNrcC5DKUD4Y331ELpxJ5ghG8g.JPEG.sj330035/%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8_%ED%94%84%EC%82%AC_(1).jpeg?type=w800" 
-                alt="User Profile" />
+                src={userInfo.profileImg} />
             <UserTextContainer>
-                <UserName>{userData.name}님</UserName>
-                <p>cris4y</p>
+                <UserName>{userInfo.username}님</UserName>
+                <p>{userInfo.email}</p>
             </UserTextContainer>
         </UserInfoContainer>
         <BalanceContainer>
@@ -50,7 +65,7 @@ const UserProfile = () => {
             </SettingMenuContainer>
         </PaySettingBox>
     </UserProfileContainer>
-);
+    );
 };
 
 export default UserProfile;
