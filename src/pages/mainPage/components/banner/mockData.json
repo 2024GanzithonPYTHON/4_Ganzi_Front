@@ -1,6 +1,37 @@
-{
+[
+  {
     "title": "기후 위기, 이대로 방치하실건가요?",
     "subtitle": "기후 환경을 위해 함께 실천 할 팀원을 구합니다",
     "description": "정부 지원 사업을 통해\n우리 프로젝트는 지속적이고 발전 가능한\n프로젝트를 이어나갈 것입니다.",
-    "logo": "/img/mamabear.png"
-}
+    "logo": "/img/mamabear.png",
+    "projectName": "mamabear"
+  },
+  {
+    "title": "2025 다이어리",
+    "subtitle": "신년 다이어리 제작을 함께할 팀원 구합니다",
+    "description": "다꾸를 좋아하는 모든 분 환영합니다",
+    "logo": "/img/mamabear.png",
+    "projectName": "다꾸"
+  },
+  {
+    "title": "기후 위기, 이대로 방치하실건가요?",
+    "subtitle": "기후 환경을 위해 함께 실천 할 팀원을 구합니다",
+    "description": "정부 지원 사업을 통해\n우리 프로젝트는 지속적이고 발전 가능한\n프로젝트를 이어나갈 것입니다.",
+    "logo": "/img/mamabear.png",
+    "projectName": "mamabear"
+  },
+  {
+    "title": "기후 위기, 이대로 방치하실건가요?",
+    "subtitle": "기후 환경을 위해 함께 실천 할 팀원을 구합니다",
+    "description": "정부 지원 사업을 통해\n우리 프로젝트는 지속적이고 발전 가능한\n프로젝트를 이어나갈 것입니다.",
+    "logo": "/img/mamabear.png",
+    "projectName": "mamabear"
+  },
+  {
+    "title": "기후 위기, 이대로 방치하실건가요?",
+    "subtitle": "기후 환경을 위해 함께 실천 할 팀원을 구합니다",
+    "description": "정부 지원 사업을 통해\n우리 프로젝트는 지속적이고 발전 가능한\n프로젝트를 이어나갈 것입니다.",
+    "logo": "/img/mamabear.png",
+    "projectName": "mamabear"
+  }
+]
