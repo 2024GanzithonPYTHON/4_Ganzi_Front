@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import mockData from "./mockData";
 import BannerCard from "./BannerCard";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
+import { readProjectListAll } from "../../../../server/project";
 
 const StyledCarousel = styled.div`
   .slick-dots {
@@ -33,6 +35,22 @@ const StyledCarousel = styled.div`
 `;
 
 const BannerCarousel = () => {
+  const [verticalPosts, setVerticalPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPopularPosts = async () => {
+      try {
+        const result = await readProjectListAll();
+        const fivePosts = result.slice(-5);
+        setVerticalPosts(fivePosts);
+      } catch (error) {
+        console.error("세로 캐러셀 프로젝트 불러오기 에러", error);
+      }
+    };
+
+    fetchPopularPosts();
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -59,14 +77,17 @@ const BannerCarousel = () => {
   return (
     <StyledCarousel>
       <Slider {...settings}>
-        {mockData.map((item, index) => (
+        {verticalPosts.map((item, index) => (
           <div key={index}>
             <BannerCard
+              id={item.id}
               title={item.title}
-              subtitle={item.subtitle}
-              description={item.description}
-              logo={item.logo}
-              projectName={item.projectName}
+              subtitle={""}
+              description={item.aiDescription}
+              logo={item.thumbnail}
+              projectName={`${
+                item.memberCountMax - item.memberCount
+              }명 추가 모집 후 마감!!`}
             />
           </div>
         ))}

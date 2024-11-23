@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.div`
-  background-color: #ffd600;
+  background-color: ${(props) => props.bgColor || "#ffd600"};
   padding: 20px;
   border-radius: 15px;
   text-align: center;
