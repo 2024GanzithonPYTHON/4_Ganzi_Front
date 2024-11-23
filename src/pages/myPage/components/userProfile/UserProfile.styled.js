@@ -16,7 +16,7 @@ export const UserInfoContainer = styled.div`
 `;
 
 export const UserProfileImg = styled.img`
-    /* width: 80px; */
+    width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
