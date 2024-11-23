@@ -8,8 +8,11 @@ export default function ListItemLong({filter}) {
   useEffect(() => {
     if (filter) {
       getJoinProjects().then((response) => setProjectData(response))
+      console.log(projectData)
     } else {
       getLateJoinProjects().then((response) => setProjectData(response))
+      console.log("오래된 순")
+      console.log(projectData)
     }
   }, [filter])
 
