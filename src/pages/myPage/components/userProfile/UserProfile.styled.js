@@ -16,11 +16,7 @@ export const UserInfoContainer = styled.div`
 `;
 
 export const UserProfileImg = styled.img`
-<<<<<<< HEAD
     width: 80px;
-=======
-    /* width: 80px; */
->>>>>>> 9e30258ba8009f5fc7aa39006c24869ad88da4a3
     height: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
