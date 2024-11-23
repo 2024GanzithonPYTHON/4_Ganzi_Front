@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   PageContainer,
   Title,
@@ -34,11 +34,13 @@ import point from "./img/point.svg";
 import profileImg from "./img/profileImg.svg";
 import email from "./img/PaperEmail.svg";
 import heart from "./img/PaperHeart.svg";
-import sampleImg from "./img/sampleImg.svg";
 import defaultprofileImg from "./img/defaultprofileImg.svg";
 import star from "./img/star.svg";
+import axiosInstance from "../../../server/axiosInstance";
 
 const DetailPaper = () => {
+  const { paperId } = useParams(); // URL에서 paperId 받아오기
+
   /* 뒤로가기 */
   const navigate = useNavigate();
   const onClickBackBtn = () => {
@@ -56,37 +58,42 @@ const DetailPaper = () => {
     setActiveIndex(index);
   };
 
-  /* 샘플 데이터 (후기 리스트) */
-  const reviews = [
-    {
-      id: "사용자1",
-      score: 5.0,
-      date: "24.11.10 18:32",
-      content:
-        "달력 만들어보고 싶었는데, 상세히 작성해주셔서 연말에 한 번 도전해볼 수 있겠어요~ 잘 활용하겠습니다.",
-    },
-    {
-      id: "사용자2",
-      score: 4.5,
-      date: "24.11.11 10:15",
-      content: "좋은 비법서 감사합니다. 많은 도움이 됐습니다!",
-    },
-    {
-      id: "사용자3",
-      score: 4.8,
-      date: "24.11.12 14:20",
-      content: "설명도 쉽고, 필요한 정보가 많이 담겨 있어서 유익했습니다.",
-    },
-  ];
+  const [detailPaper, setDetailPaper] = useState({});
+  useEffect(() => {
+    const readOnePaper = async () => {
+      try {
+        const response = await axiosInstance.get(`/api/papers/${paperId}`);
+        setDetailPaper(response.data);
+      } catch (error) {
+        if (error.response) {
+          console.error("서버 오류:", error.response.data);
+        } else if (error.request) {
+          console.error("요청 오류:", error.request);
+        } else {
+          console.error("일반 오류:", error.message);
+        }
+        console.error("비법서 전체 목록 조회 중 오류 발생:", error);
+      }
+    };
+    // paperId를 이용해 서버로부터 해당 비법서의 상세 정보를 가져오는 로직을 여기에 추가
+    console.log("현재 paperId:", paperId);
+    readOnePaper();
+  }, [paperId]);
 
-  /* 샘플 데이터 (비법서 정보) */
-  const paperData = {
-    title: "달력 제작부터 펀딩까지 A to Z 로드맵",
-    image: sampleImg,
-    price: 5000,
-    shortTitle: "달력 펀딩률 170%의 실전 비법서",
-    shortIntro: "만들어보고 싶었던 달력 제작부터 펀딩 성공까지?",
-  };
+  const [detailReview, setDetailReview] = useState([]);
+  const [reviewCount, setReviewCount] = useState(0);
+  useEffect(() => {
+    const readReviews = async () => {
+      try {
+        const response = await axiosInstance.get(`/api/${paperId}/review`);
+        setDetailReview(response.data.reviewList);
+        setReviewCount(response.data.reviewCount);
+      } catch (error) {
+        console.error("후기 목록 조회 중 오류 발생:", error);
+      }
+    };
+    readReviews();
+  }, [paperId]);
 
   /* 샘플 데이터 (판매자 정보) */
   const sellerData = {
@@ -111,11 +118,8 @@ const DetailPaper = () => {
       tabTitleText: "비법서 설명", // 제목 데이터 추가
       tabCont: (
         <div className="paper">
-          {`ssssssssssss
-            sssdfadf
-            zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-            dfasdf
-            `}
+          {" "}
+          {detailPaper ? detailPaper.description : "Loading..."}
         </div>
       ),
     },
@@ -128,20 +132,20 @@ const DetailPaper = () => {
           후기
         </li>
       ),
-      tabTitleText: `후기 ${reviews.length}개`, // 제목 데이터 추가
+      tabTitleText: `후기${reviewCount}개`, // 제목 데이터 추가
       tabCont: (
         <ReviewList>
-          {reviews.map((review, index) => (
-            <Review key={index}>
+          {detailReview.map((review) => (
+            <Review key={review.id}>
               <Rprofile>
                 <img src={defaultprofileImg} alt="dpimg" />
                 <Rwrap>
                   <Rwrap1>
-                    <div className="id">{review.id}</div>
+                    <div className="id">{review.nickname}</div>
                     <img src={star} alt="star" />
-                    <div className="score">{review.score.toFixed(1)}</div>
+                    <div className="score">{review.score}</div>
                   </Rwrap1>
-                  <Rdate>{review.date}</Rdate>
+                  <Rdate>{review.createdAt}</Rdate>
                 </Rwrap>
               </Rprofile>
               <Rreview>{review.content}</Rreview>
@@ -163,9 +167,13 @@ const DetailPaper = () => {
       <Wrap>
         <Left>
           <PaperImg>
-            <img src={paperData.image} alt="sampleImg" />
+            <img
+              className="img"
+              src={detailPaper.paperImg}
+              alt="detailPaper.paperImg"
+            />
           </PaperImg>
-          <PaperTitle>{paperData.title}</PaperTitle>
+          <PaperTitle>{detailPaper.title}</PaperTitle>
           <Tap>
             <ul className="tabis-boxed">
               {tabContArr.map((section, index) => {
@@ -182,18 +190,18 @@ const DetailPaper = () => {
         <Right>
           <Buy>
             <Point>
-              {paperData.price}
+              {detailPaper.price}
               <img src={point} alt="point" />
             </Point>
-            <ShortTitle>{paperData.shortTitle}</ShortTitle>
-            <ShortIntro>{paperData.shortIntro}</ShortIntro>
+            <ShortTitle>{detailPaper.titleshort}</ShortTitle>
+            <ShortIntro>{detailPaper.descriptionShort}</ShortIntro>
             <BuyBtn onClick={goPurchase}>구매하기</BuyBtn>
           </Buy>
           <Seller>
             <Profile>
-              <img src={sellerData.profileImage} alt="profileImg" />
+              <img src={profileImg} alt="profileImg" />
               <Pwrap>
-                <div className="name">{sellerData.name}</div>
+                <div className="name">{detailPaper.nickname}</div>
                 <div className="introduce">{sellerData.introduce}</div>
               </Pwrap>
             </Profile>
@@ -201,13 +209,13 @@ const DetailPaper = () => {
               <div className="img">
                 <img src={email} alt="email" />
               </div>
-              <div className="adress">{sellerData.email}</div>
+              <div className="adress">{detailPaper.userEmail}</div>
             </Email>
             <Heart>
               <div className="img">
                 <img src={heart} alt="heart" />
               </div>
-              <div className="heartCount">{sellerData.heartCount}</div>
+              <div className="heartCount">{detailPaper.likes}</div>
             </Heart>
           </Seller>
         </Right>
