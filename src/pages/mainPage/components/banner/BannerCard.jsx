@@ -9,7 +9,7 @@ import {
 } from "./BannerCard.styled";
 import { useNavigate } from "react-router-dom";
 
-const colors = ["gray", "#00c400", "#ffd600"];
+const colors = ["#C6EBF4", "#EAF7FB", "#ffd700", "#FF6F61"];
 
 const BannerCard = ({
   id,
