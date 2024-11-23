@@ -75,6 +75,17 @@ const PaperPage = () => {
     "예술",
   ];
 
+  const categoryMapping = {
+    전체: "ALL",
+    "디자인 문구": "DESIGN",
+    "홈/리빙": "LIVING",
+    "캐릭터/굿즈": "CHARACTER",
+    "파티/행사": "PARTY",
+    출판: "PUBLISH",
+    의류: "FASHION",
+    예술: "ART",
+  };
+
   const [AllPaper, setAllPaper] = useState([]);
   useEffect(() => {
     /**
@@ -109,26 +120,18 @@ const PaperPage = () => {
     popularPaperAll();
   }, []);
 
-  const [CategoryFilter, setCategoryFilter] = useState([]);
-  useEffect(() => {
-    const readCategoryPapers = async (category) => {
-      try {
-        const response = await axiosInstance.get(
-          `/api/paper/lists/${category}`
-        );
-        setCategoryFilter(response.data);
-      } catch (error) {
-        console.error("카테고리별 비법서 조회 중 오류 발생:", error);
-        throw error;
-      }
-    };
-    readCategoryPapers();
-  }, []);
-
   // 페이지 변경 함수
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  // 선택된 카테고리에 맞는 아이템 필터링
+  const filteredPapers =
+    selectedCategory === "전체"
+      ? AllPaper
+      : AllPaper.filter(
+          (item) => item.category === categoryMapping[selectedCategory]
+        );
 
   return (
     <PageContainer>
@@ -204,7 +207,7 @@ const PaperPage = () => {
       <Wrap2>
         <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
-          {AllPaper.map((item) => (
+          {filteredPapers.map((item) => (
             <ListItem key={item.id} onClick={() => goDetail(item.id)}>
               <ItemImage src={item.paperImg} alt={item.title} />
               <div className="content">

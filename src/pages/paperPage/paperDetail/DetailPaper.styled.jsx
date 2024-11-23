@@ -35,6 +35,7 @@ export const PaperImg = styled.div`
   .img {
     width: 645px;
     height: 300px;
+    object-fit: cover;
   }
 `;
 export const PaperTitle = styled.h2`

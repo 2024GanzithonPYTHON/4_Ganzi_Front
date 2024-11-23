@@ -135,20 +135,20 @@ const DetailPaper = () => {
       tabTitleText: `후기${reviewCount}개`, // 제목 데이터 추가
       tabCont: (
         <ReviewList>
-          {detailReview.map((review) => (
-            <Review key={review.id}>
+          {detailReview.map((paper) => (
+            <Review key={paper.id}>
               <Rprofile>
                 <img src={defaultprofileImg} alt="dpimg" />
                 <Rwrap>
                   <Rwrap1>
-                    <div className="id">{review.nickname}</div>
+                    <div className="id">{paper.nickname}</div>
                     <img src={star} alt="star" />
-                    <div className="score">{review.score}</div>
+                    <div className="score">{paper.score}</div>
                   </Rwrap1>
-                  <Rdate>{review.createdAt}</Rdate>
+                  <Rdate>{paper.createdAt}</Rdate>
                 </Rwrap>
               </Rprofile>
-              <Rreview>{review.content}</Rreview>
+              <Rreview>{paper.content}</Rreview>
             </Review>
           ))}
         </ReviewList>
