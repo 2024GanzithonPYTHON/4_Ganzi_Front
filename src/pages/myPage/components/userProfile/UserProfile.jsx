@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { getUserBalance } from '../../../../server/user';
 
 const UserProfile = () => {
-    const [userBalance, setUserBalance ] = useState([]);
+    const [userBalance, setUserBalance] = useState({});
     const [userInfo, setUserInfo] = useState({
         username: "",
         profileImg: "",
@@ -23,16 +23,9 @@ const UserProfile = () => {
         }
     }, [])
 
-    const fetchBalance = async () => {
-        try {
-            setUserBalance = await getUserBalance();
-            console.log(userBalance);
-        } catch (error) {
-            console.error('보유 금액 가져오기 실패:'. error);
-        }
-    };
-
-    fetchBalance();
+    useEffect(() => {
+        getUserBalance().then((response) => setUserBalance(response))
+    }, [])
 
     return (
     <UserProfileContainer>
