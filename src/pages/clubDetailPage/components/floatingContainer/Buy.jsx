@@ -18,10 +18,12 @@ import recruit from "./img/recruit.svg";
 import pointImg from "./img/Ruble.svg";
 import likeNone from "./img/likeNone.svg";
 import like from "./img/like.svg";
+import { useNavigate } from "react-router-dom";
 
 export const Buy = () => {
   // 좋아요 상태 관리
   const [isLiked, setIsLiked] = useState(false);
+  const navigate = useNavigate();
   const handleLikeClick = () => {
     setIsLiked((prev) => !prev); // 현재 상태의 반대를 설정
   };
@@ -60,7 +62,7 @@ export const Buy = () => {
         </MyPoint>
       </PointContainer>
       <Buttons>
-        <ApplyBtn>지원하기</ApplyBtn>
+        <ApplyBtn onClick={() => navigate("/club/purchase")}>지원하기</ApplyBtn>
         <LikeBtn isLiked={isLiked} onClick={handleLikeClick}>
           <img src={isLiked ? like : likeNone} alt="likeNone" />
         </LikeBtn>

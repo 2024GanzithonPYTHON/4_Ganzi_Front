@@ -17,31 +17,15 @@ export const SearchBar = styled.input`
 `;
 
 export const FilterContainer = styled.div`
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-
-    // button {
-    //     padding: 8px 12px;
-    //     background-color: #007bff;
-    //     color: white;
-    //     border: none;
-    //     border-radius: 5px;
-    //     cursor: pointer;
-
-    //     &:hover {
-    //         background-color: #0056b3;
-    //     }
-    }
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 `;
 
 export const FilterButton = styled.button`
   padding: 8px 12px;
-  // background-color: #eee;
   color: #333;
-  // border: none;
-  // border-radius: 5px;
   cursor: pointer;
 
   &:hover {

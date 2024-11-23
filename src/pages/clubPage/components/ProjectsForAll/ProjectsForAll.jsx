@@ -3,7 +3,6 @@ import { ProjectsGridForAll } from "./ProjectsGridForAll";
 import { useNavigate } from "react-router-dom";
 
 export const ProjectsForAll = () => {
-  const navigate = useNavigate();
   return (
     <ProjectsGridForAll>
       {[...Array(12)].map((_, index) => (
