@@ -64,6 +64,16 @@ import fileupload from "./img/file-upload.svg";
 import close from "./img/close.svg";
 
 const ApplyPaper = () => {
+  const createPaper = async (paperCreateDTO, access) => {
+    try {
+      const response = await axiosInstance.post("/api/papers", paperCreateDTO);
+      return response.data;
+    } catch (error) {
+      console.error("비법서 생성 중 오류 발생:", error);
+      throw error;
+    }
+  };
+
   /* 카테고리 */
   const [selectedFilter, setSelectedFilter] = useState(null);
   const filters = [
