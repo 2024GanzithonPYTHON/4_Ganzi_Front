@@ -1,12 +1,16 @@
 import React from 'react';
 import { BalanceBox, BalanceContainer, UserInfoContainer, UserName, UserProfileContainer, UserTextContainer } from './UserProfile.styled';
+import { getUserInfo } from '../../../../server/user';
 
-const UserProfile = () => (
+const UserProfile = () => {
+    const userData = getUserInfo();
+
+    return(
     <UserProfileContainer>
         <UserInfoContainer>
             <img src="user_profile_image_path" alt="User Profile" />
             <UserTextContainer>
-                <UserName>이수혁님</UserName>
+                <UserName>{userData.name}님</UserName>
                 <p>cris4y</p>
             </UserTextContainer>
         </UserInfoContainer>
@@ -18,5 +22,6 @@ const UserProfile = () => (
         <div>쇼핑MY, 찜한상품 최근본상품 상품리뷰</div>
     </UserProfileContainer>
 );
+};
 
 export default UserProfile;
