@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const LongListItem = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 100%;
   margin: 17px 0;
   padding: 20px;
@@ -10,7 +11,7 @@ export const LongListItem = styled.div`
 
 export const LongListImgBox = styled.div`
   display: flex;
-  width: 216px;
+  width: 23%;
   height: 157px;
   margin-right: 30px;
   img {
@@ -25,7 +26,7 @@ export const LongListContBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 535px;
+  width: 70%;
   padding: 10px 0;
   
   div {
