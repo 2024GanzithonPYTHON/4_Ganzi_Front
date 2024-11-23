@@ -12,16 +12,17 @@ import {
 
 const FormStepOne = ({ changeStep, formData, setFormData }) => {
   const [category, setCategory] = useState(formData.category);
-  const [shortTitle, setShortTitle] = useState(formData.shortTitle);
-  const [longTitle, setLongTitle] = useState(formData.longTitle);
-  const [memberCount, setMemberCount] = useState(formData.memberCount);
-  const [deadline, setDeadline] = useState(formData.deadline);
+  const [shortTitle, setShortTitle] = useState(formData.titleShort);
+  const [longTitle, setLongTitle] = useState(formData.title);
+  const [memberCount, setMemberCount] = useState(formData.memberCountMax);
+  const [deadline, setDeadline] = useState(formData.dateEnd);
 
   useEffect(() => {
     setCategory(formData.category);
-    setShortTitle(formData.shortTitle);
-    setLongTitle(formData.longTitle);
-    setMemberCount(formData.memberCount);
+    setShortTitle(formData.titleShort);
+    setLongTitle(formData.title);
+    setMemberCount(formData.memberCountMax);
+    setDeadline(formData.dateEnd);
   }, [formData]);
 
   const handleCategoryChange = (selectedCategories) => {
@@ -37,8 +38,8 @@ const FormStepOne = ({ changeStep, formData, setFormData }) => {
     setLongTitle(inputLongTitle);
     setFormData((prevData) => ({
       ...prevData,
-      shortTitle: inputShortTitle,
-      longTitle: inputLongTitle,
+      titleShort: inputShortTitle,
+      title: inputLongTitle,
     }));
   };
 
@@ -46,7 +47,7 @@ const FormStepOne = ({ changeStep, formData, setFormData }) => {
     setMemberCount(inputNumber);
     setFormData((prevData) => ({
       ...prevData,
-      memberCount: inputNumber,
+      memberCountMax: inputNumber,
     }));
   };
 
@@ -54,7 +55,7 @@ const FormStepOne = ({ changeStep, formData, setFormData }) => {
     setDeadline(selectedDeadline);
     setFormData((prevData) => ({
       ...prevData,
-      deadline: selectedDeadline,
+      dateEnd: selectedDeadline,
     }));
   };
 

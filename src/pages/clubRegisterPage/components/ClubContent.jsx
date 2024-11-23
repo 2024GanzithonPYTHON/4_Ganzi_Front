@@ -53,32 +53,32 @@ const ClubContent = ({ onChange, initialContent }) => {
             <InputType>소개</InputType>
             <TextArea
               height="139px"
-              value={content.introduce}
-              onChange={handleInputChange("introduce")}
+              value={content.bodyTitle}
+              onChange={handleInputChange("bodyTitle")}
               placeholder="프로젝트 소개를 작성해주세요."
             />
 
             <InputType>목표</InputType>
             <TextArea
               height="70px"
-              value={content.goal}
-              onChange={handleInputChange("goal")}
+              value={content.bodyGoal}
+              onChange={handleInputChange("bodyGoal")}
               placeholder="프로젝트의 최종 목표를 작성해주세요."
             />
 
             <InputType>계획</InputType>
             <TextArea
               height="217px"
-              value={content.plan}
-              onChange={handleInputChange("plan")}
+              value={content.bodyPlan}
+              onChange={handleInputChange("bodyPlan")}
               placeholder="프로젝트 진행 계획에 대해 최대한 상세하게 작성해주세요."
             />
 
             <InputType>진행 형태</InputType>
             <TextArea
               height="84px"
-              value={content.participationMode}
-              onChange={handleInputChange("participationMode")}
+              value={content.bodyStyle}
+              onChange={handleInputChange("bodyStyle")}
               placeholder={`프로젝트 진행 시 주로 활용할 진행 형태를 작성해주세요.\n(대면으로 진행 시, 주로 만날 지역/장소)`}
             />
           </div>

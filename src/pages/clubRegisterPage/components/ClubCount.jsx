@@ -52,9 +52,9 @@ const ClubCount = ({ onChange, initialMemberCount }) => {
     const inputNumber = e.target.value;
 
     if (/^[2-8]$/.test(inputNumber)) {
-      setMemberCount(Number(inputNumber));
+      setMemberCount(inputNumber);
       setIsValid("");
-      onChange(inputNumber);
+      onChange(Number(inputNumber));
     } else if (inputNumber === "") {
       setMemberCount("");
       setIsValid("");

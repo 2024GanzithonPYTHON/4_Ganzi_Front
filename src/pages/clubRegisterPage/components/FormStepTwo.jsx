@@ -14,14 +14,14 @@ import {
 const FormStepTwo = ({ changeStep, formData, setFormData }) => {
   const [thumbnail, setThumbnail] = useState(formData.thumbnail);
   const [content, setContent] = useState(formData.content);
-  const [criteria, setCriteria] = useState(formData.criteria);
+  const [criteria, setCriteria] = useState(formData.bodyRequirement);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     setThumbnail(formData.thumbnail);
     setContent(formData.content);
-    setCriteria(formData.criteria);
+    setCriteria(formData.bodyRequirement);
   }, [formData]);
 
   const onThumbnailChange = (selectedThumbnail) => {
@@ -46,7 +46,7 @@ const FormStepTwo = ({ changeStep, formData, setFormData }) => {
     setCriteria(newCriteria);
     setFormData((prevData) => ({
       ...prevData,
-      criteria: newCriteria,
+      bodyRequirement: newCriteria,
     }));
   };
 
@@ -55,6 +55,12 @@ const FormStepTwo = ({ changeStep, formData, setFormData }) => {
   };
 
   const handleSubmit = () => {
+    const { content, ...rest } = formData;
+    const requestData = {
+      ...rest,
+      ...content,
+    };
+    console.log(requestData);
     navigate("/club/register/done");
   };
 

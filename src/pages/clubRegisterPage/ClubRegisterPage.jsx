@@ -17,18 +17,19 @@ const ClubRegisterPage = () => {
   const [step, setStep] = useState("1");
   const [formData, setFormData] = useState({
     category: "",
-    shortTitle: "",
-    longTitle: "",
-    memberCount: 0,
-    deadline: "",
+    titleShort: "",
+    title: "",
+    memberCountMax: 0,
+    dateEnd: "",
     thumbnail: null,
+
     content: {
-      introduce: "",
-      goal: "",
-      plan: "",
-      participationMode: "",
+      bodyTitle: "",
+      bodyGoal: "",
+      bodyPlan: "",
+      bodyStyle: "",
     },
-    criteria: "",
+    bodyRequirement: "",
   });
 
   return (
