@@ -4,8 +4,10 @@ import profile from '../../../../../assets/profileIcon.png'
 import { ApplyedInfoWrapper, ApplyedInfoBox, ApplyedInfoItem, Profile, ToggleBtn, FilterBtn, ApplyedPeopleBox } from "./Toggle.styled.js";
 import tr from '../assets/tr.svg'
 import CommentComponent from "./CommentComponent.jsx";
+import { getApplicant } from "../../../../../server/applicant.js";
+import { getRecruitProjects } from "../../../../../server/project.js";
 
-function ToggleComponent({id}) {
+function ToggleComponent({id, member, maxMember,totalApply, remain, outstanding}) {
   const [isOpen, setIsOpen] = useState(false); // 초기 상태: 닫힘
   const [recruitData, setRecruitData] = useState([])
   const [isFiltered, setIsFiltered] = useState(true);
@@ -19,11 +21,13 @@ function ToggleComponent({id}) {
     setIsFiltered((prev) => !prev);
   }
 
-  console.log(id);
+  useEffect(() => {
+    getApplicant(id).then((response) => setRecruitData(response))
+  }, []);
 
   useEffect(() => {
-    getMockRecruitData().then((response) => setRecruitData(response))
-  }, [])
+    getRecruitProjects().t
+  })
 
   return (
     <ApplyedInfoWrapper>
@@ -31,22 +35,22 @@ function ToggleComponent({id}) {
         <ApplyedInfoItem>
           <span>모집/정원</span>
           <Profile src={profile}/>
-          <span>2/8</span>
+          <span>{member}/{maxMember}</span>
         </ApplyedInfoItem>
         <ApplyedInfoItem>
           <span>총 지원</span>
           <Profile src={profile} />
-          <span>9</span>
+          <span>{totalApply}</span>
         </ApplyedInfoItem>
         <ApplyedInfoItem>
           <span>남은 인원</span>
           <Profile src={profile} />
-          <span>6</span>
+          <span>{remain}</span>
         </ApplyedInfoItem>
         <ApplyedInfoItem>
           <span>대기</span>
           <Profile src={profile} />
-          <span>8</span>
+          <span>{outstanding}</span>
         </ApplyedInfoItem>
         <ToggleBtn onClick={toggleHandler}>
           {isOpen ? (
