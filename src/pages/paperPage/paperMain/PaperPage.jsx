@@ -58,8 +58,9 @@ const PaperPage = () => {
     navigate("/paper/apply");
   };
 
-  const goDetail = () => {
-    navigate("/paper/detail");
+  // 상세 페이지로 이동하는 함수
+  const goDetail = (paperId) => {
+    navigate(`/paper/detail/${paperId}`);
   };
 
   // 선택된 카테고리 버튼의 값을 저장 - 필터링 기능 제거
@@ -108,13 +109,21 @@ const PaperPage = () => {
     popularPaperAll();
   }, []);
 
-  // 총 페이지 수 계산
-  const totalPages = Math.ceil(books.length / itemsPerPage);
-
-  // 현재 페이지에 해당하는 데이터 추출
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = books.slice(startIndex, endIndex);
+  const [CategoryFilter, setCategoryFilter] = useState([]);
+  useEffect(() => {
+    const readCategoryPapers = async (category) => {
+      try {
+        const response = await axiosInstance.get(
+          `/api/paper/lists/${category}`
+        );
+        setCategoryFilter(response.data);
+      } catch (error) {
+        console.error("카테고리별 비법서 조회 중 오류 발생:", error);
+        throw error;
+      }
+    };
+    readCategoryPapers();
+  }, []);
 
   // 페이지 변경 함수
   const handlePageChange = (pageNumber) => {
@@ -160,7 +169,10 @@ const PaperPage = () => {
 
               {/* SpecCard - BookCard 바로 위에 위치 */}
               {selectedBookId === book.id && (
-                <SpecCard className="spec-card" onClick={goDetail}>
+                <SpecCard
+                  className="spec-card"
+                  onClick={() => goDetail(book.id)} // 클릭 시 goDetail 호출
+                >
                   <SC>
                     <SCtitle>{book.title}</SCtitle>
                     <SCcontent>{book.descriptionShort}</SCcontent>
@@ -193,7 +205,7 @@ const PaperPage = () => {
         <CategoryTitle>{selectedCategory}</CategoryTitle>
         <CategoryList>
           {AllPaper.map((item) => (
-            <ListItem key={item.id} onClick={goDetail}>
+            <ListItem key={item.id} onClick={() => goDetail(item.id)}>
               <ItemImage src={item.paperImg} alt={item.title} />
               <div className="content">
                 <ItemTitle>{item.title}</ItemTitle>
@@ -212,18 +224,6 @@ const PaperPage = () => {
             </ListItem>
           ))}
         </CategoryList>
-        {/* Pagination */}
-        <PaginationContainer>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <PageNumber
-              key={index + 1}
-              onClick={() => handlePageChange(index + 1)}
-              isselected={currentPage === index + 1}
-            >
-              {index + 1}
-            </PageNumber>
-          ))}
-        </PaginationContainer>
       </Wrap2>
     </PageContainer>
   );

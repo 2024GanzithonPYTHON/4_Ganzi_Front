@@ -31,6 +31,11 @@ export const PaperImg = styled.div`
   width: 645px;
   height: 300px;
   margin-bottom: 33px;
+
+  .img {
+    width: 645px;
+    height: 300px;
+  }
 `;
 export const PaperTitle = styled.h2`
   font-size: 30px;
@@ -38,6 +43,7 @@ export const PaperTitle = styled.h2`
   margin-bottom: 55px;
   width: 645px;
   word-wrap: break-word;
+  overflow: hidden;
 `;
 export const Tap = styled.div`
   width: 645px;

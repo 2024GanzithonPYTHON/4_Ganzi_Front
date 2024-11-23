@@ -72,7 +72,7 @@ export default createBrowserRouter([
         element: <ApplyPaperDone />,
       },
       {
-        path: "/paper/detail",
+        path: "/paper/detail/:paperId",
         element: <DetailPaper />,
       },
       {
