@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react'
 import ToggleComponent from './ToggleComponent';
 import { LongListContBox, LongListImgBox, LongListItem } from './ListItemLong.styled';
 import { getRecruitProjects } from '../../../../../server/project';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  width: 100%;
+`
 
 export default function ToggleList() {
   const [projectData, setProjectData] = useState([]);
@@ -13,7 +18,7 @@ export default function ToggleList() {
   return (
     <>
       {projectData.map((item) => (
-        <div>
+        <Wrapper>
           <LongListItem style={{marginBottom: 0}}>
             <LongListImgBox>
               <img src={item.thumbnail}/>
@@ -32,7 +37,7 @@ export default function ToggleList() {
           totalApply={item.totalApplyMemberCount}
           remain={item.remainMemberCount}
           outstanding={item.outstandingMemberCount}/>
-        </div>
+        </Wrapper>
       ))}
     </>
   )

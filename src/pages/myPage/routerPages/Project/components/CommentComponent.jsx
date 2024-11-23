@@ -34,14 +34,14 @@ export default function CommentComponent({item}) {
       <CommentWrapper>
         <CommentProfileBox>
           {/* 신청 순서 */}
-          <span>{item.id}</span>
-          <img src={item.image}/>
-          <span>{item.userId}</span>
+          <span>{item.applicantId}</span>
+          <img src={item.profileImg}/>
+          <span>{item.username}</span>
         </CommentProfileBox>
         <CommentBox>
-          <span>{item.comment.length > 35
-          ? `${item.comment.slice(0, 35)}...`
-          : item.comment}</span>
+          <span>{item.content.length > 35
+          ? `${item.content.slice(0, 35)}...`
+          : item.content}</span>
           <MoreInfoLinkBtn onClick={openModal}>더보기</MoreInfoLinkBtn>
         </CommentBox>
         <BtnContainer>

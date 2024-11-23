@@ -4,7 +4,7 @@ import profile from '../../../../../assets/profileIcon.png'
 import { ApplyedInfoWrapper, ApplyedInfoBox, ApplyedInfoItem, Profile, ToggleBtn, FilterBtn, ApplyedPeopleBox } from "./Toggle.styled.js";
 import tr from '../assets/tr.svg'
 import CommentComponent from "./CommentComponent.jsx";
-import { getApplicant } from "../../../../../server/applicant.js";
+import { getApplicant, getApplicantList } from "../../../../../server/applicant.js";
 import { getRecruitProjects } from "../../../../../server/project.js";
 
 function ToggleComponent({id, member, maxMember,totalApply, remain, outstanding}) {
@@ -22,7 +22,7 @@ function ToggleComponent({id, member, maxMember,totalApply, remain, outstanding}
   }
 
   useEffect(() => {
-    getApplicant(id).then((response) => setRecruitData(response))
+    getApplicantList(id).then((response) => setRecruitData(response))
   }, []);
 
   useEffect(() => {
